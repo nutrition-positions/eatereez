@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, List, Item } from 'semantic-ui-react';
+import { Grid, List, Button } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
@@ -22,10 +22,12 @@ class Footer extends React.Component {
               <Grid.Column>
                 Missing Something?
                 <hr/>
-                  Can&apos;t find a eatery you know is around? <br />
-                  Send it to our admins to be added to the site: <br />
-                  <Item style={{ color: 'light blue' }} as={NavLink} activeClassName="active"
-                        exact to="/admin">Submit Restaurant Page</Item>
+                <List>
+                  <List.Item>Can&apos;t find a eatery you know is around?</List.Item>
+                  <List.Item>Send it to our admins to be added to the site: </List.Item>
+                  <List.Item><Button class="ui green button" as={NavLink} activeClassName="active"
+                                     exact to="/admin">Submit A Restaurant</Button></List.Item>
+                </List>
               </Grid.Column>
             </Grid>
           </div>
