@@ -11,7 +11,7 @@ class Footer extends React.Component {
           <div style={divStyle} className="landing-green-background">
             <Grid container columns="two">
               <Grid.Column>
-                The Eatereez Project
+                A Nutrition Positions Project
                 <hr/>
                 <List>
                   <List.Item>University of Hawaii</List.Item>
