@@ -3,3 +3,11 @@
   color: white;
   padding-top: 20px;
 }
+
+.eateez-landing-background{
+  background: url('images/eatereez-cover.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 405px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
