@@ -29,7 +29,7 @@ class Footer extends React.Component {
                   <List.Item>Can&apos;t find a eatery you know is around?</List.Item>
                   <List.Item>Send it to our admins to be added to the site: </List.Item>
                   <List.Item><Button class="ui green button" as={NavLink} activeClassName="active"
-                                     exact to="/admin">Submit A Restaurant</Button></List.Item>
+                                     exact to="/submit">Submit A Restaurant</Button></List.Item>
                 </List>
               </Grid.Column>
             </Grid>
