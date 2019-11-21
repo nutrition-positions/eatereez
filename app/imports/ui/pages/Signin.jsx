@@ -45,8 +45,11 @@ export default class Signin extends React.Component {
       <Container>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
+            <Header as="h1" textAlign="center">
+              Login to your eatereez account
+            </Header>
+            <Header as="h4" textAlign="center">
+              Logging in allows you to post reviews and submit new eateries
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
