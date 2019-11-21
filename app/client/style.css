@@ -1,6 +1,5 @@
-
-.landing-green-background {
-  background-color: #376551;
+.footer-green-background {
+  background-color: #1A531B;
   color: white;
   padding-top: 20px;
 }
@@ -17,6 +16,7 @@
   padding-top: 230px;
   border: none;
 }
+
 .Navbar-style {
   background-color: #1A531B !important;
 
