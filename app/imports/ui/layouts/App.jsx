@@ -10,6 +10,7 @@ import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import SubmitRestaurant from '../pages/SubmitRestaurant';
+import SubmitReview from '../pages/SubmitReview';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -30,7 +31,8 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/map" component={Map}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/submit" component={SubmitRestaurant}/>
+              <ProtectedRoute path="/submit-restaurant" component={SubmitRestaurant}/>
+              <ProtectedRoute path="/submit-review" component={SubmitReview}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
