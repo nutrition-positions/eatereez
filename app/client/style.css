@@ -4,7 +4,7 @@
   padding-top: 20px;
 }
 
-.eatereez-landing-background{
+.eatereez-landing-background {
   background: url('images/eatereez-cover.jpg') no-repeat center center;
   background-size: cover;
   height: 500px;
@@ -20,4 +20,8 @@
 .Navbar-style {
   background-color: #1A531B !important;
 
+}
+
+.standard-height {
+  height: 500px;
 }
