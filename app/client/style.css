@@ -4,12 +4,12 @@
   padding-top: 20px;
 }
 
-.eatereez-landing-background {
-  background: url('images/eatereez-cover.jpg') no-repeat center center;
+.eatereez-landing-background{
+  background: url('images/eatereez-cover.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 500px;
-/*  padding-left: 50px;*/
-/*  padding-right: 50px;*/
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .eatereez-landing-text {
@@ -19,9 +19,9 @@
 
 .Navbar-style {
   background-color: #1A531B !important;
-
 }
 
-.standard-height {
-  height: 500px;
+.List-spacing{
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
