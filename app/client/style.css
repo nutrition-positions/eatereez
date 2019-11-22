@@ -4,8 +4,13 @@
   padding-top: 20px;
 }
 
-.eatereez-landing-background{
+<<<<<<< HEAD
+.eatereez-landing-background {
   background: url('images/eatereez-cover.jpg') no-repeat center center;
+=======
+.eatereez-landing-background{
+  background: url('images/eatereez-cover.jpg') no-repeat center center fixed;
+>>>>>>> master
   background-size: cover;
   height: 500px;
 /*  padding-left: 50px;*/
@@ -20,4 +25,16 @@
 .Navbar-style {
   background-color: #1A531B !important;
 
+<<<<<<< HEAD
 }
+
+.standard-height {
+  height: 500px;
+}
+=======
+<<<<<<< Updated upstream
+}
+=======
+}
+>>>>>>> Stashed changes
+>>>>>>> master
