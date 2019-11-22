@@ -8,8 +8,8 @@
   background: url('images/eatereez-cover.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 500px;
-/*  padding-left: 50px;*/
-/*  padding-right: 50px;*/
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .eatereez-landing-text {
