@@ -19,5 +19,9 @@
 
 .Navbar-style {
   background-color: #1A531B !important;
+}
 
+.List-spacing{
+  padding-top: 10px;
+  padding-bottom: 30px;
 }

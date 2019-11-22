@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, img } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,7 +8,8 @@ class Restaurant extends React.Component {
   render() {
     return (
         <Card centered>
-          <Image src='../../../public/images/panda-image.jpg'/>
+           <img src='https://haysfreepress.com/wp-content/uploads/2017/01/panda-express.jpg' />
+          {/* <img src='../../../public/images/panda-image.jpg'/> */}
           <Card.Content>
             <Card.Header>{this.props.restaurant.name}</Card.Header>
             <Card.Meta>{this.props.restaurant.quantity}</Card.Meta>
