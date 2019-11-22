@@ -26,10 +26,10 @@ class Landing extends React.Component {
               </Grid.Column>
               <Grid.Column textAlign='center'>
                 <Icon size='huge' name='calendar plus' inverted/>
-                <Header as='h1' inverted>Can&apos;t find your restaraunt?</Header>
+                <Header as='h1' inverted>Can&apos;t find your restaurant?</Header>
                 <Header as='h3' inverted>
-                  We allow you to add your favorite restaurant to the list for others to find or,
-                  if you want your restaurant to the list, click here.
+                  You can add your restaurant to the list! Just login to your account and submit the
+                  restaurant information!
                 </Header>
               </Grid.Column>
             </Grid>
