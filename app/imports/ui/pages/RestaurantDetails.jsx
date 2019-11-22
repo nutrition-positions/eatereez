@@ -21,14 +21,16 @@ class RestaurantDetails extends React.Component {
           <Header as="h2" textAlign="center">Restaurant Details</Header>
           <Card>
             <Image
-                src='images/Panda-Express-logo.png' wrapped ui={false} />
+                src='https://cblproperty.blob.core.windows.net/production/assets/blt2cdb66fcae2f05ae-1004px-Panda_Express.svg.png' wrapped ui={false} />
           <Card.Content>
             <Card.Header>Panda Express</Card.Header>
             <Card.Meta>
               <span>10:00 AM - 4:30 PM</span>
             </Card.Meta>
             <Card.Description>
-              A chain restaurant serving Chinese food.
+              Panda Express is a fast food restaurant chain which serves American Chinese cuisine.
+              With over 2,200 locations, it is the largest Asian segment restaurant chain in the United States,
+              where it was founded and is mainly located.
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -38,6 +40,17 @@ class RestaurantDetails extends React.Component {
             </a>
           </Card.Content>
         </Card>
+          <Card>
+            <Card.Content>
+              <Card.Header>I like Pandas</Card.Header>
+              <Card.Meta>
+                <span>4 stars</span>
+              </Card.Meta>
+              <Card.Description>
+                Pandas are my favorite animal cuz they are so cute.  Who knew they could be so tasty?
+              </Card.Description>
+            </Card.Content>
+          </Card>
         </Container>
         </div>
     );
