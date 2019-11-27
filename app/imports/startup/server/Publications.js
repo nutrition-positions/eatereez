@@ -23,10 +23,7 @@ Meteor.publish('StuffAdmin', function publish() {
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Restaurant', function publish() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Restaurants.find({ owner: username });
-  }
+  return Restaurants.find();
   return this.ready();
 });
 
