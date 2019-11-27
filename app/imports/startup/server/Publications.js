@@ -24,7 +24,6 @@ Meteor.publish('StuffAdmin', function publish() {
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Restaurant', function publish() {
   return Restaurants.find();
-  return this.ready();
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */

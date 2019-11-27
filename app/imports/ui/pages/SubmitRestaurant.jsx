@@ -10,7 +10,6 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
-import PropTypes from 'prop-types';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
@@ -18,7 +17,6 @@ const formSchema = new SimpleSchema({
   location: String,
   hours: String,
   menu: String,
-  submittedBy: String,
   submittedAt: String,
 });
 
@@ -53,9 +51,8 @@ class SubmitRestaurant extends React.Component {
                 <TextField label='Restaurant Location:' name='location'/>
                 <TextField label='Restaurant Hours:' name='hours'/>
                 <TextField label='Restaurant Menu: (optional)' name='menu'/>
+                <HiddenField name='submittedAt' value={new Date()}/>
                 <SubmitField value='Submit'/>
-                <HiddenField name='submittedBy' value={this.props.submittedBy}/>
-                <HiddenField name='submittedAt' value={this.props.submittedAt}/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
@@ -64,10 +61,5 @@ class SubmitRestaurant extends React.Component {
     );
   }
 }
-
-SubmitRestaurant.propTypes = {
-  submittedBy: PropTypes.string.isRequired,
-  submittedAt: PropTypes.string.isRequired,
-};
 
 export default SubmitRestaurant;
