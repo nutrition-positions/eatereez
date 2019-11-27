@@ -12,7 +12,7 @@ const SubmitSchema = new SimpleSchema({
   hours: String,
   menu: String,
   submittedBy: String,
-  submittedAt: Date,
+  submittedAt: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
