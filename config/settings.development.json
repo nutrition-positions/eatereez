@@ -25,7 +25,7 @@
       "location": "The place by hamilton",
       "hours": "they have them!",
       "menu": "theres food believe it or not",
-      "submittedAt": "date and time needs implementation!",
+      "submittedAt": "date has been implemented but only works when adding submits via the database?",
       "submittedBy": "john@foo.com"
     }]
 }
