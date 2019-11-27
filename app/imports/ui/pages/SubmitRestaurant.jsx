@@ -1,9 +1,10 @@
 import React from 'react';
-import { Stuffs } from '/imports/api/stuff/Stuff';
+import { Submits } from '/imports/api/submit/Submits.js';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -12,10 +13,11 @@ import SimpleSchema from 'simpl-schema';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  name: String,
+  submissionName: String,
   location: String,
   hours: String,
   menu: String,
+  submittedAt: String,
 });
 
 /** Renders the Page for adding a document. */
@@ -23,9 +25,9 @@ class SubmitRestaurant extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, location, hours, menu } = data;
-    const owner = Meteor.user().username;
-    Stuffs.insert({ name, location, hours, menu, owner },
+    const { submissionName, location, hours, menu, submittedAt } = data;
+    const submittedBy = Meteor.user().username;
+    Submits.insert({ submissionName, location, hours, menu, submittedAt, submittedBy },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,10 +47,11 @@ class SubmitRestaurant extends React.Component {
             <Header as="h2" textAlign="center">Submit a Restaurant</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
-                <TextField name='name'/>
-                <TextField name='location'/>
-                <TextField name='hours'/>
-                <TextField name='menu'/>
+                <TextField label='Restaurant Name:' name='submissionName'/>
+                <TextField label='Restaurant Location:' name='location'/>
+                <TextField label='Restaurant Hours:' name='hours'/>
+                <TextField label='Restaurant Menu: (optional)' name='menu'/>
+                <HiddenField name='submittedAt' value={new Date()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

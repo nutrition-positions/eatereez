@@ -17,5 +17,15 @@
       "quantity": "1",
       "owner": "john@foo.com",
       "condition": "excellent"
+    }],
+
+  "defaultSubmits": [
+    {
+      "submissionName": "L&L",
+      "location": "The place by hamilton",
+      "hours": "they have them!",
+      "menu": "theres food believe it or not",
+      "submittedAt": "date and time needs implementation!",
+      "submittedBy": "john@foo.com"
     }]
 }
