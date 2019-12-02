@@ -9,6 +9,7 @@ export default class Signout extends React.Component {
     return (
       <Header as="h2" textAlign="center">
         <p>You are signed out.</p>
+        <meta httpEquiv="refresh" content = "3; url=/#/" />
       </Header>
     );
   }
