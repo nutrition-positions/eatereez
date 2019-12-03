@@ -5,8 +5,6 @@ import { Restaurants } from '/imports/api/restaurant/Restaurants';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Restaurant from '../components/Restaurant';
-import { Reviews } from '../../api/review/Reviews';
-
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class RestaurantDetails extends React.Component {
