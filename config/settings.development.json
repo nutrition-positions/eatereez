@@ -13,11 +13,24 @@
 
   "defaultRestaurants": [
     {
-      "name": "Panda",
-      "quantity": "1",
-      "owner": "john@foo.com",
-      "condition": "excellent"
-    }],
+      "name": "Panda Express",
+      "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
+      "rating": "3.5",
+      "phoneNumber": "(808) 956-7229",
+      "address": "2560 McCarthy mall, Honolulu, HI 96822",
+      "image" : "images/Panda-Express-Logo.png",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Panda Express",
+      "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
+      "rating": "3.5",
+      "phoneNumber": "(808) 956-7229",
+      "address": "2560 McCarthy mall, Honolulu, HI 96822",
+      "image" : "images/Panda-Express-Logo.png",
+      "owner": "john@foo.com"
+    },
+  ],
 
   "defaultSubmits": [
     {
