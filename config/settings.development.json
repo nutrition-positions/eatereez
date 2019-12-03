@@ -22,14 +22,32 @@
       "owner": "john@foo.com"
     },
     {
-      "name": "Panda Express",
-      "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
-      "rating": "3.5",
+      "name": "Le Crepe Cafe",
+      "description": "Now Serving A Full Breakfast Menu Sweet & savory crepes, Acai bowls , coffees, espresso drinks GlutenFree and Vegan Crepes available! waffle, smoothies, sandwiches, pasta.",
+      "rating": "4.5",
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy mall, Honolulu, HI 96822",
-      "image" : "images/Panda-Express-Logo.png",
+      "image" : "images/le-crepe-cafe-logo.png",
       "owner": "john@foo.com"
     },
+    {
+      "name": "L&L Hawaiian Barbecue",
+      "description": "Island-themed fast-food chain whose menu features traditional Hawaiian plate lunches.",
+      "rating": "4",
+      "phoneNumber": "(808) 396-3885",
+      "address": "2560 McCarthy mall, Honolulu, HI 96822",
+      "image" : "images/L&L-logo.jpg",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Honolulu Gourmet Foods Cafe",
+      "description": "Honolulu Gourmet Foods Cafe features healthy, locally grown salads, sandwiches, poke bowls, and grab-and-go items at affordable prices.",
+      "rating": "3",
+      "phoneNumber": "(808) 489-9474",
+      "address": "2560 McCarthy mall, Honolulu, HI 96822",
+      "image" : "http://www.honolulugourmetfoods.com/wp-content/uploads/2015/04/logo-hgf-501x241.gif",
+      "owner": "john@foo.com"
+    }
   ],
 
   "defaultSubmits": [

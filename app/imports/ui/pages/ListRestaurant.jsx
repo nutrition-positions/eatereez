@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Segment } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Restaurant from '../components/Restaurant';
@@ -17,15 +17,9 @@ class ListRestaurant extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        // <Container className="List-spacing">
-        //   <Header as="h2" textAlign="center">List Restaurant</Header>
-        //   <Card.Group>
-        //     {this.props.restaurants.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>)}
-        //   </Card.Group>
-        // </Container>
         <Container className="List-spacing">
           <Header as="h2" textAlign="center">List Restaurant</Header>
-          <Grid columns={1} divided>
+          <Grid columns={1} centered>
             {this.props.restaurants.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>)}
           </Grid>
         </Container>
