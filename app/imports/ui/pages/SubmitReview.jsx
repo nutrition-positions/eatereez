@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stuffs } from '/imports/api/stuff/Stuff';
-import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -10,12 +9,16 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
+import { Reviews } from '../../api/review/Reviews';
+import HiddenField from 'uniforms-semantic/HiddenField';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const reviewSchema = new SimpleSchema({
   title: String,
   stars: Number,
   description: String,
+  owner: String,
+  createdAt: String,
 });
 
 /** Renders the Page for adding a document. */
@@ -23,9 +26,9 @@ class SubmitReview extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { title, stars, description } = data;
+    const { title, stars, description, createdAt } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ title, stars, description, owner },
+    Reviews.insert({ title, stars, description, owner, createdAt },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -46,16 +49,18 @@ class SubmitReview extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={reviewSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
-                <Dropdown text='Rating'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item text='5 Stars' />
-                    <Dropdown.Item text='4 Stars' />
-                    <Dropdown.Item text='3 Stars' />
-                    <Dropdown.Item text='2 Stars' />
-                    <Dropdown.Item text='1 Stars' />
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Form.Input
+                    label={`Rate out of 5 stars: ${stars} `}
+                    min={0}
+                    max={5}
+                    name='stars'
+                    onChange={this.handleChange}
+                    step={100}
+                    type='range'
+                    value={stars}
+                />
                 <LongTextField name='description'/>
+                <HiddenField name='createdAt' value={new Date()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
