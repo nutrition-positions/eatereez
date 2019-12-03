@@ -1,12 +1,11 @@
 import React from 'react';
-import { Header, Image, Grid, } from 'semantic-ui-react';
+import { Header, Image, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Restaurant extends React.Component {
   render() {
-    const resStyle = { paddingTop: '60px' };
     return (
         <Grid.Row >
           <Grid.Column width={5}>
