@@ -20,7 +20,7 @@ class RestaurantDetails extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">{this.props.doc.name}</Header>
-            <Image src={this.props.doc.image}/>
+            <Image size='medium' src={this.props.doc.image}/>
             <Header as='h4'>{this.props.doc.description}</Header>
             <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
             <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
