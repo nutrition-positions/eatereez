@@ -15,7 +15,7 @@ class Restaurant extends React.Component {
             <Image size='huge' src={this.props.restaurant.image} />
           </Grid.Column>
           <Grid.Column width={5}>
-            <Header as='h1'><Link to={`/details/${this.props.restaurant._id}`} color='black'>
+            <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
               {this.props.restaurant.name}</Link></Header>
             <Header as='h4'>{this.props.restaurant.description}</Header>
             <Header as='h4'>{this.props.restaurant.rating} / 5 stars</Header>
