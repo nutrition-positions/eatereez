@@ -1,12 +1,15 @@
 import React from 'react';
-import { Header, Image, Grid } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Restaurant extends React.Component {
   render() {
     return (
+        <div>
+          <Grid>
         <Grid.Row >
           <Grid.Column width={5}>
             <Image size='huge' src={this.props.restaurant.image} />
@@ -20,6 +23,9 @@ class Restaurant extends React.Component {
             <Header as='h4'>Address: {this.props.restaurant.address}</Header>
           </Grid.Column>
         </Grid.Row>
+          </Grid>
+          <Divider/>
+        </div>
     );
   }
 }
