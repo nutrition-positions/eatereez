@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Segment } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Divider, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Restaurant from '../components/Restaurant';
@@ -9,6 +9,18 @@ import { Restaurants } from '../../api/restaurant/Restaurants';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListRestaurant extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      search: '',
+    };
+  }
+
+  updateSearch(event) {
+    // console.log(event.target.value);
+    this.setState({ search: event.target.value });
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -16,13 +28,35 @@ class ListRestaurant extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const firstDivSpacer = { paddingTop: '14px' };
+    const searched = this.props.restaurants.filter(
+        (items) => items.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
+    );
     return (
-        <Container className="List-spacing">
-          <Header as="h2" textAlign="center">List Restaurant</Header>
-          <Grid columns={1} centered>
-            {this.props.restaurants.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>)}
-          </Grid>
-        </Container>
+        <div>
+          <Container className="List-spacing">
+            <Header as="h2" textAlign="center">List Restaurant</Header>
+            <Header as="h3" textAlign="left">Search by name:</Header>
+            <div className="ui input">
+              <Input
+                  type='text'
+                  size='big'
+                  icon='search'
+                  transparent placeholder='Search...'
+                  onChange={this.updateSearch.bind(this)}
+                  value={this.state.search}
+                  boardered
+              />
+            </div>
+            <Divider style={firstDivSpacer}/>
+            <Grid columns={1} top-padding="14px" centered>
+              {/* c = (a < b) ? a : b; */}
+              { _.isEmpty(searched) ?
+                  (<Header as="h1" textAlign="center">Sorry! No restaurant found</Header>) :
+                  (searched.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>))}
+            </Grid>
+          </Container>
+        </div>
     );
   }
 }
