@@ -37,7 +37,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/submit-restaurant" component={SubmitRestaurant}/>
               <ProtectedRoute path="/submit-review" component={SubmitReview}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/details/:_id" component={RestaurantDetails}/>
               <AdminProtectedRoute path="/admin" component={SubmitRestaurantAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
