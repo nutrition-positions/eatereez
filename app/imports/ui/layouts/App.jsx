@@ -33,7 +33,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/map" component={Map}/>
               <Route path="/food" component={Food}/>
-              <Route path="/restaurant" component={RestaurantDetails}/>
+              <Route path="/details/:_id" component={RestaurantDetails}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/submit-restaurant" component={SubmitRestaurant}/>
               <ProtectedRoute path="/submit-review" component={SubmitReview}/>
