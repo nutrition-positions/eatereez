@@ -1,20 +1,68 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Container, Grid } from 'semantic-ui-react';
 
+const mapStyles = {
+  width: '100%',
+  height: '100%',
+};
 
-class Map extends React.Component {
+export class MapContainer extends React.Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {},
+  };
+
+  onMarkerClick = (props, marker, e) => this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true,
+      });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null,
+      });
+    }
+  };
+
   render() {
     return (
-        <Grid verticalAlign='middle' textAlign='center' container>
-          <Grid.Column>
-            <h1>Locate a Restaurant</h1>
-            <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.35615228837!2d-157.819300484469!3d21.296938985853675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c006d989580d855%3A0xac63f2de838ed2f4!2sUniversity%20of%20Hawai%CA%BBi%20at%20M%C4%81noa!5e0!3m2!1sen!2sus!4v1574316698442!5m2!1sen!2sus"
-    width="1000" height="800" frameBorder="0" allowFullScreen=""/>
-          </Grid.Column>
-        </Grid>
+        <Container>
+          <Grid columns={1} bottom-padding='1080px' centered>
+              <Map
+                  /* eslint-disable-next-line react/prop-types */
+                  google={this.props.google}
+                  zoom={17}
+                  style={mapStyles}
+                  initialCenter={{
+                    lat: 21.2969,
+                    lng: -157.8171,
+                  }}
+              >
+                  <Marker
+                    onCLick={this.onMarkerClick}
+                    name={'University of Hawaii at Manoa'}
+                  />
+                  <InfoWindow
+                      marker={this.state.activeMarker}
+                      visible={this.state.showingInfoWindow}
+                      onClose={this.onClose}
+                  >
+                      <div>
+                        <h4>{this.state.selectedPlace.name}</h4>
+                      </div>
+                  </InfoWindow>
+              </Map>
+          </Grid>
+        </Container>
     );
   }
 }
 
-export default Map;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyCXbqUp69744PLBpEcJ_5uaclmQcNYzIHQ',
+})(MapContainer);

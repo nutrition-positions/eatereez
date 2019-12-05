@@ -5,6 +5,7 @@
     "@babel/runtime": "^7.5.4",
     "classnames": "^2.2.6",
     "core-js": "^3.1.4",
+    "google-maps-react": "^2.0.2",
     "graphql": "^0.8.2",
     "meteor-node-stubs": "^0.4.1",
     "prop-types": "^15.7.2",
