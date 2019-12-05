@@ -43,19 +43,14 @@ export class MapContainer extends React.Component {
                     lng: -157.8171,
                   }}
               >
-                  <Marker
-                    onCLick={this.onMarkerClick}
-                    name={'University of Hawaii at Manoa'}
-                  />
-                  <InfoWindow
-                      marker={this.state.activeMarker}
-                      visible={this.state.showingInfoWindow}
-                      onClose={this.onClose}
-                  >
-                      <div>
-                        <h4>{this.state.selectedPlace.name}</h4>
-                      </div>
-                  </InfoWindow>
+                <Marker
+                    onClick={this.props.onMarkerClick()}
+                    position={{ lat: 21.2969, lng: -157.8171 }}/>
+                <Marker position={{ lat: 21.299160, lng: -157.819573 }}/>
+                <Marker position={{ lat: 21.301150, lng: -157.815629 }}/>
+                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
+                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
+                <Marker position={{ lat: 21.298232, lng: -157.820844 }}/>
               </Map>
           </Grid>
         </Container>
