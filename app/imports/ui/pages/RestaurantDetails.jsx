@@ -1,10 +1,11 @@
 import React from 'react';
-import { Grid, Loader, Header, Image } from 'semantic-ui-react';
+import { Grid, Loader, Header, Image, Feed } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
+import Review from '../components/Review';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 
 /** Renders the Page for editing a single document. */
@@ -26,9 +27,9 @@ class RestaurantDetails extends React.Component {
             <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
             <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.doc.address}</Header>
-          </Grid.Column>
-          <Grid.Column>
-            {this.props.review.filter(note => (note.restaurantId === this.props.doc._id))}
+            <Feed>
+            <Review review={this.props.review.filter(note => (note.restaurantName === this.props.doc.name))}/>
+            </Feed>
           </Grid.Column>
         </Grid>
     );
@@ -38,7 +39,7 @@ class RestaurantDetails extends React.Component {
 /** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
 RestaurantDetails.propTypes = {
   doc: PropTypes.object,
-  review: PropTypes.array,
+  review: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 

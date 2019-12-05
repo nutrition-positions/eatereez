@@ -11,7 +11,7 @@ class Review extends React.Component {
           <Feed.Content>
             <Feed.Summary>
               <a>{this.props.review.owner}</a>posted at
-              <Feed.Date content={this.props.review.createdAt.toLocaleDateString('en-US')} />
+              <Feed.Date content={this.props.review.createdAt} />
               {this.props.review.title}
             </Feed.Summary>
             <Feed.Extra text>
@@ -31,7 +31,7 @@ class Review extends React.Component {
 
 /** Require a document to be passed to this component. */
 Review.propTypes = {
-  review: PropTypes.object.isRequired,
+  review: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
