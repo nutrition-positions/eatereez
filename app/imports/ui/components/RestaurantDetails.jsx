@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Image, Grid } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class RestaurantDetails extends React.Component {
@@ -17,6 +17,8 @@ class RestaurantDetails extends React.Component {
             <Header as='h4'>{this.props.restaurant.rating} / 5 stars</Header>
             <Header as='h4'>Phone number: {this.props.restaurant.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.restaurant.address}</Header>
+            <Header as='h1'><Link color='black' to={`/submit-review/${this.props.restaurant._id}`}>
+              Submit a review...</Link></Header>
           </Grid.Column>
         </Grid.Row>
     );

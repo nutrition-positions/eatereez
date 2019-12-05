@@ -1,31 +1,24 @@
 import React from 'react';
-import { Stuffs } from '/imports/api/stuff/Stuff';
+import { Reviews, ReviewSchema } from '/imports/api/review/Reviews';
 import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
-import SimpleSchema from 'simpl-schema';
-
-/** Create a schema to specify the structure of the data to appear in the form. */
-const reviewSchema = new SimpleSchema({
-  title: String,
-  stars: Number,
-  description: String,
-});
 
 /** Renders the Page for adding a document. */
 class SubmitReview extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { title, stars, description } = data;
+    const { title, rating, review, restaurantId } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ title, stars, description, owner },
+    Reviews.insert({ title, rating, review, restaurantId, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -43,10 +36,10 @@ class SubmitReview extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Submit a Review</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={reviewSchema} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={ReviewSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
-                <Dropdown text='Rating'>
+                <Dropdown text='rating'>
                   <Dropdown.Menu>
                     <Dropdown.Item text='5 Stars' />
                     <Dropdown.Item text='4 Stars' />
@@ -58,6 +51,8 @@ class SubmitReview extends React.Component {
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
+                <HiddenField name='owner' value={this.props.owner}/>
+                <HiddenField name='restaurantId' value={this.props.restaurantId}/>
               </Segment>
             </AutoForm>
           </Grid.Column>
