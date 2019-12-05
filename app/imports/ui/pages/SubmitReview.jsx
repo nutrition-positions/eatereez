@@ -1,6 +1,6 @@
 import React from 'react';
 import { Reviews, ReviewSchema } from '/imports/api/review/Reviews';
-import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -39,15 +39,16 @@ class SubmitReview extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={ReviewSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
-                <Dropdown text='rating'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item text='5 Stars' />
-                    <Dropdown.Item text='4 Stars' />
-                    <Dropdown.Item text='3 Stars' />
-                    <Dropdown.Item text='2 Stars' />
-                    <Dropdown.Item text='1 Stars' />
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Form.Input
+                    label={`Rate out of 5 stars: ${rating} `}
+                    min={0}
+                    max={5}
+                    name='stars'
+                    onChange={this.handleChange}
+                    step={100}
+                    type='range'
+                    value={rating}
+                />
                 <LongTextField name='review'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

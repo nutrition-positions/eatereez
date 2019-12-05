@@ -19,7 +19,7 @@ class Review extends React.Component {
             </Feed.Extra>
             <Feed.Meta>
               <Feed.Like>
-                {this.props.review.rating} / 5
+                {this.props.review.stars} / 5
                 <Icon name='star' />
               </Feed.Like>
             </Feed.Meta>

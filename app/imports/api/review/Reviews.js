@@ -9,7 +9,7 @@ const Reviews = new Mongo.Collection('Reviews');
 const ReviewSchema = new SimpleSchema({
   title: String,
   rating: Number,
-  review: String,
+  stars: String,
   restaurantId: String,
   owner: String,
   createdAt: Date,
