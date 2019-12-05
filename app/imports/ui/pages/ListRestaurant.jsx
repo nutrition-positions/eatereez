@@ -13,7 +13,7 @@ class ListRestaurant extends React.Component {
     super();
     this.state = {
       searchName: '',
-      filterPref: [],
+      filterPref: '',
       filterDiet: 'Standard',
     };
   }
@@ -24,7 +24,6 @@ class ListRestaurant extends React.Component {
    */
   updateSearchName(event) {
     this.setState({ searchName: event.target.value });
-    console.log(`Name changed to ${this.state.searchName}`);
   }
 
   /**
@@ -33,9 +32,7 @@ class ListRestaurant extends React.Component {
    * @param data
    */
   updateFilterPref(event, data) {
-    console.log(`data.text = ${data.text}`);
-    this.setState({ filterPref: data.text });
-    console.log(`Pref changed to ${this.state.filterPref}`);
+    this.setState({ filterPref: data.value });
   }
 
   /**
@@ -44,9 +41,13 @@ class ListRestaurant extends React.Component {
    */
   getPreferenceList() {
     return ([{
-          key: 'Asian',
-          text: 'Asian',
-          value: 'Asian',
+          key: 'no pref',
+          text: 'None',
+          value: '',
+        }, {
+          key: 'chinese',
+          text: 'Chinese',
+          value: 'chinese',
         }, {
           key: 'Sandwich',
           text: 'Sandwich',
@@ -70,8 +71,7 @@ class ListRestaurant extends React.Component {
    * @param data
    */
   updateFilterDiet(event, data) {
-    this.setState({ filterDiet: data });
-    console.log(`Diet changed to ${this.state.filterDiet}`);
+    this.setState({ filterDiet: data.value });
   }
 
   /**
@@ -80,26 +80,13 @@ class ListRestaurant extends React.Component {
    */
   getRestaurantList() {
     let list = [];
-    // filters name by using indexOf()
     list = this.props.restaurants.filter(
-        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
+        // filters name
+        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1 &&
+            // filters preference
+            items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase())
+            !== -1,
     );
-
-    // filters preferences by using indexOf(). Can be more than one preference.
-    let pref = [];
-    pref = this.state.filterPref;
-
-    if (pref !== null && pref.length !== 0) {
-      const temp = [pref.length];
-      pref.forEach(function (item, index) {
-        temp[index] = list.filter(
-            (items) => items.description.toLowerCase().indexOf(item.toString().toLowerCase()) !== -1,
-        );
-      });
-      temp.forEach(function (num) {
-        list.concat(temp[num]);
-      });
-    }
     return list;
   }
 
@@ -112,6 +99,9 @@ class ListRestaurant extends React.Component {
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
     const restaurantList = this.getRestaurantList();
+    const handleOnChange = (event, data) => {
+      this.updateFilterPref(event, data);
+    };
     return (
         <div>
           <Container className='List-spacing'>
@@ -135,13 +125,11 @@ class ListRestaurant extends React.Component {
                   <Grid.Column>
                     <Header as='h3' textAlign='left'>Types of food:</Header>
                     <Dropdown
-                        multiple
                         search
                         selection
-                        value={selected}
                         options={this.getPreferenceList()}
-                        onChange={this.updateFilterPref.bind(this)}
-                        placeholder='Select preference(s)'
+                        onChange={handleOnChange}
+                        placeholder='Select preference'
                     />
                   </Grid.Column>
                 </React.Fragment>
