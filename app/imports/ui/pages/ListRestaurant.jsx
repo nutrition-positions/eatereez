@@ -80,12 +80,19 @@ class ListRestaurant extends React.Component {
    */
   getRestaurantList() {
     let list = [];
+    // list = this.props.restaurants.filter(
+    //     // filters name
+    //     (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1 &&
+    //         // filters preference
+    //         items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase())
+    //         !== -1,
+    // );
     list = this.props.restaurants.filter(
-        // filters name
-        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1 &&
-            // filters preference
-            items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase())
-            !== -1,
+        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
+    );
+
+    list = list.filter(
+        (items) => items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase()) !== -1,
     );
     return list;
   }
