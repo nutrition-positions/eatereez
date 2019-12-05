@@ -110,7 +110,15 @@
       "description": "The place by hamilton sucks, i got food poisioning here",
       "stars": "0",
       "restaurantName": "Panda Express",
-      "createdAt": "date has been implemented but only works when adding submits via the database?",
-      "owner": "john@foo.com"
+      "owner": "john@foo.com",
+      "createdAt": "date has been implemented but only works when adding submits via the database?"
+    },
+    {
+      "title": "oh boy did i love this place",
+      "description": "The place by hamilton rocks, it blew my socks off",
+      "stars": "5",
+      "restaurantName": "L&L Hawaiian Barbecue",
+      "owner": "john@foo.com",
+      "createdAt": "date has been implemented but only works when adding submits via the database?"
     }]
 }

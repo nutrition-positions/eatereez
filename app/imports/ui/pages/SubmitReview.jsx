@@ -53,7 +53,7 @@ class SubmitReview extends React.Component {
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='restaurantName' value='fix me'/>
+                <HiddenField name='restaurantName' value='Panda Express'/>
                 <HiddenField name='createdAt' value={new Date()}/>
               </Segment>
             </AutoForm>

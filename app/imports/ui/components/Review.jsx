@@ -9,6 +9,7 @@ class Review extends React.Component {
     return (
         <Feed.Event>
           <Feed.Content>
+            <hr />
             <Feed.Summary>
               <a>{this.props.review.owner}</a>posted at
               <Feed.Date content={this.props.review.createdAt} />
@@ -31,7 +32,7 @@ class Review extends React.Component {
 
 /** Require a document to be passed to this component. */
 Review.propTypes = {
-  review: PropTypes.object,
+  review: PropTypes.array,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

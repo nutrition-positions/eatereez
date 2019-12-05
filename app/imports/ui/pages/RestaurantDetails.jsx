@@ -28,7 +28,7 @@ class RestaurantDetails extends React.Component {
             <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.doc.address}</Header>
             <Feed>
-            <Review review={this.props.review.filter(note => (note.restaurantName === this.props.doc.name))}/>
+             <Review reviews={this.props.reviews.filter(review => (review.restaurantName === this.props.doc.name))}/>
             </Feed>
           </Grid.Column>
         </Grid>
@@ -39,7 +39,7 @@ class RestaurantDetails extends React.Component {
 /** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
 RestaurantDetails.propTypes = {
   doc: PropTypes.object,
-  review: PropTypes.object,
+  reviews: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -52,7 +52,7 @@ export default withTracker(({ match }) => {
   const subscriptionReviews = Meteor.subscribe('Reviews');
   return {
     doc: Restaurants.findOne(documentId),
-    review: Reviews.find({}).fetch(),
+    reviews: Reviews.find({}).fetch(),
     ready: subscription.ready() && subscriptionReviews.ready(),
   };
 })(RestaurantDetails);
