@@ -12,7 +12,7 @@ const ReviewSchema = new SimpleSchema({
   stars: String,
   restaurantName: String,
   owner: String,
-  createdAt: Date,
+  createdAt: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
