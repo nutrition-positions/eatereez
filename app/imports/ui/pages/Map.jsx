@@ -32,6 +32,7 @@ export class MapContainer extends React.Component {
   render() {
     return (
         <Container>
+          <div className='map-spacing'>
           <Grid columns={1} bottom-padding='1080px' centered>
               <Map
                   /* eslint-disable-next-line react/prop-types */
@@ -58,6 +59,7 @@ export class MapContainer extends React.Component {
                   </InfoWindow>
               </Map>
           </Grid>
+          </div>
         </Container>
     );
   }
