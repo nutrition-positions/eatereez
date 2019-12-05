@@ -16,9 +16,9 @@ class SubmitReview extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { title, rating, review, restaurantId } = data;
+    const { title, rating, review, restaurantId, createdAt } = data;
     const owner = Meteor.user().username;
-    Reviews.insert({ title, rating, review, restaurantId, owner },
+    Reviews.insert({ title, rating, review, restaurantId, owner, createdAt },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -48,11 +48,12 @@ class SubmitReview extends React.Component {
                     <Dropdown.Item text='1 Stars' />
                   </Dropdown.Menu>
                 </Dropdown>
-                <LongTextField name='description'/>
+                <LongTextField name='review'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value={this.props.owner}/>
                 <HiddenField name='restaurantId' value={this.props.restaurantId}/>
+                <HiddenField name='createdAt' value={new Date()}/>
               </Segment>
             </AutoForm>
           </Grid.Column>
