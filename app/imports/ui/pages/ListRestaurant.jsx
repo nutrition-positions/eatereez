@@ -47,11 +47,11 @@ class ListRestaurant extends React.Component {
         }, {
           key: 'chinese',
           text: 'Chinese',
-          value: 'chinese',
+          value: 'Chinese',
         }, {
           key: 'Sandwich',
           text: 'Sandwich',
-          value: 'Sandwich',
+          value: 'sandwich',
         }, {
           key: 'Hawaiian',
           text: 'Hawaiian',
@@ -59,7 +59,7 @@ class ListRestaurant extends React.Component {
         }, {
           key: 'Savory',
           text: 'Savory',
-          value: 'Savory',
+          value: 'savory',
         },
       ]
     );
@@ -80,19 +80,12 @@ class ListRestaurant extends React.Component {
    */
   getRestaurantList() {
     let list = [];
-    // list = this.props.restaurants.filter(
-    //     // filters name
-    //     (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1 &&
-    //         // filters preference
-    //         items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase())
-    //         !== -1,
-    // );
     list = this.props.restaurants.filter(
-        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
+        (items) => items.name.indexOf(this.state.searchName) !== -1,
     );
 
     list = list.filter(
-        (items) => items.description.toLowerCase().indexOf(this.state.filterPref.toLowerCase()) !== -1,
+        (items) => items.description.indexOf(this.state.filterPref) !== -1,
     );
     return list;
   }
@@ -105,10 +98,10 @@ class ListRestaurant extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
-    const restaurantList = this.getRestaurantList();
     const handleOnChange = (event, data) => {
       this.updateFilterPref(event, data);
     };
+    const restaurantList = this.getRestaurantList();
     return (
         <div>
           <Container className='List-spacing'>
