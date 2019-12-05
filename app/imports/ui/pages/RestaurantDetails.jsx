@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Restaurants } from '../../api/restaurant/Restaurants';
+import { Reviews } from '../../api/review/Reviews';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 
 /** Renders the Page for editing a single document. */
@@ -26,6 +27,9 @@ class RestaurantDetails extends React.Component {
             <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.doc.address}</Header>
           </Grid.Column>
+          <Grid.Column>
+            {this.props.review.filter(note => (note.restaurantId === this.props.doc._id))}
+          </Grid.Column>
         </Grid>
     );
   }
@@ -34,7 +38,7 @@ class RestaurantDetails extends React.Component {
 /** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
 RestaurantDetails.propTypes = {
   doc: PropTypes.object,
-  model: PropTypes.object,
+  review: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -44,8 +48,10 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Restaurant');
+  const subscriptionReviews = Meteor.subscribe('Reviews');
   return {
     doc: Restaurants.findOne(documentId),
-    ready: subscription.ready(),
+    review: Reviews.find({}).fetch(),
+    ready: subscription.ready() && subscriptionReviews.ready(),
   };
 })(RestaurantDetails);

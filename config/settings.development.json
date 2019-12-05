@@ -102,5 +102,15 @@
       "menu": "theres food believe it or not",
       "submittedAt": "date has been implemented but only works when adding submits via the database?",
       "submittedBy": "john@foo.com"
+    }],
+
+  "defaultReviews": [
+    {
+      "title": "oh boy did i hate this place",
+      "description": "The place by hamilton sucks, i got food poisioning here",
+      "stars": "0",
+      "restaurantName": "Panda Express",
+      "createdAt": "date has been implemented but only works when adding submits via the database?",
+      "owner": "john@foo.com"
     }]
 }

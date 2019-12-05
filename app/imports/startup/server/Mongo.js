@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Submits } from '../../api/submit/Submits';
+import { Reviews } from '../../api/review/Reviews';
 
 /* eslint-disable no-console */
 
@@ -43,5 +44,18 @@ if (Submits.find().count() === 0) {
   if (Meteor.settings.defaultSubmits) {
     console.log('Creating default submissions.');
     Meteor.settings.defaultSubmits.map(data => addSubmits(data));
+  }
+}
+
+function addReviews(data) {
+  console.log(`  Adding: ${data.title} (${data.owner})`);
+  Reviews.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (Reviews.find().count() === 0) {
+  if (Meteor.settings.defaultReviews) {
+    console.log('Creating default reviews.');
+    Meteor.settings.defaultReviews.map(data => addReviews(data));
   }
 }

@@ -50,7 +50,7 @@ class SubmitRestaurant extends React.Component {
                 <TextField label='Restaurant Name:' name='submissionName'/>
                 <TextField label='Restaurant Location:' name='location'/>
                 <TextField label='Restaurant Hours:' name='hours'/>
-                <TextField label='Restaurant Menu: (optional)' name='menu'/>
+                <TextField label='Restaurant Menu:' name='menu'/>
                 <HiddenField name='submittedAt' value={new Date()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
