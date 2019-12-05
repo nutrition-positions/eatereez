@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { Container, Grid } from 'semantic-ui-react';
 
 const mapStyles = {
@@ -45,7 +45,6 @@ export class MapContainer extends React.Component {
                   }}
               >
                 <Marker
-                    onClick={this.props.onMarkerClick()}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
                 <Marker position={{ lat: 21.299160, lng: -157.819573 }}/>
                 <Marker position={{ lat: 21.301150, lng: -157.815629 }}/>
