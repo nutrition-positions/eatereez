@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, Grid, Header, Image, Loader } from 'semantic-ui-react';
+import { Feed, Grid, Header, Image, Loader, Icon } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -28,7 +28,7 @@ class RestaurantDetails extends React.Component {
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
               <Header as='h4'>{this.props.doc.description}</Header>
-              <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
+              <Header as='h4'>{this.props.doc.rating} / 5 <Icon name='star' /></Header>
               <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
               <Header as='h4'>Address: {this.props.doc.address}</Header>
               <Feed>

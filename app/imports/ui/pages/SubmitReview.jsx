@@ -46,7 +46,7 @@ class SubmitReview extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Submit a Review</Header>
+            <Header as="h2" textAlign="center">Write a Review of {} </Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
