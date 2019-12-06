@@ -9,7 +9,7 @@ class RestaurantDetails extends React.Component {
     return (
         <Grid.Row >
           <Grid.Column width={5}>
-            <Image size='huge' src={this.props.restaurant.image} />
+            <Image size='large' src={this.props.restaurant.image} />
           </Grid.Column>
           <Grid.Column width={5}>
             <Header as='h1'>{this.props.restaurant.name}</Header>
