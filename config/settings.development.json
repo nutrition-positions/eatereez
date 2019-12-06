@@ -109,7 +109,7 @@
       "title": "oh boy did i hate this place",
       "description": "The place by hamilton sucks, i got food poisioning here",
       "stars": "0",
-      "restaurantName": "Panda Express",
+      "restaurantId": "GcZkYnuQeSnuXGTNt",
       "owner": "john@foo.com",
       "createdAt": "date has been implemented but only works when adding submits via the database?"
     },
@@ -117,7 +117,7 @@
       "title": "oh boy did i love this place",
       "description": "The place by hamilton rocks, it blew my socks off",
       "stars": "5",
-      "restaurantName": "L&L Hawaiian Barbecue",
+      "restaurantId": "GcZkYnuQeSnuXGTNt",
       "owner": "john@foo.com",
       "createdAt": "date has been implemented but only works when adding submits via the database?"
     }]

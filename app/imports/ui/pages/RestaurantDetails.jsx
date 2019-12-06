@@ -1,12 +1,11 @@
 import React from 'react';
-import { Grid, Loader, Header, Image, Feed } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
-import Review from '../components/Review';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import 'uniforms-bridge-simple-schema-2';
 
 /** Renders the Page for editing a single document. */
 class RestaurantDetails extends React.Component {
@@ -21,15 +20,7 @@ class RestaurantDetails extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">{this.props.doc.name}</Header>
-            <Image size='medium' src={this.props.doc.image}/>
-            <Header as='h4'>{this.props.doc.description}</Header>
-            <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
-            <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
-            <Header as='h4'>Address: {this.props.doc.address}</Header>
-            <Feed>
-             <Review reviews={this.props.reviews.filter(review => (review.restaurantName === this.props.doc.name))}/>
-            </Feed>
+            <RestaurantDetails restaurant={this.props.doc} reviews={this.props.reviews.filter(review => (review.restaurantId === this.props.doc._id))}/>
           </Grid.Column>
         </Grid>
     );

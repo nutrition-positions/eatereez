@@ -17,8 +17,9 @@ const formSchema = new SimpleSchema({
   title: String,
   description: String,
   stars: String,
-  restaurantName: String,
+  restaurantId: String,
   createdAt: Date,
+  owner: String,
 });
 
 /** Renders the Page for adding a document. */
@@ -26,9 +27,9 @@ class SubmitReview extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { title, description, stars, restaurantName, createdAt } = data;
+    const { title, description, stars, restaurantId, createdAt } = data;
     const owner = Meteor.user().username;
-    Reviews.insert({ title, description, stars, restaurantName, owner, createdAt },
+    Reviews.insert({ title, description, stars, restaurantId, owner, createdAt },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -53,7 +54,8 @@ class SubmitReview extends React.Component {
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='restaurantName' value='Panda Express'/>
+                <HiddenField name='owner' value={this.props.owner}/>
+                <HiddenField name='restaurantId' value={this.props.restaurantId}/>
                 <HiddenField name='createdAt' value={new Date()}/>
               </Segment>
             </AutoForm>
@@ -64,7 +66,8 @@ class SubmitReview extends React.Component {
 }
 
 SubmitReview.propTypes = {
-  review: PropTypes.string,
+  owner: PropTypes.string.isRequired,
+  restaurantId: PropTypes.string.isRequired,
 };
 
 export default SubmitReview;
