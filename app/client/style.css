@@ -22,7 +22,11 @@
 
 .Navbar-style {
   background-color: #1A531B !important;
+}
 
+.navbar-text-hover:hover{
+  opacity: 1;
+  color: #7DAB55 !important;
 }
 
 .standard-height {
