@@ -5,15 +5,18 @@
 }
 
 .eatereez-landing-background {
-  background: url('images/eatereez-cover.jpg') no-repeat center center;
+  background: url('images/eateerez-cover-image.png') no-repeat center center;
   background-size: cover;
   height: 500px;
   padding-left: 50px;
   padding-right: 50px;
 }
+.eatereez-landing-logo{
+  padding-top: 50px;
+}
 
 .eatereez-landing-text {
-  padding-top: 230px;
+  padding-top: 20px;
   border: none;
 }
 
