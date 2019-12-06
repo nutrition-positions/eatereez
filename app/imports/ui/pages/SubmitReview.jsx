@@ -52,11 +52,11 @@ class SubmitReview extends React.Component {
                 <TextField name='title'/>
                 <TextField name='stars'/>
                 <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
                 <HiddenField name='owner' value={this.props.owner}/>
                 <HiddenField name='restaurantId' value={this.props.restaurantId}/>
                 <HiddenField name='createdAt' value={new Date()}/>
+                <SubmitField value='Submit'/>
+                <ErrorsField/>
               </Segment>
             </AutoForm>
           </Grid.Column>

@@ -32,6 +32,9 @@ class RestaurantDetails extends React.Component {
               <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
               <Header as='h4'>Address: {this.props.doc.address}</Header>
               <Feed>
+               /** {_.filter(this.props.reviews.map((review, index) => <Review key={index} review={review}
+                                                                            restaurantId={this.props.doc._id}/>), (review) => review.restaurantId === this.props.doc._id)}
+              **/
                 {this.props.reviews.map((review, index) => <Review key={index} review={review}
                                                                    restaurantId={this.props.doc._id}/>)}
               </Feed>
