@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, Icon } from 'semantic-ui-react';
+import { Feed, HeaderContent, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -11,9 +11,8 @@ class Review extends React.Component {
           <Feed.Content>
             <hr />
             <Feed.Summary>
-              <a>{this.props.review.owner}</a>posted at
-              <Feed.Date content={this.props.review.createdAt} />
-              {this.props.review.title}
+              <HeaderContent> {this.props.review.title} </HeaderContent>
+              {this.props.review.owner} posted at <Feed.Date content={this.props.review.createdAt} />
             </Feed.Summary>
             <Feed.Extra text>
               {this.props.review.description}
@@ -32,7 +31,7 @@ class Review extends React.Component {
 
 /** Require a document to be passed to this component. */
 Review.propTypes = {
-  review: PropTypes.array.isRequired,
+  review: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

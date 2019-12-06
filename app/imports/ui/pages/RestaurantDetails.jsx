@@ -1,11 +1,13 @@
 import React from 'react';
-import { Grid, Loader } from 'semantic-ui-react';
+import { Feed, Grid, Header, Image, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
 import 'uniforms-bridge-simple-schema-2';
+import Review from '../components/Review';
 
 /** Renders the Page for editing a single document. */
 class RestaurantDetails extends React.Component {
@@ -19,10 +21,24 @@ class RestaurantDetails extends React.Component {
   renderPage() {
     return (
         <Grid container centered>
-          <Grid.Column>
-            <RestaurantDetails restaurant={this.props.doc} reviews={this.props.reviews.filter(review => (review.restaurantId === this.props.doc._id))}/>
-          </Grid.Column>
-        </Grid>
+          <Grid.Row >
+            <Grid.Column width={5}>
+              <Image size='huge' src={this.props.doc.image} />
+            </Grid.Column>
+            <Grid.Column width={5}>
+              <Header as='h1'>{this.props.doc.name}</Header>
+              <Header as='h4'>{this.props.doc.description}</Header>
+              <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
+              <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
+              <Header as='h4'>Address: {this.props.doc.address}</Header>
+              <Feed>
+                {this.props.reviews.map((review, index) => <Review key={index} review={review}
+                                                                   restaurantId={this.props.doc._id}/>)}
+              </Feed>
+              <Header as='h1'><Link color='black' to={`/submit-review/${this.props.doc._id}`}>
+                Submit a review...</Link></Header>
+            </Grid.Column>
+          </Grid.Row></Grid>
     );
   }
 }
