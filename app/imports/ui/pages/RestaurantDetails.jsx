@@ -25,7 +25,7 @@ class RestaurantDetails extends React.Component {
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.image} />
             </Grid.Column>
-            <Grid.Column width={5}>
+            <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
               <Header as='h4'>{this.props.doc.description}</Header>
               <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
@@ -35,7 +35,7 @@ class RestaurantDetails extends React.Component {
                 {this.props.reviews.map((review, index) => <Review key={index} review={review}
                                                                    restaurantId={this.props.doc._id}/>)}
               </Feed>
-              <Header as='h1'><Link color='black' to={`/submit-review/${this.props.doc._id}`}>
+              <Header as='h3'><Link color='black' to={`/submit-review/${this.props.doc._id}`}>
                 Submit a review...</Link></Header>
             </Grid.Column>
           </Grid.Row></Grid>

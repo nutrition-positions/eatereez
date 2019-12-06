@@ -12,17 +12,17 @@ class Review extends React.Component {
             <hr />
             <Feed.Summary>
               <HeaderContent> {this.props.review.title} </HeaderContent>
-              {this.props.review.owner} posted at <Feed.Date content={this.props.review.createdAt} />
             </Feed.Summary>
-            <Feed.Extra text>
-              {this.props.review.description}
-            </Feed.Extra>
             <Feed.Meta>
+              {this.props.review.owner} posted at <Feed.Date content={this.props.review.createdAt} />
               <Feed.Like>
                 {this.props.review.stars} / 5
                 <Icon name='star' />
               </Feed.Like>
             </Feed.Meta>
+            <Feed.Extra text>
+              {this.props.review.description}
+            </Feed.Extra>
           </Feed.Content>
         </Feed.Event>
     );

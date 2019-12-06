@@ -111,7 +111,7 @@
       "stars": "0",
       "restaurantId": "GcZkYnuQeSnuXGTNt",
       "owner": "john@foo.com",
-      "createdAt": "date has been implemented but only works when adding submits via the database?"
+      "createdAt": "date but only works when adding via the database?"
     },
     {
       "title": "oh boy did i love this place",
