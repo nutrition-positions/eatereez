@@ -112,7 +112,7 @@
       "stars": "0",
       "restaurantId": "S5ucAwTR9oqKtXtGs",
       "owner": "john@foo.com",
-      "createdAt": "2019-11-13:12:51:23"
+      "createdAt": "2019-11-13"
     },
     {
       "title": "I love Pandas",
@@ -120,7 +120,7 @@
       "stars": "5",
       "restaurantId": "S5ucAwTR9oqKtXtGs",
       "owner": "john@foo.com",
-      "createdAt": "2019-02-22:05:03:45"
+      "createdAt": "2019-02-22"
     },
     {
       "title": "oh boy did i love this place",
@@ -128,6 +128,6 @@
       "stars": "5",
       "restaurantId": "cd8Yp98TZpR4fnpqT",
       "owner": "john@foo.com",
-      "createdAt": "2019-01-09:11:22:55"
+      "createdAt": "2019-01-09"
     }]
 }
