@@ -7,11 +7,12 @@ const Reviews = new Mongo.Collection('Reviews');
 
 /** Define a schema to specify the structure of each document in the collection. */
 const ReviewSchema = new SimpleSchema({
-  review: String,
-  stars: Number,
+  title: String,
+  description: String,
+  stars: String,
   restaurantId: String,
   owner: String,
-  createdAt: Date,
+  createdAt: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

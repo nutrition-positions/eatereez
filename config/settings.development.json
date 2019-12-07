@@ -19,7 +19,8 @@
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "image" : "images/Panda-Express-Logo.png",
-      "owner": "john@foo.com"
+      "owner": "john@foo.com",
+      "_id": "cd8Yp98TZpR4fnpqT"
     },
     {
       "name": "Le Crepe Cafe",
@@ -102,5 +103,31 @@
       "menu": "theres food believe it or not",
       "submittedAt": "date has been implemented but only works when adding submits via the database?",
       "submittedBy": "john@foo.com"
+    }],
+
+  "defaultReviews": [
+    {
+      "title": "oh boy did i hate this place",
+      "description": "The place by hamilton sucks, i got food poisoning here",
+      "stars": "0",
+      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-13:12:51:23"
+    },
+    {
+      "title": "I love Pandas",
+      "description": "such tasty meats and sauces",
+      "stars": "5",
+      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "owner": "john@foo.com",
+      "createdAt": "2019-02-22:05:03:45"
+    },
+    {
+      "title": "oh boy did i love this place",
+      "description": "The place by hamilton rocks, it blew my socks off",
+      "stars": "5",
+      "restaurantId": "cd8Yp98TZpR4fnpqT",
+      "owner": "john@foo.com",
+      "createdAt": "2019-01-09:11:22:55"
     }]
 }
