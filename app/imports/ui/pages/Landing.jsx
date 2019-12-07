@@ -79,6 +79,26 @@ class Info1 extends React.Component {
   }
 }
 
+class igC extends React.Component {
+  image = '';
+
+  constructor(image) {
+    super();
+    this.image = image;
+  }
+
+  render() {
+    return (
+        <div className="each-fade">
+          <div className="image-container">
+            <img src={this.image}/>
+          </div>
+        </div>
+    );
+  }
+}
+
+
 class ImageCarousel extends React.Component {
 
   render() {
@@ -104,9 +124,20 @@ class ImageCarousel extends React.Component {
               <Grid.Column width={10}>
                 <div className="slide-container">
                   <Fade {...fadeProperties}>
+                    {/* {imageList.forEach(element => <igC(element)/>)} */}
                     <div className="each-fade">
                       <div className="image-container">
                         <img src={imageList[0]}/>
+                      </div>
+                    </div>
+                    <div className="each-fade">
+                      <div className="image-container">
+                        <img src={imageList[1]}/>
+                      </div>
+                    </div>
+                    <div className="each-fade">
+                      <div className="image-container">
+                        <img src={imageList[2]}/>
                       </div>
                     </div>
                   </Fade>
@@ -118,6 +149,7 @@ class ImageCarousel extends React.Component {
     );
   }
 }
+
 
 Landing.state = {
   searchName: '',
