@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
+import { Fade } from 'react-slideshow-image';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -12,7 +13,10 @@ class Landing extends React.Component {
     return (
         <div>
           <Greet/>
+          <div className="ui divider"></div>
           <Info1/>
+          <div className="ui divider"></div>
+          <ImageCarousel/>
         </div>
     );
   }
@@ -25,7 +29,7 @@ class Greet extends React.Component {
           <Image
               className='eatereez-landing-logo'
               size='huge' src='images/eatereez-logo-text.png' centered/>
-          <div className='landing-text'>
+          <div className='landing-padding-top'>
             <Grid stackable centered container columns={1}>
               <Grid.Column textAlign='center'>
                 <Header as='h1' className='landing-text-color' textAlign='center'
@@ -59,7 +63,7 @@ class Info1 extends React.Component {
   render() {
     const style = { float: 'right' };
     return (
-        <div className='landing-text'>
+        <div className='landing-padding-top'>
           <Grid divided='vertically'>
             <Grid.Row columns={2}>
               <Grid.Column>
@@ -67,6 +71,46 @@ class Info1 extends React.Component {
               </Grid.Column>
               <Grid.Column>
                 <p>This is some information</p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
+    );
+  }
+}
+
+class ImageCarousel extends React.Component {
+
+  render() {
+    const imageList = [
+        'images/eateerez-cover-image.png',
+        'images/holoholo-grill-logo.png',
+        'images/L&L-logo.jpg',
+    ];
+
+    const fadeProperties = {
+      duration: 5000,
+      transitionDuration: 500,
+      infinite: true,
+      indicators: true,
+    };
+
+    const gridStyle = { height: '500px' };
+
+    return (
+        <div className='landing-caroursel'>
+          <Grid container verticalAlign='middle' style={gridStyle}>
+            <Grid.Row columns="two">
+              <Grid.Column width={10}>
+                <div className="slide-container">
+                  <Fade {...fadeProperties}>
+                    <div className="each-fade">
+                      <div className="image-container">
+                        <img src={imageList[0]}/>
+                      </div>
+                    </div>
+                  </Fade>
+                </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>

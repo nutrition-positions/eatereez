@@ -8,20 +8,66 @@
   background: url('images/eateerez-cover-image.png') no-repeat center center;
   background-size: cover;
   height: 500px;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 .eatereez-landing-logo{
   padding-top: 50px;
 }
 
-.landing-text {
+.landing-padding-top {
   padding-top: 20px;
-  border: none;
 }
 
 .landing-text-color {
   color: #ffffff !important;
+}
+
+.landing-caroursel {
+  background-color: white;
+  background-size: cover;
+  height: 500px;
+  color: grey;
+}
+
+.slide-container {
+  width: 500px;
+  margin: auto;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 200px
+}
+
+.eachslide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  width: 100%;
+}
+
+.each-fade h2 {
+  width: 25%;
+  display: flex;
+  justify-contents: center;
+  align-items: center;
+  margin: 0;
+  background: white;
 }
 
 .Navbar-style {
