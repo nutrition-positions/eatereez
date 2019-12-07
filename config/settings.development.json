@@ -100,12 +100,52 @@
 
   "defaultReviews": [
     {
-      "title": "oh boy did i hate this place",
-      "description": "The place by hamilton sucks, i got food poisoning here",
+      "title": "love these crepes",
+      "description": "so good whether i get a BLT or a PBJ, it just melts in my mouth",
+      "stars": "5",
+      "restaurantId": "uXQmFgYth7Wzv8y8F",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-16"
+    },
+    {
+      "title": "hits da spot",
+      "description": "some really tasty food , and healthy too!",
       "stars": "0",
+      "restaurantId": "TTkn7iBWttAKvdd2H",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-13"
+    },
+    {
+      "title": "finger licking good",
+      "description": "I can't get enough of their chicken, whether its the katsu, curry, or BBQ!",
+      "stars": "5",
+      "restaurantId": "QYB4HPA3XNqLoWkHK",
+      "owner": "john@foo.com",
+      "createdAt": "2019-10-03"
+    },
+    {
+      "title": "and I already thought Chinese food was bad...",
+      "description": "if you want boring, bland, expensive 'chinese' food, go here",
+      "stars": "1",
       "restaurantId": "S5ucAwTR9oqKtXtGs",
       "owner": "john@foo.com",
       "createdAt": "2019-11-13"
+    },
+    {
+      "title": "pretty good food, but not much of it",
+      "description": "very tasty, but small portions.  Also I think beef is an ingredient in everything but the soda",
+      "stars": "4",
+      "restaurantId": "vjMLMvQ7r5xcqN7Gf",
+      "owner": "john@foo.com",
+      "createdAt": "2019-01-23"
+    },
+    {
+      "title": "good selection, mildly expensive",
+      "description": "lots to choose from, but taste and prices aren't great",
+      "stars": "3",
+      "restaurantId": "yLPS2XBoJfq5csp84",
+      "owner": "john@foo.com",
+      "createdAt": "2019-09-21"
     },
     {
       "title": "I love Pandas",
@@ -116,8 +156,8 @@
       "createdAt": "2019-02-22"
     },
     {
-      "title": "oh boy did i love this place",
-      "description": "The place by hamilton rocks, it blew my socks off",
+      "title": "idk why but i can't get enough",
+      "description": "for some reason i could eat here all day.  I tell you, it's worth the high blood pressure!",
       "stars": "5",
       "restaurantId": "cd8Yp98TZpR4fnpqT",
       "owner": "john@foo.com",
