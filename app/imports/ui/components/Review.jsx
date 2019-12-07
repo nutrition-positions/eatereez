@@ -14,7 +14,7 @@ class Review extends React.Component {
               <HeaderContent> {this.props.review.title} </HeaderContent>
             </Feed.Summary>
             <Feed.Meta>
-              {this.props.review.owner} posted at <Feed.Date content={this.props.review.createdAt} />
+              {this.props.review.owner} posted on <Feed.Date content={this.props.review.createdAt} />
               <Feed.Like>
                 {this.props.review.stars} / 5
                 <Icon name='star' />
