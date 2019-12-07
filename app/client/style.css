@@ -15,9 +15,13 @@
   padding-top: 50px;
 }
 
-.eatereez-landing-text {
+.landing-text {
   padding-top: 20px;
   border: none;
+}
+
+.landing-text-color {
+  color: #ffffff !important;
 }
 
 .Navbar-style {
