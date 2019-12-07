@@ -120,8 +120,8 @@ class ImageCarousel extends React.Component {
     return (
         <div className='landing-caroursel'>
           <Grid container verticalAlign='middle' style={gridStyle}>
-            <Grid.Row columns="two">
-              <Grid.Column width={10}>
+            <Grid.Row>
+              <Grid.Column>
                 <div className="slide-container">
                   <Fade {...fadeProperties}>
                     {/* {imageList.forEach(element => <igC(element)/>)} */}
