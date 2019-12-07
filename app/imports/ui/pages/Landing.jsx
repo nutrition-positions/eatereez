@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Input, Grid, Button } from 'semantic-ui-react';
+import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -10,7 +10,10 @@ class Landing extends React.Component {
 
   render() {
     return (
-        <Greet/>
+        <div>
+          <Greet/>
+          <Info1/>
+        </div>
     );
   }
 }
@@ -47,6 +50,26 @@ class Greet extends React.Component {
               </Grid.Column>
             </Grid>
           </div>
+        </div>
+    );
+  }
+}
+
+class Info1 extends React.Component {
+  render() {
+    const style = { float: 'right' };
+    return (
+        <div className='landing-text'>
+          <Grid divided='vertically'>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <Icon className='info circle' size='massive' style={style}/>
+              </Grid.Column>
+              <Grid.Column>
+                <p>This is some information</p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </div>
     );
   }
