@@ -54,7 +54,7 @@ class SubmitReview extends React.Component {
                 <LongTextField name='description'/>
                 <HiddenField name='owner' value={this.props.owner}/>
                 <HiddenField name='restaurantId' value={this.props.restaurantId}/>
-                <HiddenField name='createdAt' value={new Date()}/>
+                <HiddenField name='createdAt' value={new Date().toDateString()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
