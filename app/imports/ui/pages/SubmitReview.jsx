@@ -1,5 +1,4 @@
 import React from 'react';
-import { Reviews } from '/imports/api/review/Reviews';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -11,16 +10,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import PropTypes from 'prop-types';
-import SimpleSchema from 'simpl-schema';
-
-const formSchema = new SimpleSchema({
-  title: String,
-  description: String,
-  stars: String,
-  restaurantId: String,
-  createdAt: Date,
-  owner: String,
-});
+import { Reviews, ReviewSchema } from '/imports/api/review/Reviews';
 
 /** Renders the Page for adding a document. */
 class SubmitReview extends React.Component {
@@ -29,7 +19,7 @@ class SubmitReview extends React.Component {
   submit(data, formRef) {
     const { title, description, stars, restaurantId, createdAt } = data;
     const owner = Meteor.user().username;
-    Reviews.insert({ title, description, stars, restaurantId, owner, createdAt },
+    Reviews.insert({ title, description, stars, restaurantId, createdAt, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -47,14 +37,14 @@ class SubmitReview extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Write a Review of {} </Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={ReviewSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
                 <TextField name='stars'/>
                 <LongTextField name='description'/>
                 <HiddenField name='owner' value={this.props.owner}/>
                 <HiddenField name='restaurantId' value={this.props.restaurantId}/>
-                <HiddenField name='createdAt' value={new Date()}/>
+                <HiddenField name='createdAt' value={new Date().toDateString()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
