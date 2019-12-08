@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, HeaderContent, Icon } from 'semantic-ui-react';
+import { Comment, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,24 +7,22 @@ import { withRouter } from 'react-router-dom';
 class Review extends React.Component {
   render() {
     return (
-        <Feed.Event>
-          <Feed.Content>
-            <hr />
-            <Feed.Summary>
-              <HeaderContent> {this.props.review.title} </HeaderContent>
-              <Feed.Like>
-                {this.props.review.stars} / 5
-                <Icon name='star' />
-              </Feed.Like>
-            </Feed.Summary>
-            <Feed.Meta>
-              {this.props.review.owner} posted on <Feed.Date content={this.props.review.createdAt} />
-            </Feed.Meta>
-            <Feed.Extra text>
-              {this.props.review.description}
-            </Feed.Extra>
-          </Feed.Content>
-        </Feed.Event>
+        <Comment>
+          <Comment.Avatar src='/images/default-user.png' />
+            <Comment.Content>
+              <Comment.Author as='a'>{this.props.review.title}</Comment.Author>
+              <Comment.Metadata>
+                <div>{this.props.review.stars} / 5<Icon name='star' /></div>
+                <div>{this.props.review.createdAt} by {this.props.review.owner}</div>
+              </Comment.Metadata>
+              <Comment.Text>
+                {this.props.review.description}
+              </Comment.Text>
+              <Comment.Actions>
+                <Comment.Action></Comment.Action>
+              </Comment.Actions>
+            </Comment.Content>
+        </Comment>
     );
   }
 }

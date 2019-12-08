@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, Grid, Header, Image, Loader, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Header, Image, Loader, Icon, Segment, CommentGroup } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -57,15 +57,15 @@ class RestaurantDetails extends React.Component {
           <Grid.Row >
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.image} />
-              <Feed>
+              <CommentGroup>
                 {filtered.map((review, index) => <Review
                      key={index} review={filtered[index]}/>)}
-              </Feed>
+              </CommentGroup>
               <Header as="h3" textAlign="center">Write a Review of {this.props.doc.name} </Header>
               <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
                 <Segment>
                   <TextField name='title'/>
-                  <NumField name='stars'/>
+                  <NumField name='stars' range={5}/>
                   <LongTextField name='description'/>
                   <HiddenField name='owner' value={this.props.doc.owner}/>
                   <HiddenField name='restaurantId' value={this.props.doc._id}/>
