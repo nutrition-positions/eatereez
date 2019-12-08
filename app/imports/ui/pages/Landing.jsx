@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
 import { Fade } from 'react-slideshow-image';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -36,7 +37,8 @@ class Greet extends React.Component {
                 >Look for a place to eat here!<br/>You can go to list, or start by searching.</Header>
                 <Grid centered columns={2}>
                   <Grid.Column>
-                    <Button className='ui button' size='huge' floated='right'>Go to Restaurants List</Button>
+                    <Button as={NavLink} activeClassName="" exact to="/food"
+                            className='ui button' size='huge' floated='right'>Go to Restaurants List</Button>
                   </Grid.Column>
                   <Grid.Column>
                     <div className='ui input bordered'>
@@ -104,7 +106,7 @@ class ImageCarousel extends React.Component {
   render() {
     const imageList = [
         'images/eateerez-cover-image.png',
-        'images/holoholo-grill-logo.png',
+        'images/panda-image.jpg',
         'images/L&L-logo.jpg',
     ];
 
@@ -116,28 +118,29 @@ class ImageCarousel extends React.Component {
     };
 
     const gridStyle = { height: '500px' };
+    const rowPadding = { paddingBottom: '38px' };
 
     return (
         <div className='landing-caroursel'>
           <Grid container verticalAlign='middle' style={gridStyle}>
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column style={gridStyle}>
                 <div className="slide-container">
                   <Fade {...fadeProperties}>
                     {/* {imageList.forEach(element => <igC(element)/>)} */}
                     <div className="each-fade">
                       <div className="image-container">
-                        <img src={imageList[0]}/>
+                        <img className='ui fluid image' src={imageList[0]}/>
                       </div>
                     </div>
                     <div className="each-fade">
                       <div className="image-container">
-                        <img src={imageList[1]}/>
+                        <img className='ui fluid image' src={imageList[1]}/>
                       </div>
                     </div>
                     <div className="each-fade">
                       <div className="image-container">
-                        <img src={imageList[2]}/>
+                        <img className='ui fluid image' src={imageList[2]}/>
                       </div>
                     </div>
                   </Fade>

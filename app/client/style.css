@@ -24,7 +24,7 @@
 .landing-caroursel {
   background-color: white;
   background-size: cover;
-  height: 531px;
+  height: 500px; /* 531 */
   color: grey;
 }
 
@@ -49,11 +49,13 @@
 }
 
 .each-fade {
+  width: 100%;
   display: flex;
 }
 
 .each-fade .image-container {
-  width: 100%;
+  width: fit-content;
+  height: 465px;
   overflow: hidden;
 }
 
@@ -62,7 +64,7 @@
 }
 
 .each-fade h2 {
-  width: 25%;
+  width: 100%;
   display: flex;
   justify-contents: center;
   align-items: center;
