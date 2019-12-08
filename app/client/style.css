@@ -22,6 +22,19 @@
   padding: 50px;
 }
 
+.landing-info1{
+  background: url('images/cc2-light.jpg') center center;
+  height: 500px;
+  padding: 50px;
+}
+
+.landing-info1-title{
+  padding-bottom: 80px !important;
+}
+.ui.centered.header, .ui.center.aligned.header {
+  padding-bottom: 80px;
+}
+
 .landing-caroursel {
   background-color: white;
   background-size: cover;

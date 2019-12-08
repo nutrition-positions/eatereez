@@ -68,28 +68,27 @@ class Greet extends React.Component {
 
 class Info1 extends React.Component {
   render() {
-    const titleStyle = { bottomPadding: '50px' };
     return (
-        <div className='landing-info'>
-          <Header as='h1' textAlign='center' style={titleStyle}>
+        <div className='landing-info1'>
+          <Header size='huge' textAlign='center'>
             We find the places to eat here at University of Hawaii at Manoa!
           </Header>
-          <Grid divided='vertically'>
-            <Grid.Row columns={3}>
+          <Grid className='landing-info1-title'>
+            <Grid.Row columns={3} divided='vertically'>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='map'/>
-                <Header as='h2' textAlign='center'>
+                <Icon size='huge' name='blue map'/>
+                <Header as='h2' textAlign='center' className='landing-info1-title'>
                   Find what you want to eat and discovery new places!
                 </Header>
               </Grid.Column>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='food'/>
+                <Icon size='huge' name='orange food'/>
                 <Header as='h2' textAlign='center'>
                   Hungry for something particular? We have search options that will help find what you need!
                 </Header>
               </Grid.Column>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='leaf'/>
+                <Icon size='huge' name='green leaf'/>
                 <Header as='h2' textAlign='center'>
                   Vegetarian or vegan? No problem!
                   We will find the restaurants for your diet.
