@@ -7,6 +7,7 @@ import 'uniforms-bridge-simple-schema-2';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
+import NumField from 'uniforms-semantic/NumField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -50,32 +51,21 @@ class RestaurantDetails extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     let fRef = null;
+    const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc._id));
     return (
         <Grid container centered>
           <Grid.Row >
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.image} />
-            </Grid.Column>
-            <Grid.Column width={10}>
-              <Header as='h1'>{this.props.doc.name}</Header>
-              <Header as='h4'>{this.props.doc.description}</Header>
-              <Header as='h4'>{this.props.doc.rating} / 5 <Icon name='star' /></Header>
-              <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
-              <Header as='h4'>Address: {this.props.doc.address}</Header>
               <Feed>
-               /**{_.filter(this.props.reviews.map((review, index) => <Review
-                   key={index} review={review}
-                   restaurantId={this.props.doc._id}/>), (review) => review.restaurantId === this.props.doc._id)}
-                   **/
-                {this.props.reviews.map((review, index) => <Review
-                    key={index} review={review} restaurantId={this.props.doc._id}/>)}
-
+                {filtered.map((review, index) => <Review
+                     key={index} review={filtered[index]}/>)}
               </Feed>
               <Header as="h3" textAlign="center">Write a Review of {this.props.doc.name} </Header>
               <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
                 <Segment>
                   <TextField name='title'/>
-                  <TextField name='stars'/>
+                  <NumField name='stars'/>
                   <LongTextField name='description'/>
                   <HiddenField name='owner' value={this.props.doc.owner}/>
                   <HiddenField name='restaurantId' value={this.props.doc._id}/>
@@ -84,6 +74,14 @@ class RestaurantDetails extends React.Component {
                   <ErrorsField/>
                 </Segment>
               </AutoForm>
+            </Grid.Column>
+            <Grid.Column width={10}>
+              <Header as='h1'>{this.props.doc.name}</Header>
+              <Header as='h4'>{this.props.doc.description}</Header>
+              <Header as='h4'>{this.props.doc.rating} / 5 <Icon name='star' /></Header>
+              <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
+              <Header as='h4'>Address: {this.props.doc.address}</Header>
+              <Header as='h3'>WE SHOULD MAKE A THING HERE THAT FORMATS THE MENU OF THE RESTAURANT NICELY.</Header>
             </Grid.Column>
           </Grid.Row></Grid>
     );
