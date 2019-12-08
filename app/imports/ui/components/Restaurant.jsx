@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header, Image, Grid, Divider } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -12,7 +12,8 @@ class Restaurant extends React.Component {
           <Grid>
         <Grid.Row >
           <Grid.Column width={5}>
-            <Image size='large' centered src={this.props.restaurant.image} />
+            <Image size='large' as={NavLink} activeClassName="" exact to={`/details/${this.props.restaurant._id}`}
+                   centered src={this.props.restaurant.image} />
           </Grid.Column>
           <Grid.Column width={5}>
             <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>

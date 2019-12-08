@@ -14,12 +14,12 @@ class Landing extends React.Component {
     return (
         <div>
           <Greet/>
-          <div className="ui divider"></div>
+          <div className="ui divider"/>
           <Info1/>
-          <div className="ui divider"></div>
+          <div className="ui divider"/>
           <ImageCarousel/>
-          <div className="ui divider"></div>
-
+          <div className="ui divider"/>
+          <Info2/>
         </div>
     );
   }
@@ -27,6 +27,7 @@ class Landing extends React.Component {
 
 class Greet extends React.Component {
   render() {
+    const buttonStyle = { width: '260px', height: '51px' };
     return (
         <div className='eatereez-landing-background'>
           <Image
@@ -40,6 +41,7 @@ class Greet extends React.Component {
                 <Grid centered columns={2}>
                   <Grid.Column>
                     <Button as={NavLink} activeClassName="" exact to="/food"
+                            style={buttonStyle}
                             className='ui button' size='huge' floated='right'>Go to Restaurants List</Button>
                   </Grid.Column>
                   <Grid.Column>
@@ -49,6 +51,7 @@ class Greet extends React.Component {
                           size='big'
                           icon='search'
                           placeholder='Search...'
+                          style={buttonStyle}
                           // onChange={Landing.updateSearchName.bind(this)}
                           // value={Landing.state.searchName}
                       />
@@ -65,16 +68,31 @@ class Greet extends React.Component {
 
 class Info1 extends React.Component {
   render() {
-    const style = { float: 'right' };
+    const style = { float: 'center' };
     return (
-        <div className='landing-padding-top'>
+        <div className='landing-info'>
+          <Header as='h1' textAlign='center'>
+            We find the places to eat here at University of Hawaii at Manoa!
+          </Header>
           <Grid divided='vertically'>
-            <Grid.Row columns={2}>
+            <Grid.Row columns={3}>
               <Grid.Column>
-                <Icon className='info circle' size='massive' style={style}/>
+                <Header as='h2' textAlign='center'>
+                  Find what you want to eat and discovery new places!
+                </Header>
               </Grid.Column>
               <Grid.Column>
-                <p>This is some information</p>
+                <Header as='h2' textAlign='center'>
+                  You decide what you want to eat!
+                  Hungry for something particular? Search through the categories
+                </Header>
+              </Grid.Column>
+              <Grid.Column>
+                <Header as='h2' textAlign='center'>
+                  Vegetarian or vegan? No problem!
+                  We will find the restaurants for your diet.
+                </Header>
+                <Icon className='info circle' size='massive' textAlign='center'/>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -83,62 +101,46 @@ class Info1 extends React.Component {
   }
 }
 
-class igC extends React.Component {
-  image = '';
-
-  constructor(image) {
-    super();
-    this.image = image;
-  }
-
-  render() {
-    return (
-        <div className="each-fade">
-          <div className="image-container">
-            <img src={this.image}/>
-          </div>
-        </div>
-    );
-  }
-}
-
-
 class ImageCarousel extends React.Component {
 
   render() {
     const imageList = [
-        'images/eateerez-cover-image.png',
-        'images/panda-image.jpg',
-        'images/L&L-logo.jpg',
+        'images/paradise-palms.jpg',
+        'images/cc.jpg',
+        'images/cc2.jpg',
+        'images/campus.jpg',
     ];
 
     const fadeProperties = {
-      duration: 5000,
+      duration: 10000,
       transitionDuration: 500,
       infinite: true,
-      indicators: true,
+      indicators: false,
     };
 
-    const gridStyle = { height: '500px' };
-    const rowPadding = { paddingBottom: '38px' };
+    const imageStyle = { width: '800px', height: 'auto' };
 
     return (
         <div className='landing-caroursel'>
           <Fade {...fadeProperties}>
-            {/* {imageList.forEach(element => <igC(element)/>)} */}
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[0]}/>
+                <img className='ui rounded centered image' src={imageList[0]} style={imageStyle}/>
               </div>
             </div>
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[1]}/>
+                <img className='ui rounded image' src={imageList[1]} style={imageStyle}/>
               </div>
             </div>
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[2]}/>
+                <img className='ui rounded image' src={imageList[2]} style={imageStyle}/>
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img className='ui rounded image' src={imageList[3]} style={imageStyle}/>
               </div>
             </div>
           </Fade>
@@ -147,7 +149,15 @@ class ImageCarousel extends React.Component {
   }
 }
 
-
+class Info2 extends React.Component {
+  render() {
+    return (
+        <div className='landing-info'>
+          <Header as='h2'>Don&apos;t see what you&apos;re looking for? Login and add it to our list!</Header>
+        </div>
+    );
+  }
+}
 
 Landing.state = {
   searchName: '',
