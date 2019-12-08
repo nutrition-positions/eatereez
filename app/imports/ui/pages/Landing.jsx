@@ -18,6 +18,8 @@ class Landing extends React.Component {
           <Info1/>
           <div className="ui divider"></div>
           <ImageCarousel/>
+          <div className="ui divider"></div>
+
         </div>
     );
   }
@@ -122,36 +124,29 @@ class ImageCarousel extends React.Component {
 
     return (
         <div className='landing-caroursel'>
-          <Grid container verticalAlign='middle' style={gridStyle}>
-            <Grid.Row>
-              <Grid.Column style={gridStyle}>
-                <div className="slide-container">
-                  <Fade {...fadeProperties}>
-                    {/* {imageList.forEach(element => <igC(element)/>)} */}
-                    <div className="each-fade">
-                      <div className="image-container">
-                        <img className='ui fluid image' src={imageList[0]}/>
-                      </div>
-                    </div>
-                    <div className="each-fade">
-                      <div className="image-container">
-                        <img className='ui fluid image' src={imageList[1]}/>
-                      </div>
-                    </div>
-                    <div className="each-fade">
-                      <div className="image-container">
-                        <img className='ui fluid image' src={imageList[2]}/>
-                      </div>
-                    </div>
-                  </Fade>
-                </div>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+          <Fade {...fadeProperties}>
+            {/* {imageList.forEach(element => <igC(element)/>)} */}
+            <div className="each-fade">
+              <div className="image-container">
+                <img className='ui fluid image' src={imageList[0]}/>
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img className='ui fluid image' src={imageList[1]}/>
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img className='ui fluid image' src={imageList[2]}/>
+              </div>
+            </div>
+          </Fade>
         </div>
     );
   }
 }
+
 
 
 Landing.state = {
