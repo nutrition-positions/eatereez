@@ -1,7 +1,11 @@
 import React from 'react';
 import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import { Fade } from 'react-slideshow-image';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Restaurants } from '../../api/restaurant/Restaurants';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -14,12 +18,11 @@ class Landing extends React.Component {
     return (
         <div>
           <Greet/>
-          <div className="ui divider"></div>
           <Info1/>
-          <div className="ui divider"></div>
+          <div className="ui divider"/>
           <ImageCarousel/>
-          <div className="ui divider"></div>
-
+          <div className="ui divider"/>
+          <Info2/>
         </div>
     );
   }
@@ -27,6 +30,7 @@ class Landing extends React.Component {
 
 class Greet extends React.Component {
   render() {
+    const buttonStyle = { width: '260px', height: '51px' };
     return (
         <div className='eatereez-landing-background'>
           <Image
@@ -40,6 +44,7 @@ class Greet extends React.Component {
                 <Grid centered columns={2}>
                   <Grid.Column>
                     <Button as={NavLink} activeClassName="" exact to="/food"
+                            style={buttonStyle}
                             className='ui button' size='huge' floated='right'>Go to Restaurants List</Button>
                   </Grid.Column>
                   <Grid.Column>
@@ -49,6 +54,7 @@ class Greet extends React.Component {
                           size='big'
                           icon='search'
                           placeholder='Search...'
+                          style={buttonStyle}
                           // onChange={Landing.updateSearchName.bind(this)}
                           // value={Landing.state.searchName}
                       />
@@ -65,16 +71,31 @@ class Greet extends React.Component {
 
 class Info1 extends React.Component {
   render() {
-    const style = { float: 'right' };
     return (
-        <div className='landing-padding-top'>
-          <Grid divided='vertically'>
-            <Grid.Row columns={2}>
-              <Grid.Column>
-                <Icon className='info circle' size='massive' style={style}/>
+        <div className='landing-info1'>
+          <Header size='huge' textAlign='center'>
+            We find the places to eat here at University of Hawaii at Manoa!
+          </Header>
+          <Grid className='landing-info1-title'>
+            <Grid.Row columns={3} divided='vertically'>
+              <Grid.Column textAlign='center'>
+                <Icon size='huge' name='blue map'/>
+                <Header as='h2' textAlign='center' className='landing-info1-title'>
+                  Find what you want to eat and discovery new places!
+                </Header>
               </Grid.Column>
-              <Grid.Column>
-                <p>This is some information</p>
+              <Grid.Column textAlign='center'>
+                <Icon size='huge' name='orange food'/>
+                <Header as='h2' textAlign='center'>
+                  Hungry for something particular? We have search options that will help find what you need!
+                </Header>
+              </Grid.Column>
+              <Grid.Column textAlign='center'>
+                <Icon size='huge' name='green leaf'/>
+                <Header as='h2' textAlign='center'>
+                  Vegetarian or vegan? No problem!
+                  We will find the restaurants for your diet.
+                </Header>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -83,62 +104,49 @@ class Info1 extends React.Component {
   }
 }
 
-class igC extends React.Component {
-  image = '';
-
-  constructor(image) {
-    super();
-    this.image = image;
-  }
-
-  render() {
-    return (
-        <div className="each-fade">
-          <div className="image-container">
-            <img src={this.image}/>
-          </div>
-        </div>
-    );
-  }
-}
-
-
 class ImageCarousel extends React.Component {
-
   render() {
     const imageList = [
-        'images/eateerez-cover-image.png',
         'images/panda-image.jpg',
-        'images/L&L-logo.jpg',
+        'images/cc.jpg',
+        'images/cc2.jpg',
+        'images/campus.jpg',
     ];
 
     const fadeProperties = {
-      duration: 5000,
+      duration: 10000,
       transitionDuration: 500,
       infinite: true,
-      indicators: true,
+      indicators: false,
     };
 
-    const gridStyle = { height: '500px' };
-    const rowPadding = { paddingBottom: '38px' };
+    const imageStyle = { width: '800px', height: 'auto' };
 
     return (
         <div className='landing-caroursel'>
+          <Header as='h1'>Check out the top three places from out list</Header>
           <Fade {...fadeProperties}>
-            {/* {imageList.forEach(element => <igC(element)/>)} */}
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[0]}/>
+                <img className='ui rounded centered image'
+                     as={NavLink} activeClassName="" exact to={`/details/${this.props}`}
+                     src={imageList[0]} style={imageStyle}
+                     />
               </div>
             </div>
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[1]}/>
+                <img className='ui rounded image' src={imageList[1]} style={imageStyle}/>
               </div>
             </div>
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui fluid image' src={imageList[2]}/>
+                <img className='ui rounded image' src={imageList[2]} style={imageStyle}/>
+              </div>
+            </div>
+            <div className="each-fade">
+              <div className="image-container">
+                <img className='ui rounded image' src={imageList[3]} style={imageStyle}/>
               </div>
             </div>
           </Fade>
@@ -147,10 +155,27 @@ class ImageCarousel extends React.Component {
   }
 }
 
-
+class Info2 extends React.Component {
+  render() {
+    return (
+        <div className='landing-info'>
+          <Header as='h2'>Don&apos;t see what you&apos;re looking for? Login and add it to our list!</Header>
+        </div>
+    );
+  }
+}
 
 Landing.state = {
   searchName: '',
 };
 
-export default Landing;
+Info1.propTypes = {
+  restaurant: PropTypes.object.isRequired,
+  currentUser: PropTypes.string,
+};
+
+const LandingContainer = withTracker(() => ({
+  currentUser: Meteor.user() ? Meteor.user().username : '',
+}))(Landing);
+
+export default withRouter(LandingContainer);

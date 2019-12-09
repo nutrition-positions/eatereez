@@ -13,12 +13,23 @@
   padding-top: 50px;
 }
 
-.landing-padding-top {
-  padding-top: 20px;
-}
-
 .landing-text-color {
   color: #ffffff !important;
+}
+
+.landing-info{
+  height: 500px;
+  padding: 50px;
+}
+
+.landing-info1{
+  /*background: url('images/cc2-light.jpg') center center;*/
+  height: 375px;
+  padding: 50px;
+}
+
+.landing-info1-title{
+  padding-bottom: 80px !important;
 }
 
 .landing-caroursel {
@@ -54,17 +65,19 @@
 }
 
 .each-fade .image-container {
-  width: fit-content;
-  height: 465px;
-  overflow: hidden;
+  width: 85%;
+  height: 500px;
+  padding-left: 14px;
+  overflow: auto;
 }
 
 .each-fade .image-container img {
-  width: 100%;
+  width: 85%;
+  height: 400px;
 }
 
 .each-fade h2 {
-  width: 100%;
+  width: 85%;
   display: flex;
   justify-contents: center;
   align-items: center;
