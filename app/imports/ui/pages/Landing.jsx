@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
 import { Fade } from 'react-slideshow-image';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -102,10 +103,9 @@ class Info1 extends React.Component {
 }
 
 class ImageCarousel extends React.Component {
-
   render() {
     const imageList = [
-        'images/paradise-palms.jpg',
+        'images/panda-image.jpg',
         'images/cc.jpg',
         'images/cc2.jpg',
         'images/campus.jpg',
@@ -122,10 +122,14 @@ class ImageCarousel extends React.Component {
 
     return (
         <div className='landing-caroursel'>
+          <Header as='h1'>Check out the top three places from out list</Header>
           <Fade {...fadeProperties}>
             <div className="each-fade">
               <div className="image-container">
-                <img className='ui rounded centered image' src={imageList[0]} style={imageStyle}/>
+                <img className='ui rounded centered image'
+                     as={NavLink} activeClassName="" exact to={`/details/${this.props}`}
+                     src={imageList[0]} style={imageStyle}
+                     />
               </div>
             </div>
             <div className="each-fade">
@@ -161,6 +165,10 @@ class Info2 extends React.Component {
 
 Landing.state = {
   searchName: '',
+};
+
+Info1.propTypes = {
+  restaurant: PropTypes.object.isRequired,
 };
 
 export default Landing;
