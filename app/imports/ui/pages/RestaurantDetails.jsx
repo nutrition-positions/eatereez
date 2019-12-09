@@ -77,11 +77,12 @@ class RestaurantDetails extends React.Component {
             </Grid.Column>
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
-              <Header as='h4'>{this.props.doc.description}</Header>
-              <Header as='h4'>{this.props.doc.rating} / 5 <Icon name='star' /></Header>
-              <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
-              <Header as='h4'>Address: {this.props.doc.address}</Header>
-              <Header as='h3'>WE SHOULD MAKE A THING HERE THAT FORMATS THE MENU OF THE RESTAURANT NICELY.</Header>
+              <p>{this.props.doc.description}</p>
+              <p>{this.props.doc.rating} / 5 <Icon name='star' /></p>
+              <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
+              <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
+              <Header textAlign='center' as='h4' attached='top'>{this.props.doc.name} Menu</Header>
+              <Segment attached>Menu goes here{this.props.doc.menu}</Segment>
             </Grid.Column>
           </Grid.Row></Grid>
     );
