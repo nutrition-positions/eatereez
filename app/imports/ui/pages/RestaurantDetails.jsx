@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Image } from 'semantic-ui-react';
+import { Grid, Loader, Header, Image, Container, Icon } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -18,14 +18,53 @@ class RestaurantDetails extends React.Component {
   renderPage() {
     return (
         <Grid container centered>
-          <Grid.Column>
+          <Grid.Row>
+            <Grid.Column>
             <Header as="h2" textAlign="center">{this.props.doc.name}</Header>
-            <Image size='medium' src={this.props.doc.image}/>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <Container>
+            <Image size='small' src={this.props.doc.logo}/>
+              </Container>
+            </Grid.Column>
+            <Grid.Column width={12}>
             <Header as='h4'>{this.props.doc.description}</Header>
-            <Header as='h4'>{this.props.doc.rating} / 5 stars</Header>
-            <Header as='h4'>Phone number: {this.props.doc.phoneNumber}</Header>
-            <Header as='h4'>Address: {this.props.doc.address}</Header>
-          </Grid.Column>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={4}>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Header as='h4'>{this.props.doc.rating} / 5
+                <Icon name='star' color='yellow' />
+            </Header>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Header as='h4'>{this.props.doc.phoneNumber}</Header>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Header as='h4'>{this.props.doc.hours}</Header>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={4}>
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <Header as='h4'>Website URL: {this.props.doc.website}</Header>
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <Header as='h4'>Menu URL: {this.props.doc.menu}</Header>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={4}>
+            </Grid.Column>
+            <Grid.Column width={12}>
+              <Header as='h4'>Address: {this.props.doc.address}</Header>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
     );
   }

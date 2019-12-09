@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid } from 'semantic-ui-react';
+import { Header, Image, Grid, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -9,12 +9,14 @@ class RestaurantDetails extends React.Component {
     return (
         <Grid.Row >
           <Grid.Column width={5}>
-            <Image size='large' src={this.props.restaurant.image} />
+            <Image size='large' src={this.props.restaurant.logo} />
           </Grid.Column>
           <Grid.Column width={5}>
             <Header as='h1'>{this.props.restaurant.name}</Header>
             <Header as='h4'>{this.props.restaurant.description}</Header>
-            <Header as='h4'>{this.props.restaurant.rating} / 5 stars</Header>
+            <Header as='h4'>{this.props.restaurant.rating} / 55
+              <Icon name='star' color='yellow' /></Header>
+          </Header>
             <Header as='h4'>Phone number: {this.props.restaurant.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.restaurant.address}</Header>
           </Grid.Column>
