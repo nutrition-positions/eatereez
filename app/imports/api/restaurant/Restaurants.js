@@ -13,7 +13,7 @@ const RestaurantsSchema = new SimpleSchema({
   phoneNumber: String,
   address: String,
   owner: String,
-  image: String,
+  logo: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
