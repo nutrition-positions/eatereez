@@ -36,6 +36,10 @@ class Greet extends React.Component {
           <Image
               className='eatereez-landing-logo'
               size='huge' src='images/eatereez-logo-text.png' centered/>
+          {/* {this.props.currentUser !== '' ? */}
+          {/*    <Header as='h1' className='landing-text-color' textAlign='center' */}
+          {/*    >Hello, {this.props.currentUser.userName}.</Header> */}
+          {/* : ''} */}
           <div className='landing-padding-top'>
             <Grid stackable centered container columns={1}>
               <Grid.Column textAlign='center'>
@@ -77,21 +81,21 @@ class Info1 extends React.Component {
             We find the places to eat here at University of Hawaii at Manoa!
           </Header>
           <Grid className='landing-info1-title'>
-            <Grid.Row columns={3} divided='vertically'>
+            <Grid.Row columns={3} divided={true}>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='blue map'/>
+                <Icon size='huge' name='map' color='blue'/>
                 <Header as='h2' textAlign='center' className='landing-info1-title'>
                   Find what you want to eat and discovery new places!
                 </Header>
               </Grid.Column>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='orange food'/>
+                <Icon size='huge' name='food' color='orange'/>
                 <Header as='h2' textAlign='center'>
                   Hungry for something particular? We have search options that will help find what you need!
                 </Header>
               </Grid.Column>
               <Grid.Column textAlign='center'>
-                <Icon size='huge' name='green leaf'/>
+                <Icon size='huge' name='leaf' color='green'/>
                 <Header as='h2' textAlign='center'>
                   Vegetarian or vegan? No problem!
                   We will find the restaurants for your diet.
@@ -129,7 +133,6 @@ class ImageCarousel extends React.Component {
             <div className="each-fade">
               <div className="image-container">
                 <img className='ui rounded centered image'
-                     as={NavLink} activeClassName="" exact to={`/details/${this.props}`}
                      src={imageList[0]} style={imageStyle}
                      />
               </div>
@@ -159,7 +162,9 @@ class Info2 extends React.Component {
   render() {
     return (
         <div className='landing-info'>
-          <Header as='h2'>Don&apos;t see what you&apos;re looking for? Login and add it to our list!</Header>
+          <Header as='h2'>Don&apos;t see what you&apos;re looking for? Login and add it to our list!<br/></Header>
+          <Header as='h2'>Click here to login!<br/>
+          </Header>
         </div>
     );
   }
@@ -167,11 +172,6 @@ class Info2 extends React.Component {
 
 Landing.state = {
   searchName: '',
-};
-
-Info1.propTypes = {
-  restaurant: PropTypes.object.isRequired,
-  currentUser: PropTypes.string,
 };
 
 const LandingContainer = withTracker(() => ({
