@@ -1,8 +1,11 @@
 import React from 'react';
 import { Header, Image, Input, Grid, Button, Icon } from 'semantic-ui-react';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import { Fade } from 'react-slideshow-image';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Restaurants } from '../../api/restaurant/Restaurants';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -15,11 +18,10 @@ class Landing extends React.Component {
     return (
         <div>
           <Greet/>
-          {/*<div className="ui divider"/>*/}
           <Info1/>
-          {/*<div className="ui divider"/>*/}
+          <div className="ui divider"/>
           <ImageCarousel/>
-          {/*<div className="ui divider"/>*/}
+          <div className="ui divider"/>
           <Info2/>
         </div>
     );
@@ -169,6 +171,11 @@ Landing.state = {
 
 Info1.propTypes = {
   restaurant: PropTypes.object.isRequired,
+  currentUser: PropTypes.string,
 };
 
-export default Landing;
+const LandingContainer = withTracker(() => ({
+  currentUser: Meteor.user() ? Meteor.user().username : '',
+}))(Landing);
+
+export default withRouter(LandingContainer);
