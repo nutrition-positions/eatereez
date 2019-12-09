@@ -14,8 +14,8 @@ const SubmitSchema = new SimpleSchema({
     required: false,
   },
   hours: String,
-  menu: String,
-  description: String,
+  menu:  },
+    description: String,
   website: {
     type: String,
     required: false,
