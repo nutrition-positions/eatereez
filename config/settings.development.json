@@ -11,7 +11,7 @@
       "rating": "3.5",
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "images/Panda-Express-Logo.png",
+      "logo" : "images/Panda-Express-Logo.png",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
     },
@@ -21,7 +21,7 @@
       "rating": "4.5",
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "images/le-crepe-cafe-logo.png",
+      "logo" : "images/le-crepe-cafe-logo.png",
       "owner": "john@foo.com"
     },
     {
@@ -30,7 +30,7 @@
       "rating": "4",
       "phoneNumber": "(808) 396-3885",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "images/L&L-logo.jpg",
+      "logo" : "images/L&L-logo.jpg",
       "owner": "john@foo.com"
     },
     {
@@ -39,7 +39,7 @@
       "rating": "3",
       "phoneNumber": "(808) 489-9474",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "http://www.honolulugourmetfoods.com/wp-content/uploads/2015/04/logo-hgf-501x241.gif",
+      "logo" : "http://www.honolulugourmetfoods.com/wp-content/uploads/2015/04/logo-hgf-501x241.gif",
       "owner": "john@foo.com"
     },
     {
@@ -48,7 +48,7 @@
       "rating": "4.5",
       "phoneNumber": "(808) 941-1313",
       "address": "2424 Maile Way, Honolulu, HI 96822",
-      "image" : "images/Da-Spot-Logo.png",
+      "logo" : "images/Da-Spot-Logo.png",
       "owner": "john@foo.com"
     },
     {
@@ -57,7 +57,7 @@
       "rating": "4",
       "phoneNumber": "(808) 469-2505",
       "address": "2500 Campus Rd, Honolulu, HI 96822",
-      "image" : "images/Kamitoku-ramen-logo.png",
+      "logo" : "images/Kamitoku-ramen-logo.png",
       "owner": "john@foo.com"
     },    {
       "name": "Lasoon",
@@ -65,7 +65,7 @@
       "rating": "4",
       "phoneNumber": "N/A",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "images/Lasoon-logo.png",
+      "logo" : "images/Lasoon-logo.png",
       "owner": "john@foo.com"
     },
     {
@@ -74,7 +74,7 @@
       "rating": "3.5",
       "phoneNumber": "N/A",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
-      "image" : "images/holoholo-grill-logo.png",
+      "logo" : "images/holoholo-grill-logo.png",
       "owner": "john@foo.com"
     },
     {
@@ -83,7 +83,7 @@
       "rating": "4",
       "phoneNumber": "(808) 956-6462",
       "address": "2445 Campus Rd, Honolulu, HI 96822",
-      "image" : "images/ba-le-logo.jpg",
+      "logo" : "images/ba-le-logo.jpg",
       "owner": "john@foo.com"
     }
   ],
