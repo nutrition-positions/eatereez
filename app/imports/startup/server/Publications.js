@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Submits } from '../../api/submit/Submits';
+import { Reviews } from '../../api/review/Reviews';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
@@ -47,4 +48,8 @@ Meteor.publish('SubmitsAdmin', function publish() {
     return Submits.find();
   }
   return this.ready();
+});
+
+Meteor.publish('Reviews', function publish() {
+  return Reviews.find();
 });

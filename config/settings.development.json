@@ -4,27 +4,25 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
-
   "defaultRestaurants": [
     {
       "name": "Panda Express",
       "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
       "rating": "3.5",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/Panda-Express-Logo.png",
-      "owner": "john@foo.com"
+      "owner": "john@foo.com",
+      "_id": "cd8Yp98TZpR4fnpqT"
     },
     {
       "name": "Le Crepe Cafe",
       "description": "Now Serving A Full Breakfast Menu Sweet & savory crepes, Acai bowls , coffees, espresso drinks GlutenFree and Vegan Crepes available! waffle, smoothies, sandwiches, pasta.",
       "rating": "4.5",
+      "website": "N/A",
+      "hours": "08:00-16:00",
       "phoneNumber": "(808) 956-7229",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/le-crepe-cafe-logo.png",
@@ -34,6 +32,8 @@
       "name": "L&L Hawaiian Barbecue",
       "description": "Island-themed fast-food chain whose menu features traditional Hawaiian plate lunches.",
       "rating": "4",
+      "website": "N/A",
+      "hours": "08:00-16:00",
       "phoneNumber": "(808) 396-3885",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/L&L-logo.jpg",
@@ -43,6 +43,8 @@
       "name": "Honolulu Gourmet Foods Cafe",
       "description": "Honolulu Gourmet Foods Cafe features healthy, locally grown salads, sandwiches, poke bowls, and grab-and-go items at affordable prices.",
       "rating": "3",
+      "website": "N/A",
+      "hours": "08:00-16:00",
       "phoneNumber": "(808) 489-9474",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "http://www.honolulugourmetfoods.com/wp-content/uploads/2015/04/logo-hgf-501x241.gif",
@@ -52,6 +54,8 @@
       "name": "Da Spot",
       "description": "Da Spot Health Foods & Juices offers diverse, healthy and affordable cuisine with a unique take on tasty dishes from around the world. Da Spot specializes in Mediterranean and North African food with vegan and specialty meat options that can be certified halal or kosher.",
       "rating": "4.5",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "(808) 941-1313",
       "address": "2424 Maile Way, Honolulu, HI 96822",
       "logo" : "images/Da-Spot-Logo.png",
@@ -61,6 +65,8 @@
       "name": "Kamitoku Ramen",
       "description": "Kamitoku Ramen specializes in a Tottori-style beef bone ramen.",
       "rating": "4",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "(808) 469-2505",
       "address": "2500 Campus Rd, Honolulu, HI 96822",
       "logo" : "images/Kamitoku-ramen-logo.png",
@@ -69,6 +75,8 @@
       "name": "Lasoon",
       "description": "Lasoon offers something for everyone with their signature exotic South Indian and Malaysian cuisine.",
       "rating": "4",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "N/A",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/Lasoon-logo.png",
@@ -78,6 +86,8 @@
       "name": "Holoholo Grill",
       "description": "Holoholo Grill features healthy locally grown salads, sandwiches, poke bowls and  grab and go items at affordable prices.",
       "rating": "3.5",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "N/A",
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/holoholo-grill-logo.png",
@@ -87,6 +97,8 @@
       "name": "Ba-Le",
       "description": "Pastries, sandwiches, and pre-made salads are some of their quick lunch options. Popular items at Ba-Le include pho, pad thai, and banh mi sandwiches.",
       "rating": "4",
+      "hours": "08:00-16:00",
+      "website": "N/A",
       "phoneNumber": "(808) 956-6462",
       "address": "2445 Campus Rd, Honolulu, HI 96822",
       "logo" : "images/ba-le-logo.jpg",
@@ -99,8 +111,77 @@
       "submissionName": "L&L",
       "location": "The place by hamilton",
       "hours": "they have them!",
+      "phoneNumber": "N/A",
+      "address": "paradise palms",
       "menu": "theres food believe it or not",
+      "description": "tasty fooooooods",
       "submittedAt": "date has been implemented but only works when adding submits via the database?",
       "submittedBy": "john@foo.com"
+    }],
+
+  "defaultReviews": [
+    {
+      "title": "love these crepes",
+      "description": "so good whether i get a BLT or a PBJ, it just melts in my mouth",
+      "stars": "5",
+      "restaurantId": "uXQmFgYth7Wzv8y8F",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-16"
+    },
+    {
+      "title": "hits da spot",
+      "description": "some really tasty food , and healthy too!",
+      "stars": "0",
+      "restaurantId": "TTkn7iBWttAKvdd2H",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-13"
+    },
+    {
+      "title": "finger licking good",
+      "description": "I can't get enough of their chicken, whether its the katsu, curry, or BBQ!",
+      "stars": "5",
+      "restaurantId": "QYB4HPA3XNqLoWkHK",
+      "owner": "john@foo.com",
+      "createdAt": "2019-10-03"
+    },
+    {
+      "title": "and I already thought Chinese food was bad...",
+      "description": "if you want boring, bland, expensive 'chinese' food, go here",
+      "stars": "1",
+      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "owner": "john@foo.com",
+      "createdAt": "2019-11-13"
+    },
+    {
+      "title": "pretty good food, but not much of it",
+      "description": "very tasty, but small portions.  Also I think beef is an ingredient in everything but the soda",
+      "stars": "4",
+      "restaurantId": "vjMLMvQ7r5xcqN7Gf",
+      "owner": "john@foo.com",
+      "createdAt": "2019-01-23"
+    },
+    {
+      "title": "good selection, mildly expensive",
+      "description": "lots to choose from, but taste and prices aren't great",
+      "stars": "3",
+      "restaurantId": "yLPS2XBoJfq5csp84",
+      "owner": "john@foo.com",
+      "createdAt": "2019-09-21"
+    },
+    {
+      "title": "I love Pandas",
+      "description": "such tasty meats and sauces",
+      "stars": "5",
+      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "owner": "john@foo.com",
+      "createdAt": "2019-02-22"
+    },
+    {
+      "title": "idk why but i can't get enough",
+      "description": "for some reason i could eat here all day.  I tell you, it's worth the high blood pressure!",
+      "stars": "5",
+      "restaurantId": "cd8Yp98TZpR4fnpqT",
+      "owner": "john@foo.com",
+      "createdAt": "2019-01-09"
     }]
 }

@@ -9,12 +9,21 @@ const Submits = new Mongo.Collection('Submits');
 const SubmitSchema = new SimpleSchema({
   submissionName: String,
   address: String,
-  phoneNumber: String,
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
   hours: String,
   menu: String,
   description: String,
-  website: String,
-  logo: String,
+  website: {
+    type: String,
+    required: false,
+  },
+  logo: {
+    type: String,
+    required: false,
+  },
   submittedBy: String,
   submittedAt: String,
 }, { tracker: Tracker });
