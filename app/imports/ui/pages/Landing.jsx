@@ -15,11 +15,11 @@ class Landing extends React.Component {
     return (
         <div>
           <Greet/>
-          <div className="ui divider"/>
+          {/*<div className="ui divider"/>*/}
           <Info1/>
-          <div className="ui divider"/>
+          {/*<div className="ui divider"/>*/}
           <ImageCarousel/>
-          <div className="ui divider"/>
+          {/*<div className="ui divider"/>*/}
           <Info2/>
         </div>
     );
