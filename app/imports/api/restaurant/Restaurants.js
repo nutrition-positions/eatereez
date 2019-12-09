@@ -9,11 +9,13 @@ const Restaurants = new Mongo.Collection('Restaurants');
 const RestaurantsSchema = new SimpleSchema({
   name: String,
   description: String,
+  hours: String,
   rating: String,
   phoneNumber: String,
   address: String,
+  website: String,
   owner: String,
-  image: String,
+  logo: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

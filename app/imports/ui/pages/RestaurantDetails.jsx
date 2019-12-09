@@ -54,9 +54,9 @@ class RestaurantDetails extends React.Component {
     const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc._id));
     return (
         <Grid container centered>
-          <Grid.Row >
+          <Grid.Row>
             <Grid.Column width={5}>
-              <Image size='huge' src={this.props.doc.image} />
+              <Image size='huge' src={this.props.doc.logo} />
               <CommentGroup>
                 {filtered.map((review, index) => <Review
                      key={index} review={filtered[index]}/>)}
@@ -78,7 +78,7 @@ class RestaurantDetails extends React.Component {
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
               <p>{this.props.doc.description}</p>
-              <p>{this.props.doc.rating} / 5 <Icon name='star' /></p>
+              <p>{this.props.doc.rating} / 5 <Icon name='star' color='yellow'/></p>
               <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
               <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
               <Header textAlign='center' as='h4' attached='top'>{this.props.doc.name} Menu</Header>
