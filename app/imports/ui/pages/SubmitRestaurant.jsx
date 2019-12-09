@@ -1,5 +1,4 @@
 import React from 'react';
-import { Submits } from '/imports/api/submit/Submits.js';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -9,6 +8,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import { Submits } from '/imports/api/submit/Submits';
 import SimpleSchema from 'simpl-schema';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
@@ -50,7 +50,7 @@ class SubmitRestaurant extends React.Component {
                 <TextField label='Restaurant Name:' name='submissionName'/>
                 <TextField label='Restaurant Location:' name='location'/>
                 <TextField label='Restaurant Hours:' name='hours'/>
-                <TextField label='Restaurant Menu: (optional)' name='menu'/>
+                <TextField label='Restaurant Menu:' name='menu'/>
                 <HiddenField name='submittedAt' value={new Date()}/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
