@@ -127,10 +127,11 @@
   "defaultSubmits": [
     {
       "submissionName": "L&L",
-      "address": "The place by hamilton",
       "hours": "they have them!",
       "menu": "theres food believe it or not",
       "address": "At a place",
+      "location": "Around here somewhere",
+      "logo": "images/paradise-palms.jpg",
       "website": "www.pandaexpress.com",
       "submittedAt": "2019-11-16",
       "submittedBy": "john@foo.com"

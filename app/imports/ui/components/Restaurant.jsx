@@ -11,17 +11,17 @@ class Restaurant extends React.Component {
         <div>
           <Segment raised>
           <Grid>
-              <Grid.Column container width={2} centered>
+              <Grid.Column width={2}>
                 <Grid.Row>
                   <Divider hidden />
-                  <Image fluid left src={this.props.restaurant.logo} />
+                  <Image fluid src={this.props.restaurant.logo} />
                 </Grid.Row>
               </Grid.Column>
             <Grid.Column width={7}>
               <Grid.Row>
-                <Header as='h1' centered><Link color='black' to={`/details/${this.props.restaurant._id}`}>
+                <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
                   {this.props.restaurant.name}</Link>
-                  <Label as='h4' color='blue'>
+                  <Label color='blue'>
                     Rating
                     <Label.Detail>{this.props.restaurant.rating} / 5</Label.Detail>
                     <Icon name='star' color='yellow' />
@@ -29,7 +29,6 @@ class Restaurant extends React.Component {
                 </Header>
               </Grid.Row>
               <Grid.Row>
-
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
@@ -39,26 +38,26 @@ class Restaurant extends React.Component {
               <Grid.Column width={3} >
                 <Divider hidden />
                 <Grid.Row>
-                  <Header as='h4' textAlign='left'>Phone number: </Header>
-                </Grid.Row>
-                <Grid.Row>
-                  <Header as='h4' textAlign='left'>{this.props.restaurant.phoneNumber}</Header>
-                </Grid.Row>
-                <Divider hidden />
-                <Grid.Row>
                   <Header as='h4' textAlign='left'>Hours: </Header>
                 </Grid.Row>
                 <Grid.Row>
                   <Header as='h4' textAlign='left'>{this.props.restaurant.hours}</Header>
                 </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                  <Header as='h4' textAlign='left'>Phone number: </Header>
+                </Grid.Row>
+                <Grid.Row>
+                  <Header as='h4' textAlign='left'>{this.props.restaurant.phoneNumber}</Header>
+                </Grid.Row>
               </Grid.Column>
             <Grid.Column width={4}>
               <Divider hidden />
               <Grid.Row>
-                <Header as='h4' textAlign='left'>Address: </Header>
+                <Header as='h4' textAlign='left'>Location: </Header>
               </Grid.Row>
               <Grid.Row>
-                <Header as='h4' textAlign='left'>{this.props.restaurant.address}</Header>
+                <Header as='h4' textAlign='left'>{this.props.restaurant.location}</Header>
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
