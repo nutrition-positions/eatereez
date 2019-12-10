@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid, Divider, Icon } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider, Icon, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -10,24 +10,48 @@ class Restaurant extends React.Component {
     return (
         <div>
           <Grid>
-            <Grid.Row >
-              <Grid.Column width={5}>
-                <a to={`/details/${this.props.restaurant._id}`}>
-                  <Image size='large' centered src={this.props.restaurant.logo} />
-                </a>
+              <Grid.Column container width={2} floated='center'>
+                <Grid.Row>
+                <Image fluid left src={this.props.restaurant.logo} />
+                </Grid.Row>
               </Grid.Column>
-              <Grid.Column width={5}>
-                <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
+            <Grid.Column width={6}>
+              <Grid.Row>
+                <Header as='h1' centered><Link color='black' to={`/details/${this.props.restaurant._id}`}>
                   {this.props.restaurant.name}</Link></Header>
-                <Header as='h4'>{this.props.restaurant.description}</Header>
-                <Header as='h4'>{this.props.restaurant.rating} / 5
-                  <Icon name='star' color='yellow' /></Header>
-                <Header as='h4'>Phone number: {this.props.restaurant.phoneNumber}</Header>
-                <Header as='h4'>Hours: {this.props.restaurant.hours}</Header>
-                <Header as='h4'>Address: {this.props.restaurant.address}</Header>
-                <Header as='h4'>Website URL: {this.props.restaurant.website}</Header>
+              </Grid.Row>
+              <Grid.Row>
+                <Label as='h4' floated='left'>
+                  Rating
+                  <Label.Detail>{this.props.restaurant.rating} / 5</Label.Detail>
+                  <Icon name='star' color='yellow' />
+                </Label>
+              </Grid.Row>
+              <Divider hidden />
+              <Grid.Row>
+              <Header as='h4' textAlign='left'>{this.props.restaurant.description}</Header>
+              </Grid.Row>
+            </Grid.Column>
+              <Grid.Column width={6} >
+                <Grid.Row>
+                    <Header as='h4' textAlign='left'>Phone number: {this.props.restaurant.phoneNumber}</Header>
+                </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                    <Header as='h4' textAlign='left'>Hours: {this.props.restaurant.hours}</Header>
+                </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                    <Header as='h4' textAlign='left'>Address: {this.props.restaurant.address}</Header>
+                </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                <Header as='h4' textAlign='left'>Website URL: {this.props.restaurant.website}</Header>
+                </Grid.Row>
               </Grid.Column>
-            </Grid.Row>
           </Grid>
           <Divider/>
         </div>

@@ -10,7 +10,10 @@ const RestaurantsSchema = new SimpleSchema({
   name: String,
   description: String,
   rating: String,
-  phoneNumber: String,
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
   address: String,
   owner: String,
   logo: String,

@@ -105,7 +105,7 @@ class ListRestaurant extends React.Component {
     return (
         <div>
           <Container className='List-spacing'>
-            <Header as='h2' textAlign='center'>List Restaurant</Header>
+            <Header as='h2' textAlign='center'>Manoa Eatery Search</Header>
             <Grid>
               <Grid.Row columns={4}>
                 <Grid.Column>
