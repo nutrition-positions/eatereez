@@ -17,6 +17,7 @@ const formSchema = new SimpleSchema({
   submissionName: String,
   address: String,
   hours: String,
+  location: String,
   phoneNumber: {
     type: String,
     required: false,
@@ -83,7 +84,11 @@ class SubmitRestaurant extends React.Component {
                            placeholder='e.g. 08:00AM - 04:30PM'/>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={2}>
+            <Grid.Row columns={3}>
+              <Grid.Column>
+                <TextField label='Restaurant Location:' name='location'
+                           placeholder='e.g. Paradise Palms'/>
+              </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Address:' name='address'
                            placeholder='e.g. 123 Manoa Lane'/>

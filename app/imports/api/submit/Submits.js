@@ -10,6 +10,7 @@ const SubmitSchema = new SimpleSchema({
   submissionName: String,
   address: String,
   hours: String,
+  location: String,
   phoneNumber: {
     type: String,
     required: false,
