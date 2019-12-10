@@ -81,7 +81,7 @@ class ListRestaurant extends React.Component {
   getRestaurantList() {
     let list = [];
     list = this.props.restaurants.filter(
-        (items) => items.name.indexOf(this.state.searchName) !== -1,
+        (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
     );
 
     list = list.filter(
