@@ -1,19 +1,26 @@
 import React from 'react';
-import { Button, Grid, Header, Image, Input } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import { withRouter, NavLink } from 'react-router-dom';
+import { Button, Grid, Header, Image, Input, Loader } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 class Greet extends React.Component {
+
   render() {
+    return (this.props.currentUser !== 'undefined') ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     const buttonStyle = { width: '260px', height: '51px' };
     return (
         <div className='eatereez-landing-background'>
           <Image
               className='eatereez-landing-logo'
               size='huge' src='images/eatereez-logo-text.png' centered/>
-          {/* {console.log(`this.props.currentUser = ${this.props.currentUser}`)} */}
-          {/*   {this.props.currentUser === '' ? '' */}
-          {/*   : <Header as='h1' className='landing-text-color' textAlign='center' */}
-          {/*       >Hello, {Meteor.user()}.</Header>} */}
+             {this.props.currentUser === '' ? ''
+             : <Header as='h1' className='landing-text-color' textAlign='center'
+                 >Hello, {this.props.currentUser}.</Header>}
           <div className='landing-padding-top'>
             <Grid stackable centered container columns={1}>
               <Grid.Column textAlign='center'>
@@ -47,4 +54,15 @@ class Greet extends React.Component {
   }
 }
 
-export default Greet;
+/** Declare the types of all properties. */
+Greet.propTypes = {
+  currentUser: PropTypes.string,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+const GreetContainer = withTracker(() => ({
+  currentUser: Meteor.user() ? Meteor.user().username : '',
+}))(Greet);
+
+/** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
+export default withRouter(GreetContainer);
