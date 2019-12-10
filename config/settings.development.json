@@ -13,6 +13,7 @@
       "address": "2560 McCarthy Mall, Honolulu, HI 96822",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
+      "website": "www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
     },
@@ -100,7 +101,7 @@
   "defaultSubmits": [
     {
       "submissionName": "L&L",
-      "location": "The place by hamilton",
+      "address": "The place by hamilton",
       "hours": "they have them!",
       "menu": "theres food believe it or not",
       "submittedAt": "date has been implemented but only works when adding submits via the database?",

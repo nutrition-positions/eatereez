@@ -20,7 +20,8 @@ class RestaurantDetails extends React.Component {
             <Header as='h4'>Phone number: {this.props.restaurant.phoneNumber}</Header>
             <Header as='h4'>Address: {this.props.restaurant.address}</Header>
             <Feed>
-              {this.props.reviews.map((review, index) => <Review key={index} review={review} restaurantId={this.props.restaurant._id}/>)}
+              {this.props.reviews.map((review, index) => <Review key={index} review={review}
+                                                                 restaurantId={this.props.restaurant._id}/>)}
             </Feed>
                 <Header as='h1'><Link color='black' to={`/submit-review/${this.props.restaurant._id}`}>
                 Submit a review...</Link></Header>

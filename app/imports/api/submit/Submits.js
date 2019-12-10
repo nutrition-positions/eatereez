@@ -22,6 +22,10 @@ const SubmitSchema = new SimpleSchema({
     type: String,
     required: false,
   },
+  image: {
+    type: String,
+    required: false,
+  },
   submittedBy: String,
   submittedAt: String,
 }, { tracker: Tracker });
