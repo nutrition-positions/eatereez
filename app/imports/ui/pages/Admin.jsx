@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import ReviewAdmin from '../components/ReviewAdmin';
 import { Submits } from '../../api/submit/Submits';
 import { Reports } from '../../api/report/Report';
+import { Reviews } from '../../api/review/Reviews';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Admin extends React.Component {
@@ -22,11 +23,15 @@ class Admin extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Submitted Restaurants</Header>
           <Card.Group>
-            {this.props.submits.map((submit, index) => <RestaurantAdmin key={index} submit={submit}/>)}
+            {this.props.submits.map((submit, index) => <RestaurantAdmin
+                key={index}
+                submit={submit}/>)}
           </Card.Group>
           <Header as="h2" textAlign="center">Reported Reviews</Header>
-          <Card.Group>{this.props.reports.map((report, index) => <ReviewAdmin key={index}
-                                                                              report={report}/>)}</Card.Group>
+          <Card.Group>{this.props.reports.map((report, index) => <ReviewAdmin
+              key={index}
+              report={report}
+              review={this.props.reviews.filter((review) => (review._id === report.reviewId))}/>)}</Card.Group>
         </Container>
     );
   }
@@ -36,6 +41,7 @@ class Admin extends React.Component {
 Admin.propTypes = {
   submits: PropTypes.array.isRequired,
   reports: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -44,9 +50,11 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('SubmitsAdmin');
   const subscription2 = Meteor.subscribe('Reports');
+  const subscription3 = Meteor.subscribe('Reviews');
   return {
     submits: Submits.find({}).fetch(),
     reports: Reports.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    reviews: Reviews.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(Admin);

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Reviews } from '../../api/review/Reviews';
 import { Reports } from '../../api/report/Report';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ReviewAdmin extends React.Component {
@@ -13,22 +14,19 @@ class ReviewAdmin extends React.Component {
   unreport = () => Reports.remove(this.props.report._id)
 
   render() {
-
-    const filteredReview = Reviews.find({}, { _id: this.props.report.reviewId });
-
     return (
         <Card centered>
           <Card.Content>
             <Card.Header>
-              {filteredReview.title}</Card.Header>
-            <Card.Meta>{filteredReview.owner}</Card.Meta>
+              {this.props.review.title}</Card.Header>
+            <Card.Meta>{this.props.review.owner}</Card.Meta>
             <Card.Description>
-              Rating: {filteredReview.stars} <br />
-              Review description: {filteredReview.description} <br />
+              Rating: {this.props.review.stars} <br />
+              Review description: {this.props.review.description} <br />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            {filteredReview.createdAt}
+            {this.props.review.createdAt}
           </Card.Content>
           <Card.Content>
             <Comment.Group>
@@ -68,10 +66,4 @@ ReviewAdmin.propTypes = {
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withTracker(() => {
-  const subscription2 = Meteor.subscribe('Reviews');
-  return {
-    review: Reviews.find({}).fetch(),
-    ready: subscription2.ready(),
-  };
-})(ReviewAdmin);
+export default withRouter(ReviewAdmin);
