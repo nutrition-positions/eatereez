@@ -17,6 +17,8 @@ const formSchema = new SimpleSchema({
   submissionName: String,
   address: String,
   hours: String,
+  location: String,
+
   phoneNumber: {
     type: String,
     required: false,
@@ -25,7 +27,8 @@ const formSchema = new SimpleSchema({
     type: String,
     required: false,
   },
-  logo: {
+  logo: String,
+  image: {
     type: String,
     required: false,
   },
@@ -39,10 +42,12 @@ class SubmitRestaurant extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { submissionName, address, hours, menu, phoneNumber, logo, website, description, submittedAt } = data;
+    const { submissionName, address, hours, menu, phoneNumber, location, image,
+            logo, website, description, submittedAt } = data;
     const submittedBy = Meteor.user().username;
     Submits.insert({
-          submissionName, address, hours, menu, phoneNumber, logo, website, description, submittedAt, submittedBy },
+          submissionName, address, hours, menu, phoneNumber, location, image,
+          logo, website, description, submittedAt, submittedBy },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -66,7 +71,8 @@ class SubmitRestaurant extends React.Component {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <Header as="h4" textAlign="center">Submit a request for us to add your favorite restaurant!</Header>
+                <Header as="h4" textAlign="center">Fill out this form, and
+                  we may add your favorite restaurant!</Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>
@@ -83,26 +89,34 @@ class SubmitRestaurant extends React.Component {
                            placeholder='e.g. 08:00AM - 04:30PM'/>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={2}>
+            <Grid.Row columns={3}>
+              <Grid.Column>
+                <TextField label='Restaurant Location:' name='location'
+                           placeholder='Paradise Palms'/>
+              </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Address:' name='address'
-                           placeholder='e.g. 123 Manoa Lane'/>
+                           placeholder='123 Manoa Lane'/>
               </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Website:' name='website'
-                           placeholder='e.g. www.McRonalds'/>
+                           placeholder='www.McRonalds.com'/>
               </Grid.Column>
             </Grid.Row>
-            <Grid.Row columns={2}>
+            <Grid.Row columns={3}>
               <Grid.Column>
-                <TextField label='Restaurant Menu: (optional)' name='menu' required={false}
-                           placeholder='e.g. www.McRonalds.com/menu'/>
+                <TextField label='Restaurant Logo:' name='logo'
+                           placeholder='www.McRonalds.com/logo.jpg'/>
               </Grid.Column>
               <Grid.Column>
-                <TextField label='Restaurant Logo: (optional)' name='logo' required={false}
-                           placeholder='e.g. www.McRonalds/logo'/>
+                <TextField label='Restaurant Photo: (optional)' name='image' required={false}
+                           placeholder='www.McRonalds.com/photo.jpg'/>
               </Grid.Column>
-            </Grid.Row>
+              <Grid.Column>
+                <TextField label='Restaurant Menu URL: (optional)' name='menu' required={false}
+                           placeholder='www.McRonalds.com/menu'/>
+              </Grid.Column>
+              </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <LongTextField label='Restaurant Description:' name='description'
