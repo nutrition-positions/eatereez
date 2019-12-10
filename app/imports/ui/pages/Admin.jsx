@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Comment } from 'semantic-ui-react';
 import RestaurantAdmin from '/imports/ui/components/RestaurantAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import ReviewAdmin from '../components/ReviewAdmin';
 import { Submits } from '../../api/submit/Submits';
-
+import { Reports } from '../../api/report/Report';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Admin extends React.Component {
@@ -24,6 +25,9 @@ class Admin extends React.Component {
             {this.props.submits.map((submit, index) => <RestaurantAdmin key={index} submit={submit}/>)}
           </Card.Group>
           <Header as="h2" textAlign="center">Reported Reviews</Header>
+          <Comment.Group>
+            {this.props.reports.map((report, index) => <ReviewAdmin key={index} report={report}/>)}
+          </Comment.Group>
         </Container>
     );
   }
@@ -32,6 +36,7 @@ class Admin extends React.Component {
 /** Require an array of Stuff documents in the props. */
 Admin.propTypes = {
   submits: PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -39,8 +44,10 @@ Admin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('SubmitsAdmin');
+  const subscription2 = Meteor.subscribe('Reports');
   return {
     submits: Submits.find({}).fetch(),
-    ready: subscription.ready(),
+    reports: Reports.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(Admin);
