@@ -8,7 +8,7 @@ const Submits = new Mongo.Collection('Submits');
 /** Define a schema to specify the structure of each document in the collection. */
 const SubmitSchema = new SimpleSchema({
   submissionName: String,
-  location: String,
+  address: String,
   hours: String,
   menu: {
     type: String,
