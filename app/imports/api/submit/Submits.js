@@ -20,10 +20,7 @@ const SubmitSchema = new SimpleSchema({
     required: false,
   },
   website: String,
-  logo: {
-    type: String,
-    required: false,
-  },
+  logo: String,
   image: {
     type: String,
     required: false,
