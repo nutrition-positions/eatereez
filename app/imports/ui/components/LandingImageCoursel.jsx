@@ -48,21 +48,21 @@ class LandingImageCarousel extends React.Component {
             <Fade {...fadeProperties}>
               <div className="each-fade">
                 <div className="image-container">
-                  <Link to={`/details/${list[0]._id}`} centered>
+                  <Link to={`/details/${list[0]._id}`}>
                     <Image className='ui rounded image' src={imageList[0]} alt='img0' style={imageStyle} centered />
                   </Link>
                 </div>
               </div>
               <div className="each-fade">
                 <div className="image-container">
-                  <Link to={`/details/${list[1]._id}`} centered>
+                  <Link to={`/details/${list[1]._id}`}>
                     <Image className='ui rounded image' src={imageList[1]} alt='img1' style={imageStyle} centered />
                   </Link>
                 </div>
               </div>
               <div className="each-fade">
                 <div className="image-container">
-                  <Link to={`/details/${list[2]._id}`} centered>
+                  <Link to={`/details/${list[2]._id}`}>
                     <Image className='ui rounded image' src={imageList[2]} alt='img2' style={imageStyle} centered />
                   </Link>
                 </div>
