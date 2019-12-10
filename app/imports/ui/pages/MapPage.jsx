@@ -1,13 +1,17 @@
 import React from 'react';
-import { Container, GridColumn } from 'semantic-ui-react';
-import Map from '../components/Map';
-import Footer from '../components/Footer';
-
+import MapContainer from '../components/Map';
+import { Grid } from 'semantic-ui-react';
 
 export default class MapPage extends React.Component {
   render() {
     return (
-        <Map/>
+        <div>
+          <Grid>
+            <MapContainer/>
+            <Grid.Row/>
+            <Grid.Row/>
+          </Grid>
+        </div>
     );
   }
 }
