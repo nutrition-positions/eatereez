@@ -12,7 +12,9 @@ class Restaurant extends React.Component {
           <Grid>
             <Grid.Row >
               <Grid.Column width={5}>
-                <Image size='large' centered src={this.props.restaurant.logo} />
+                <a to={`/details/${this.props.restaurant._id}`}>
+                  <Image size='large' centered src={this.props.restaurant.logo} />
+                </a>
               </Grid.Column>
               <Grid.Column width={5}>
                 <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
