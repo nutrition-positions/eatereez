@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import SubmitRestaurant from '../pages/SubmitRestaurant';
-import SubmitRestaurantAdmin from '../pages/SubmitRestaurantAdmin';
+import Admin from '../pages/Admin';
 import RestaurantDetails from '../pages/RestaurantDetails';
 import SubmitReview from '../pages/SubmitReview';
 import EditStuff from '../pages/EditStuff';
@@ -40,7 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/submit-restaurant" component={SubmitRestaurant}/>
               <ProtectedRoute path="/submit-review/:_id" component={SubmitReview}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={SubmitRestaurantAdmin}/>
+              <AdminProtectedRoute path="/admin" component={Admin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

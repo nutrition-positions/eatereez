@@ -8,7 +8,7 @@ import { Submits } from '../../api/submit/Submits';
 
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class SubmitRestaurantAdmin extends React.Component {
+class Admin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -23,13 +23,14 @@ class SubmitRestaurantAdmin extends React.Component {
           <Card.Group>
             {this.props.submits.map((submit, index) => <RestaurantAdmin key={index} submit={submit}/>)}
           </Card.Group>
+          <Header as="h2" textAlign="center">Reported Reviews</Header>
         </Container>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-SubmitRestaurantAdmin.propTypes = {
+Admin.propTypes = {
   submits: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -42,4 +43,4 @@ export default withTracker(() => {
     submits: Submits.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(SubmitRestaurantAdmin);
+})(Admin);
