@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid, Divider, Icon, Label } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider, Icon, Label, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ class Restaurant extends React.Component {
   render() {
     return (
         <div>
+          <Segment raised>
           <Grid>
               <Grid.Column container width={2} centered>
                 <Grid.Row>
@@ -69,7 +70,8 @@ class Restaurant extends React.Component {
               </Grid.Row>
             </Grid.Column>
           </Grid>
-          <Divider/>
+          </Segment>
+          <Divider hidden />
         </div>
     );
   }
