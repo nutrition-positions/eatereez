@@ -4,6 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Button, Grid, Header, Image, Input, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import LandingSearch from './LandingSearch';
 
 class Greet extends React.Component {
 
@@ -12,7 +13,7 @@ class Greet extends React.Component {
   }
 
   renderPage() {
-    const buttonStyle = { width: '260px', height: '51px' };
+    const buttonStyle = { width: '260px', height: '36px' };
     return (
         <div className='eatereez-landing-background'>
           <Image
@@ -30,19 +31,11 @@ class Greet extends React.Component {
                   <Grid.Column>
                     <Button as={NavLink} activeClassName="" exact to="/food"
                             style={buttonStyle}
-                            className='ui button' size='huge' floated='right'>Go to Restaurants List</Button>
+                            className='ui button' floated='right'>Go to Restaurants List</Button>
                   </Grid.Column>
                   <Grid.Column>
                     <div className='ui input bordered'>
-                      <Input
-                          type='text'
-                          size='big'
-                          icon='search'
-                          placeholder='Search...'
-                          style={buttonStyle}
-                          // onChange={Landing.updateSearchName.bind(this)}
-                          // value={Landing.state.searchName}
-                      />
+                      <LandingSearch/>
                     </div>
                   </Grid.Column>
                 </Grid>
@@ -66,3 +59,5 @@ const GreetContainer = withTracker(() => ({
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
 export default withRouter(GreetContainer);
+
+
