@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Card, Comment, Icon } from 'semantic-ui-react';
+import { Button, Card, Comment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Reviews } from '../../api/review/Reviews';
