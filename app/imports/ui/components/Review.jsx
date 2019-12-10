@@ -1,10 +1,14 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Comment, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { Reviews } from '../../api/review/Reviews';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Review extends React.Component {
+  handleClick = () => Reviews.remove(this.props.review._id)
+
   render() {
     return (
         <Comment>
@@ -19,7 +23,13 @@ class Review extends React.Component {
                 {this.props.review.description}
               </Comment.Text>
               <Comment.Actions>
-                <Comment.Action></Comment.Action>
+                {this.props.review.owner === Meteor.user().username ?
+                    <Comment.Action onClick={this.handleClick}>
+                  Delete
+                </Comment.Action> : '' }
+                <Comment.Action onClick={this.handleReport}>
+                  Report
+                </Comment.Action>
               </Comment.Actions>
             </Comment.Content>
         </Comment>
