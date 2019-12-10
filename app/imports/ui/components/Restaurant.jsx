@@ -19,14 +19,16 @@ class Restaurant extends React.Component {
             <Grid.Column width={7}>
               <Grid.Row>
                 <Header as='h1' centered><Link color='black' to={`/details/${this.props.restaurant._id}`}>
-                  {this.props.restaurant.name}</Link></Header>
+                  {this.props.restaurant.name}</Link>
+                  <Label as='h4' color='blue'>
+                    Rating
+                    <Label.Detail>{this.props.restaurant.rating} / 5</Label.Detail>
+                    <Icon name='star' color='yellow' />
+                  </Label>
+                </Header>
               </Grid.Row>
               <Grid.Row>
-                <Label as='h4'>
-                  Rating
-                  <Label.Detail>{this.props.restaurant.rating} / 5</Label.Detail>
-                  <Icon name='star' color='yellow' />
-                </Label>
+
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
