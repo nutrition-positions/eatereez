@@ -17,6 +17,12 @@ const RestaurantsSchema = new SimpleSchema({
   address: String,
   owner: String,
   logo: String,
+  hours: String,
+  website: String,
+  menu: {
+    type: String,
+    required: false,
+  },
   image: {
     type: String,
     required: false,

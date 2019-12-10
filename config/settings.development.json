@@ -10,7 +10,8 @@
       "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
       "rating": "3.5",
       "phoneNumber": "(808) 956-7229",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
       "website": "www.pandaexpress.com",
@@ -22,9 +23,11 @@
       "description": "Now Serving A Full Breakfast Menu Sweet & savory crepes, Acai bowls , coffees, espresso drinks GlutenFree and Vegan Crepes available! waffle, smoothies, sandwiches, pasta.",
       "rating": "4.5",
       "phoneNumber": "(808) 956-7229",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
       "image" : "",
+      "website": "www.pandaexpress.com",
       "owner": "john@foo.com"
     },
     {
@@ -32,8 +35,10 @@
       "description": "Island-themed fast-food chain whose menu features traditional Hawaiian plate lunches.",
       "rating": "4",
       "phoneNumber": "(808) 396-3885",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/L&L-logo.jpg",
+      "website": "www.pandaexpress.com",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -42,8 +47,10 @@
       "description": "Honolulu Gourmet Foods Cafe features healthy, locally grown salads, sandwiches, poke bowls, and grab-and-go items at affordable prices.",
       "rating": "3",
       "phoneNumber": "(808) 489-9474",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "http://www.honolulugourmetfoods.com/wp-content/uploads/2015/04/logo-hgf-501x241.gif",
+      "website": "www.pandaexpress.com",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -52,8 +59,10 @@
       "description": "Da Spot Health Foods & Juices offers diverse, healthy and affordable cuisine with a unique take on tasty dishes from around the world. Da Spot specializes in Mediterranean and North African food with vegan and specialty meat options that can be certified halal or kosher.",
       "rating": "4.5",
       "phoneNumber": "(808) 941-1313",
-      "address": "2424 Maile Way, Honolulu, HI 96822",
+      "address": "2424 Maile Way",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Da-Spot-Logo.png",
+      "website": "www.pandaexpress.com",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -62,8 +71,10 @@
       "description": "Kamitoku Ramen specializes in a Tottori-style beef bone ramen.",
       "rating": "4",
       "phoneNumber": "(808) 469-2505",
-      "address": "2500 Campus Rd, Honolulu, HI 96822",
+      "address": "2500 Campus Rd",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Kamitoku-ramen-logo.png",
+      "website": "www.pandaexpress.com",
       "image" : "",
       "owner": "john@foo.com"
     },    {
@@ -71,8 +82,10 @@
       "description": "Lasoon offers something for everyone with their signature exotic South Indian and Malaysian cuisine.",
       "rating": "4",
       "phoneNumber": "N/A",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Lasoon-logo.png",
+      "website": "www.pandaexpress.com",
       "images" : "",
       "owner": "john@foo.com"
     },
@@ -81,8 +94,10 @@
       "description": "Holoholo Grill features healthy locally grown salads, sandwiches, poke bowls and  grab and go items at affordable prices.",
       "rating": "3.5",
       "phoneNumber": "N/A",
-      "address": "2560 McCarthy Mall, Honolulu, HI 96822",
+      "address": "2560 McCarthy Mall",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
+      "website": "www.pandaexpress.com",
       "images" : "",
       "owner": "john@foo.com"
     },
@@ -91,8 +106,10 @@
       "description": "Pastries, sandwiches, and pre-made salads are some of their quick lunch options. Popular items at Ba-Le include pho, pad thai, and banh mi sandwiches.",
       "rating": "4",
       "phoneNumber": "(808) 956-6462",
-      "address": "2445 Campus Rd, Honolulu, HI 96822",
+      "address": "2445 Campus Rd",
+      "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
+      "website": "www.pandaexpress.com",
       "images" : "",
       "owner": "john@foo.com"
     }
@@ -105,7 +122,8 @@
       "hours": "they have them!",
       "menu": "theres food believe it or not",
       "address": "At a place",
-      "submittedAt": "date has been implemented but only works when adding submits via the database?",
+      "website": "www.pandaexpress.com",
+      "submittedAt": "2019-11-16",
       "submittedBy": "john@foo.com"
     }],
 

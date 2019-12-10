@@ -80,7 +80,7 @@ class SubmitRestaurant extends React.Component {
               </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Hours:' name='hours'
-                           placeholder='e.g. 08:00-16:30'/>
+                           placeholder='e.g. 08:00AM - 04:30PM'/>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
