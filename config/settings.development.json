@@ -103,6 +103,7 @@
       "location": "The place by hamilton",
       "hours": "they have them!",
       "menu": "theres food believe it or not",
+      "address": "At a place",
       "submittedAt": "date has been implemented but only works when adding submits via the database?",
       "submittedBy": "john@foo.com"
     }],
