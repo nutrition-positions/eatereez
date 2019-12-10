@@ -10,14 +10,15 @@ const SubmitSchema = new SimpleSchema({
   submissionName: String,
   address: String,
   hours: String,
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
   menu: {
     type: String,
     required: false,
   },
-  website: {
-    type: String,
-    required: false,
-  },
+  website: String,
   logo: {
     type: String,
     required: false,
