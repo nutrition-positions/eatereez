@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid } from 'semantic-ui-react';
+import { Header, Loader, Grid, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Fade } from 'react-slideshow-image';
 import PropTypes from 'prop-types';
@@ -44,34 +44,30 @@ class LandingImageCarousel extends React.Component {
 
     return (
         <div className='landing-caroursel'>
-          <Header as='h1'>Check out the top three places from out list</Header>
-          <Grid>
-            <Grid.Column columns={1}>
-              <Fade {...fadeProperties}>
-                <div className="each-fade">
-                  <div className="image-container">
-                    <Link to={`/details/${list[0]._id}`}>
-                      <img className='ui rounded image' src={imageList[0]} alt='img0' style={imageStyle} />
-                    </Link>
-                  </div>
+          <Header as='h1' textAlign='center'>Looking for something different? Try one of these places:</Header>
+            <Fade {...fadeProperties}>
+              <div className="each-fade">
+                <div className="image-container">
+                  <Link to={`/details/${list[0]._id}`} centered>
+                    <Image className='ui rounded image' src={imageList[0]} alt='img0' style={imageStyle} centered />
+                  </Link>
                 </div>
-                <div className="each-fade">
-                  <div className="image-container">
-                    <Link to={`/details/${list[1]._id}`}>
-                      <img className='ui rounded image' src={imageList[1]} alt='img1' style={imageStyle}/>
-                    </Link>
-                  </div>
+              </div>
+              <div className="each-fade">
+                <div className="image-container">
+                  <Link to={`/details/${list[1]._id}`} centered>
+                    <Image className='ui rounded image' src={imageList[1]} alt='img1' style={imageStyle} centered />
+                  </Link>
                 </div>
-                <div className="each-fade">
-                  <div className="image-container">
-                    <Link to={`/details/${list[2]._id}`}>
-                      <img className='ui rounded image' src={imageList[2]} alt='img2' style={imageStyle}/>
-                    </Link>
-                  </div>
+              </div>
+              <div className="each-fade">
+                <div className="image-container">
+                  <Link to={`/details/${list[2]._id}`} centered>
+                    <Image className='ui rounded image' src={imageList[2]} alt='img2' style={imageStyle} centered />
+                  </Link>
                 </div>
-              </Fade>
-            </Grid.Column>
-          </Grid>
+              </div>
+            </Fade>
         </div>
     );
   }
