@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Comment } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import RestaurantAdmin from '/imports/ui/components/RestaurantAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -25,9 +25,8 @@ class Admin extends React.Component {
             {this.props.submits.map((submit, index) => <RestaurantAdmin key={index} submit={submit}/>)}
           </Card.Group>
           <Header as="h2" textAlign="center">Reported Reviews</Header>
-          <Comment.Group>
-            {this.props.reports.map((report, index) => <ReviewAdmin key={index} report={report}/>)}
-          </Comment.Group>
+          <Card.Group>{this.props.reports.map((report, index) => <ReviewAdmin key={index}
+                                                                              report={report}/>)}</Card.Group>
         </Container>
     );
   }
