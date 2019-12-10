@@ -12,7 +12,8 @@ class Restaurant extends React.Component {
           <Grid>
               <Grid.Column container width={2} centered>
                 <Grid.Row>
-                <Image fluid left src={this.props.restaurant.logo} />
+                  <Divider hidden />
+                  <Image fluid left src={this.props.restaurant.logo} />
                 </Grid.Row>
               </Grid.Column>
             <Grid.Column width={7}>
