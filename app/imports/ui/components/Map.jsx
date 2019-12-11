@@ -4,7 +4,7 @@ import { Container, Grid } from 'semantic-ui-react';
 
 const mapStyles = {
   width: '100%',
-  height: '90%',
+  height: '100%',
 };
 
 export class MapContainer extends React.Component {
