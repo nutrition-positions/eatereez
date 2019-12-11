@@ -1,7 +1,6 @@
 import React from 'react';
-import Map from '../components/Map';
 import { Grid, Header } from 'semantic-ui-react';
-import Footer from '../components/Footer';
+import Map from '../components/Map';
 
 export default class MapPage extends React.Component {
   render() {
@@ -10,7 +9,7 @@ export default class MapPage extends React.Component {
           <Grid.Row>
             <Header as='h1' textAlign='center'>Work?</Header>
             <Map/>
-            <h1>IM BETTER THAN YOU</h1>
+            <h1>Description goes here maybe</h1>
           </Grid.Row>
         </div>
     );
