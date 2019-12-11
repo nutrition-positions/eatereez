@@ -1,13 +1,16 @@
 import React from 'react';
 import Map from '../components/Map';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
+import Footer from '../components/Footer';
 
 export default class MapPage extends React.Component {
   render() {
     return (
         <div>
           <Grid.Row>
-            <iframe width='600px' height='600px' src={Map}></iframe>
+            <Header as='h1' textAlign='center'>Work?</Header>
+            <Map/>
+            <h1>IM BETTER THAN YOU</h1>
           </Grid.Row>
         </div>
     );

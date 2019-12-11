@@ -3,8 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { Container, Grid } from 'semantic-ui-react';
 
 const mapStyles = {
-  width: '100%',
-  height: '100%',
+  height: '500px',
 };
 
 export class MapContainer extends React.Component {
@@ -32,16 +31,16 @@ export class MapContainer extends React.Component {
   render() {
     return (
         <Container>
-          <div className='map-spacing'>
+          <div id='map-spacing'>
           <Grid centered>
               <Map
                   /* eslint-disable-next-line react/prop-types */
                   google={this.props.google}
-                  zoom={17}
+                  zoom={16}
                   style={mapStyles}
                   initialCenter={{
-                    lat: 21.2969,
-                    lng: -157.8171,
+                    lat: 21.299630,
+                    lng: -157.817488,
                   }}
               >
                 <Marker
