@@ -1,32 +1,33 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Button, Card, Comment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withTracker } from 'meteor/react-meteor-data';
+import { withRouter } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
 import { Reports } from '../../api/report/Report';
-import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ReviewAdmin extends React.Component {
-  handleClick = () => Reviews.remove(this.props.review._id)
+  handleClick() {
+    Reports.remove(this.props.report._id);
+    Reviews.remove(this.props.review[0]._id);
+  }
 
-  unreport = () => Reports.remove(this.props.report._id)
+  unreport = () => Reports.remove(this.props.report._id);
 
   render() {
     return (
         <Card centered>
           <Card.Content>
             <Card.Header>
-              {this.props.review.title}</Card.Header>
-            <Card.Meta>{this.props.review.owner}</Card.Meta>
+              {this.props.review[0].title}</Card.Header>
+            <Card.Meta>{this.props.review[0].owner}</Card.Meta>
             <Card.Description>
-              Rating: {this.props.review.stars} <br />
-              Review description: {this.props.review.description} <br />
+              Rating: {this.props.review[0].stars} <br />
+              Review description: {this.props.review[0].description} <br />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            {this.props.review.createdAt}
+            {this.props.review[0].createdAt}
           </Card.Content>
           <Card.Content>
             <Comment.Group>

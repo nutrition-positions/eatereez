@@ -28,10 +28,11 @@ class Admin extends React.Component {
                 submit={submit}/>)}
           </Card.Group>
           <Header as="h2" textAlign="center">Reported Reviews</Header>
-          <Card.Group>{this.props.reports.map((report, index) => <ReviewAdmin
+          <Card.Group>
+            {this.props.reports.map((report, index) => <ReviewAdmin
               key={index}
-              report={report}
-              review={this.props.reviews.filter((review) => (review._id === report.reviewId))}/>)}</Card.Group>
+              report={report} review={this.props.reviews.filter(review => (review._id === report.reviewId))}/>)}
+          </Card.Group>
         </Container>
     );
   }
