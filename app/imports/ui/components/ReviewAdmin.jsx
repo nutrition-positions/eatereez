@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Card, Comment } from 'semantic-ui-react';
+import { Card, Comment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
 import { Reports } from '../../api/report/Report';
 
@@ -20,23 +20,22 @@ class ReviewAdmin extends React.Component {
           <Card.Content>
             <Card.Header>
               {this.props.review[0].title}</Card.Header>
-            <Card.Meta>{this.props.review[0].owner}</Card.Meta>
+            <Card.Meta><Comment.Avatar src='/images/default-user.png'/>{this.props.review[0].owner}</Card.Meta>
             <Card.Description>
               Rating: {this.props.review[0].stars} <br />
               Review description: {this.props.review[0].description} <br />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            {this.props.review[0].createdAt}
+            Review made on {this.props.review[0].createdAt}
           </Card.Content>
           <Card.Content>
             <Comment.Group>
               <Comment>
-                <Comment.Avatar src='/images/default-user.png'/>
                 <Comment.Content>
-                  <Comment.Author as='a'>{this.props.report.title}</Comment.Author>
+                  <Comment.Author>{this.props.report.title}</Comment.Author>
                   <Comment.Metadata>
-                    <div>{this.props.report.createdAt} by {this.props.report.reporter}</div>
+                    <div>Report made at {this.props.report.createdAt} by {this.props.report.reporter}</div>
                   </Comment.Metadata>
                   <Comment.Text>
                     {this.props.report.description}
@@ -51,9 +50,7 @@ class ReviewAdmin extends React.Component {
             </Comment.Group>
           </Card.Content>
           <Card.Content>
-            <Button color='red'>
-              <Button.Content onClick={this.handleClick}>Delete Reported Review </Button.Content>
-            </Button>
+            <Link color='black' to={`/details/${this.props.review[0].restaurantId}`}>Page of Reported Review</Link>
           </Card.Content>
         </Card>
     );
