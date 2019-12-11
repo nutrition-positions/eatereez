@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Comment } from 'semantic-ui-react';
+import { Button, Card, Comment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
@@ -7,7 +7,8 @@ import { Reports } from '../../api/report/Report';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ReviewAdmin extends React.Component {
-  handleClick() {
+
+  deleteReview = () => {
     Reports.remove(this.props.report._id);
     Reviews.remove(this.props.review[0]._id);
   }
@@ -19,7 +20,10 @@ class ReviewAdmin extends React.Component {
         <Card centered>
           <Card.Content>
             <Card.Header>
-              {this.props.review[0].title}</Card.Header>
+              <Link color='black' to={`/details/${this.props.review[0].restaurantId}`}>
+                {this.props.review[0].title}
+              </Link>
+            </Card.Header>
             <Card.Meta><Comment.Avatar src='/images/default-user.png'/>{this.props.review[0].owner}</Card.Meta>
             <Card.Description>
               Rating: {this.props.review[0].stars} <br />
@@ -50,7 +54,7 @@ class ReviewAdmin extends React.Component {
             </Comment.Group>
           </Card.Content>
           <Card.Content>
-            <Link color='black' to={`/details/${this.props.review[0].restaurantId}`}>Page of Reported Review</Link>
+            <Button color='red' onClick={this.deleteReview}>Delete Offending Review </Button>
           </Card.Content>
         </Card>
     );
