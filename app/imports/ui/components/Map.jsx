@@ -45,8 +45,24 @@ export class MapContainer extends React.Component {
               >
                 <Marker
                     onClick={this.onMarkerClick}
-                    name={'Panda Express'}
+                    name={'TEMP'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
+                <Marker
+                    onClick={this.onMarkerClick}
+                    name={'Something Else 1'}
+                    position={{ lat: 21.299160, lng: -157.819573 }}/>
+                <Marker
+                    onClick={this.onMarkerClick}
+                    name={'Paradise Palms'}
+                    position={{ lat: 21.301150, lng: -157.815629 }}/>
+                <Marker
+                    name={'Doner Shack'}
+                    onClick={this.onMarkerClick}
+                    position={{ lat: 21.300737, lng: -157.819030 }}/>
+                <Marker
+                    name={'TEMP'}
+                    onClick={this.onMarkerClick}
+                    position={{ lat: 21.298232, lng: -157.820844 }}/>
                 <InfoWindow
                     marker={this.state.activeMarker}
                     visible={this.state.showingInfoWindow}
@@ -56,11 +72,6 @@ export class MapContainer extends React.Component {
                     <h4>{this.state.selectedPlace.name}</h4>
                   </div>
                 </InfoWindow>
-                <Marker position={{ lat: 21.299160, lng: -157.819573 }}/>
-                <Marker position={{ lat: 21.301150, lng: -157.815629 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.298232, lng: -157.820844 }}/>
               </Map>
             </Grid>
           </div>
