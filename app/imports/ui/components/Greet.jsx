@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Button, Grid, Header, Image, Input, Loader } from 'semantic-ui-react';
+import { Button, Grid, Header, Image, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import LandingSearch from './LandingSearch';
 
@@ -59,5 +59,3 @@ const GreetContainer = withTracker(() => ({
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
 export default withRouter(GreetContainer);
-
-
