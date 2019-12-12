@@ -1,11 +1,7 @@
 import React from 'react';
-import { _ } from 'lodash';
-import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Search, Image } from 'semantic-ui-react';
-import { Restaurants } from '../../api/restaurant/Restaurants';
+import { Input } from 'semantic-ui-react';
 
 
 class LandingSearch extends React.Component {
@@ -14,29 +10,41 @@ class LandingSearch extends React.Component {
     super(props);
     this.state = {
       searchName: '',
-      isLoading: false,
-      results: [],
-      value: '',
+      show: 'disabled',
     };
   }
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+  operation() {
+    this.setState({ show: 'active' });
+  }
+
+  updateSearch(event) {
+    this.setState({ searchName: event.target.value });
+  }
+
+  handleClick(e) {
+    if (e.key === 'Enter') {
+      this.props.history.push({ pathname: '/food', state: this.state.searchName });
+    }
+  }
+
+  handleButton() {
+    this.props.history.push({ pathname: '/food', state: this.state.searchName });
+  }
 
   render() {
-    const { isLoading, value, results } = this.state;
+    const buttonStyle = { width: '260px', height: '54px' };
     return (
         <div>
-          {/* {this.state.toDir ? <Redirect to={{ pathname: this.state.dir }} /> : ''} */}
-          <Search
-              className='landing-button-style'
-              category
-              // loading={isLoading}
-              onResultSelect={this.handleResultSelect}
-              // onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              //   leading: true,
-              // })}
-              // results={results}
-              // value={value}
+          <Input
+              type='text'
+              style={buttonStyle}
+              size='huge'
+              value={this.state.search}
+              onChange={this.updateSearch.bind(this)}
+              placeholder='Search...'
+              onKeyPress={this.handleClick.bind(this)}
+              action={{ icon: 'search', onClick: () => this.handleButton() }}
           />
         </div>
     );
@@ -45,16 +53,8 @@ class LandingSearch extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 LandingSearch.propTypes = {
-  restaurants: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Restaurant');
-  return {
-    restaurants: Restaurants.find({}).fetch(),
-    ready: subscription.ready(),
-  };
-})(LandingSearch);
+export default withRouter(LandingSearch);
