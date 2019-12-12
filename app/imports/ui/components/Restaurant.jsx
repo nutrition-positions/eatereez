@@ -56,8 +56,8 @@ class Restaurant extends React.Component {
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
-                <Header as='h4' textAlign='left'><Link color='black' to={this.props.restaurant.website}>
-                  Website URL</Link></Header>
+                <Header as='h4' textAlign='left'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
+                  More Info</Link></Header>
               </Grid.Row>
             </Grid.Column>
           </Grid>
