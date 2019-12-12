@@ -16,7 +16,9 @@ import SimpleSchema from 'simpl-schema';
 import { Link } from 'react-router-dom';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
+import { Menus } from '../../api/menu/Menus';
 import Review from '../components/Review';
+import MenuRestaurant from '../components/MenuRestaurant';
 
 const formSchema = new SimpleSchema({
   title: String,
@@ -89,7 +91,7 @@ class RestaurantDetails extends React.Component {
               <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
               <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
               <Header textAlign='center' as='h4' attached='top'>{this.props.doc.name} Menu</Header>
-              <Segment attached>Menu goes here{this.props.doc.menu}</Segment>
+              <MenuRestaurant menu={this.props.menus.filter(menu => menu.restaurantName === this.props.doc.name)}/>
             </Grid.Column>
             </Grid.Row>
         </Grid>
@@ -102,6 +104,7 @@ RestaurantDetails.propTypes = {
   doc: PropTypes.object,
   reviews: PropTypes.array,
   currentUser: PropTypes.string,
+  menus: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -116,6 +119,7 @@ export default withTracker(({ match }) => {
     doc: Restaurants.findOne(documentId),
     reviews: Reviews.find({}).fetch(),
     currentUser: Meteor.user() ? Meteor.user().username : '',
+    menu: Menus.find({}).fetch(),
     ready: subscription.ready() && subscriptionReviews.ready(),
   };
 })(RestaurantDetails);
