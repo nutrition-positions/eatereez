@@ -15,7 +15,8 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
-      "website": "www.pandaexpress.com",
+      "menu" : "images/menus/pand-express-menu.png",
+      "website": "https://www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
     },
@@ -29,7 +30,8 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
       "image" : "",
-      "website": "www.lecrepecafe.com",
+      "menu" : "images/menus/le-crepe-cafe-menu.png",
+      "website": "https://www.lecrepecafe.com",
       "owner": "john@foo.com"
     },
     {
@@ -41,8 +43,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/L&L-logo.jpg",
-      "website": "www.hawaiianbarbecue.com/",
+      "website": "https://www.hawaiianbarbecue.com/",
       "image" : "",
+      "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
       "owner": "john@foo.com"
     },
     {
@@ -56,6 +59,7 @@
       "logo" : "images/hono-foods-logo.jpg",
       "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "image" : "",
+      "menu" : "images/menus/",
       "owner": "john@foo.com"
     },
     {
@@ -67,8 +71,9 @@
       "location": "Saunders Hall",
       "hours": "10:00 AM - 02:00 PM",
       "logo" : "images/Da-Spot-Logo.png",
-      "website": "daspot.net",
+      "website": "https://www.daspot.net",
       "image" : "",
+      "menu" : "images/menus/da-spot-menu.png",
       "owner": "john@foo.com"
     },
     {
@@ -82,6 +87,7 @@
       "logo" : "images/Kamitoku-ramen-logo.png",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "image" : "",
+      "menu" : "images/menus/kamitoku-ramen-menu.png",
       "owner": "john@foo.com"
     },    {
       "name": "Lasoon",
@@ -94,6 +100,7 @@
       "logo" : "images/Lasoon-logo.png",
       "website": "http://www.lasoonhawaii.com/",
       "images" : "",
+      "menu" : "images/menus/lasoon-menu.png",
       "owner": "john@foo.com"
     },
     {
@@ -105,8 +112,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
-      "website": "manoa.hawaii.edu/food/holoholo.php",
+      "website": "https://manoa.hawaii.edu/food/holoholo.php",
       "images" : "",
+      "menu" : "images/menus/holoholo-grill-menu.png",
       "owner": "john@foo.com"
     },
     {
@@ -120,6 +128,7 @@
       "logo" : "images/ba-le-logo.jpg",
       "website": "http://www.ba-le.com/",
       "images" : "",
+      "menu" : "images/menus/",
       "owner": "john@foo.com"
     }
   ],
@@ -132,7 +141,7 @@
       "address": "At a place",
       "location": "Around here somewhere",
       "logo": "images/paradise-palms.jpg",
-      "website": "www.hawaiianbarbecue.com",
+      "website": "https://www.hawaiianbarbecue.com",
       "submittedAt": "2019-11-16",
       "submittedBy": "john@foo.com"
     }],
