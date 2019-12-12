@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Comment, Icon } from 'semantic-ui-react';
+import { Comment, Rating } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
@@ -16,7 +16,7 @@ class Review extends React.Component {
             <Comment.Content>
               <Comment.Author>{this.props.review.title}</Comment.Author>
               <Comment.Metadata>
-                <div>{this.props.review.stars} / 5<Icon name='star' /> <br /></div>
+                <Rating icon='star' defaultRating={this.props.review.stars} maxRating={5} disabled />
                 <div>{this.props.review.createdAt} by {this.props.review.owner}</div>
               </Comment.Metadata>
               <Comment.Text>

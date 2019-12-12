@@ -13,6 +13,10 @@
   padding-top: 50px;
 }
 
+.landing-search-font{
+  font-size: 1.42857143rem;
+}
+
 .landing-text-color {
   color: #ffffff !important;
 }
@@ -24,6 +28,7 @@
 }
 
 .landing-info2{
+  background-color: gray;
   height: 200px;
   padding: 50px;
 }
@@ -69,8 +74,8 @@
 .each-fade .image-container {
   width: 100%;
   height: 500px;
-  padding-left: 15em;
-  padding-right: 15em;
+  padding-left: 10em;
+  padding-right: 10em;
   overflow: auto;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Image } from 'semantic-ui-react';
+import { Header, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Fade } from 'react-slideshow-image';
 import PropTypes from 'prop-types';
@@ -24,7 +24,7 @@ class LandingImageCarousel extends React.Component {
   }
 
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready) ? this.renderPage() : '';
   }
 
   renderPage() {
