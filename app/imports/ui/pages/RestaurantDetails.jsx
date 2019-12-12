@@ -88,9 +88,8 @@ class RestaurantDetails extends React.Component {
               <Rating icon='star' defaultRating={this.props.doc.rating} maxRating={5} disabled />
               <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
               <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
-              <Image size='large' src={this.props.doc.menu}/>
-              <Header as='h3'> <a href={this.props.doc.website}>
-                {this.props.doc.name} Website</a></Header>
+              <Header textAlign='center' as='h4' attached='top'>{this.props.doc.name} Menu</Header>
+              <Segment attached>Menu goes here{this.props.doc.menu}</Segment>
             </Grid.Column>
             </Grid.Row>
         </Grid>
