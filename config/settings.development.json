@@ -139,11 +139,11 @@
       "address": "Paradise Palms Café",
       "location": "Paradise Palms Café",
       "hours": "Monday - Friday\n8:00 am - 5:00 pm",
-      "logo" : "images/dunkin-donuts-logo.png",
+      "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
-      "menu" : "images/menus/dunkin-donuts.png",
+      "menu" : "images/menus/dunkin-donuts-menu.png",
       "website": "https://",
-      "owner": ""
+      "owner": "admin@foo.com"
     }
   ],
 
