@@ -130,6 +130,20 @@
       "images" : "",
       "menu" : "images/menus/",
       "owner": "john@foo.com"
+    },
+    {
+      "name": "Dunkin' Donuts",
+      "description": "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery good, sandwiches and more.",
+      "rating": "3.5",
+      "phoneNumber": "(808) 956-6728",
+      "address": "Paradise Palms Café",
+      "location": "Paradise Palms Café",
+      "hours": "Monday - Friday\n8:00 am - 5:00 pm",
+      "logo" : "images/dunkin-donuts-logo.png",
+      "image" : "",
+      "menu" : "images/menus/dunkin-donuts.png",
+      "website": "https://",
+      "owner": ""
     }
   ],
 
@@ -183,7 +197,7 @@
       "title": "pretty good food, but not much of it",
       "description": "very tasty, but small portions.  Also I think beef is an ingredient in everything but the soda",
       "stars": "4",
-      "restaurantId": "vjMLMvQ7r5xcqN7Gf",
+      "restaurantId": "Da Spot",
       "owner": "john@foo.com",
       "createdAt": "2019-01-23"
     },
@@ -191,7 +205,7 @@
       "title": "good selection, mildly expensive",
       "description": "lots to choose from, but taste and prices aren't great",
       "stars": "3",
-      "restaurantId": "yLPS2XBoJfq5csp84",
+      "restaurantId": "Lasoon",
       "owner": "john@foo.com",
       "createdAt": "2019-09-21"
     },
@@ -199,7 +213,7 @@
       "title": "I love Pandas",
       "description": "such tasty meats and sauces",
       "stars": "5",
-      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "restaurantId": "Panda Express",
       "owner": "john@foo.com",
       "createdAt": "2019-02-22"
     },
@@ -207,7 +221,7 @@
       "title": "idk why but i can't get enough",
       "description": "for some reason i could eat here all day.  I tell you, it's worth the high blood pressure!",
       "stars": "5",
-      "restaurantId": "cd8Yp98TZpR4fnpqT",
+      "restaurantId": "Panda Express",
       "owner": "john@foo.com",
       "createdAt": "2019-01-09"
     }]
