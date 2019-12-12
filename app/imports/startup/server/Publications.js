@@ -4,6 +4,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Submits } from '../../api/submit/Submits';
 import { Reviews } from '../../api/review/Reviews';
+import { Reports } from '../../api/report/Report';
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
@@ -52,4 +53,8 @@ Meteor.publish('SubmitsAdmin', function publish() {
 
 Meteor.publish('Reviews', function publish() {
   return Reviews.find();
+});
+
+Meteor.publish('Reports', function publish() {
+  return Reports.find();
 });

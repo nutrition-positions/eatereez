@@ -78,15 +78,15 @@ class SubmitRestaurant extends React.Component {
             <Grid.Row columns={3}>
               <Grid.Column>
                 <TextField label='Restaurant Name:' name='submissionName'
-                           placeholder='e.g. McRonalds'/>
+                           placeholder='McRonalds'/>
               </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Phone Number: (optional)' name='phoneNumber' required={false}
-                           placeholder='e.g. 808-555-5555'/>
+                           placeholder='808-555-5555'/>
               </Grid.Column>
               <Grid.Column>
                 <TextField label='Restaurant Hours:' name='hours'
-                           placeholder='e.g. 08:00AM - 04:30PM'/>
+                           placeholder='08:00AM - 04:30PM'/>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>

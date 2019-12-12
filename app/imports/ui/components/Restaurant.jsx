@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid, Divider, Icon, Label, Segment } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider, Rating, Label, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -20,15 +20,10 @@ class Restaurant extends React.Component {
             <Grid.Column width={7}>
               <Grid.Row>
                 <Header as='h1'><Link color='black' to={`/details/${this.props.restaurant._id}`}>
-                  {this.props.restaurant.name}</Link>
-                  <Label color='blue'>
-                    Rating
-                    <Label.Detail>{this.props.restaurant.rating} / 5</Label.Detail>
-                    <Icon name='star' color='yellow' />
-                  </Label>
-                </Header>
+                  {this.props.restaurant.name}</Link></Header>
               </Grid.Row>
               <Grid.Row>
+                <Rating icon='star' defaultRating={this.props.restaurant.rating} maxRating={5} disabled />
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
@@ -61,11 +56,8 @@ class Restaurant extends React.Component {
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
-                <Header as='h4' textAlign='left'>Website URL: </Header>
-              </Grid.Row>
-              <Grid.Row>
                 <Header as='h4' textAlign='left'><Link color='black' to={this.props.restaurant.website}>
-                  {this.props.restaurant.website}</Link></Header>
+                  Website URL</Link></Header>
               </Grid.Row>
             </Grid.Column>
           </Grid>
