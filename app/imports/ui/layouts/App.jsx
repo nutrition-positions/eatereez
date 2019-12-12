@@ -21,6 +21,7 @@ import Food from '../pages/ListRestaurant';
 import Report from '../pages/Report';
 import MapPage from '../pages/MapPage';
 
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -32,8 +33,8 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <Route path="/map" component={MapPage}/>
               <Route path="/food" component={Food}/>
+              <Route path="/map" component={MapPage}/>
               <Route path="/details/:_id" component={RestaurantDetails}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/report/:_id" component={Report}/>

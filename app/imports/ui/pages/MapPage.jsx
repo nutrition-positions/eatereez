@@ -1,64 +1,17 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import { Container, Grid } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
+import Map from '../components/Map';
 
-const mapStyles = {
-  width: '100%',
-  height: '100%',
-};
-
-export class MapContainer extends React.Component {
-  state = {
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
-  };
-
-  onMarkerClick = (props, marker, e) => this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-      });
-
-  onClose = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null,
-      });
-    }
-  };
-
+export default class MapPage extends React.Component {
   render() {
     return (
-        <Container>
-          <div className='map-spacing'>
-          <Grid columns={1} bottom-padding='1080px' centered>
-              <Map
-                  /* eslint-disable-next-line react/prop-types */
-                  google={this.props.google}
-                  zoom={17}
-                  style={mapStyles}
-                  initialCenter={{
-                    lat: 21.2969,
-                    lng: -157.8171,
-                  }}
-              >
-                <Marker
-                    position={{ lat: 21.2969, lng: -157.8171 }}/>
-                <Marker position={{ lat: 21.299160, lng: -157.819573 }}/>
-                <Marker position={{ lat: 21.301150, lng: -157.815629 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.298232, lng: -157.820844 }}/>
-              </Map>
-          </Grid>
-          </div>
-        </Container>
+        <div>
+          <Grid.Row>
+            <Header as='h1' textAlign='center'>Map</Header>
+            <Map/>
+            <h1>Description goes here maybe</h1>
+          </Grid.Row>
+        </div>
     );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCXbqUp69744PLBpEcJ_5uaclmQcNYzIHQ',
-})(MapContainer);
