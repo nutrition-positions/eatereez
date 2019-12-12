@@ -1,0 +1,13 @@
+{
+  "defaultMenus": [
+    { "restaurantName": "Panda Express",
+      "header": ["Create Your Plate", "More Choices", "Entree List"],
+      "subheader": ["Step 1:\tChoose Your Side", "Step 2:\tChoose Your Entrée", "", "Panda Bowl",
+        "Family Feast", "A La Carte", "@" ],
+      "text": ["Mixed Veggies\nChow Mein\nFried Rice\nSteamed Rice", "Any 2 Entrées & 1 Side\nAny 3 Entrées & 1 Side\n(limit 4 entrée items per plate)",
+        "Any 1 Entrée & 1 Side", "3 Lg Entrées & 2 Lg Sides", "Any Side (Lg and single sizes)\nAny Entrée (Lg and single sizes)\n(Lg side serves 2, Lg entrée serves 3-4)",
+      "Orange Chicken (Guest Favorite)", "String Bean Chicken Breast*", "Beijing Beef**", "Broccoli Beef*", "SweetFire Chicken Breast**", "Mushroom Chicken*", "Black Pepper Chicken*",
+        "Mandarin Chicken", "Shanghai Angus Steak*", "1 Chicken Egg Roll* or 2 Veggie Spring Rolls*", "Kung Pao Chicken**", "Honey Walnut Shrimp",
+        "* = WOK SMART™ entrées are 250 calories or less per single serving", "** = \"La\" (spicy)", "Menu rotates day to day and is subject to change.\nAll entrées are not available everyday."]}
+  ]
+}

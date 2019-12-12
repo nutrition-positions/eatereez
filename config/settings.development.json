@@ -7,12 +7,12 @@
   "defaultRestaurants": [
     {
       "name": "Panda Express",
-      "description": "Fast-food chain for Chinese standards, including some health-conscious options.",
+      "description": "Panda Express serves gourmet Chinese food made with only the freshest ingredients. Famous for its Orange Chicken, they also offer a number of Wok Smart entrées that contain less than 250 calories per serving, such as Shanghai Angus Steak, Kung Pao Chicken, and Broccoli Beef. Other favorites include Beijing Beef, Sweetfire Chicken Breast, and Honey Walnut Shrimp.\n\nPanda Express’ offerings can be enjoyed in Panda Bowls, or two and three item plates. Perfect for lunch, dinner or as a pick-me-up snack between classes.",
       "rating": "3.5",
       "phoneNumber": "(808) 956-7229",
-      "address": "2560 McCarthy Mall",
+      "address": "Paradise Palms Cafe (2560 McCarthy Mall)",
       "location": "Paradise Palms",
-      "hours": "08:00 AM - 04:30 PM",
+      "hours": "Monday - Friday 08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
       "website": "www.pandaexpress.com",
