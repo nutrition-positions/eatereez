@@ -21,6 +21,17 @@
   color: #ffffff !important;
 }
 
+.ui.search .prompt {
+  border-radius: 500rem;
+  width: 260px;
+}
+
+.landing-button-style{
+/*const buttonStyle = { width: '260px', height: '36px' };*/
+  width: 260px;
+  height: 36px;
+}
+
 .landing-info1{
   /*background: url('images/cc2-light.jpg') center center;*/
   height: 375px;
