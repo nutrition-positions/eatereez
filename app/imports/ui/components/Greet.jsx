@@ -13,7 +13,7 @@ class Greet extends React.Component {
   }
 
   renderPage() {
-    const buttonStyle = { width: '260px', height: '36px' };
+    const buttonStyle = { width: '260px', height: '54px' };
     return (
         <div className='eatereez-landing-background'>
           <Image
@@ -30,7 +30,7 @@ class Greet extends React.Component {
                 <Grid centered columns={2}>
                   <Grid.Column>
                     <Button as={NavLink} activeClassName="" exact to="/food"
-                            style={buttonStyle}
+                            size='huge' style={buttonStyle}
                             className='ui button' floated='right'>Go to Restaurants List</Button>
                   </Grid.Column>
                   <Grid.Column>
