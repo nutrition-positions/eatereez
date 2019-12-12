@@ -7,22 +7,19 @@ import { withRouter } from 'react-router-dom';
 class MenuRestaurant extends React.Component {
   render() {
     return (
-        (this.props.menu.subheader[0] !== undefined) ? (
+        <Header>I tried</Header>
+        {(this.props.menu.subheader[0] !== undefined) ? (
             <Segment attached>
-
-          <Header textAlign='center'>{this.props.menu.restaurantName} Menu</Header>
-        </Segment>) : (this.props.menu.header[0] !== undefined) ? (<Segment attached>
-
-          <Header textAlign='center'>{this.props.menu.restaurantName} Menu</Header>
-        </Segment>) : null}
-    <Header>It did not work</Header>
+              <Header textAlign='center'>{this.props.menu.restaurantName} Menu</Header>
+        </Segment>
+        ) : ''}
     );
   }
 }
 
 /** Require a document to be passed to this component. */
 MenuRestaurant.propTypes = {
-  menu: PropTypes.objectOf(arrays).isRequired,
+  menu: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
