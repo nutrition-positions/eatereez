@@ -4,11 +4,13 @@ import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import RestaurantAdmin from '/imports/ui/components/RestaurantAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import ReviewAdmin from '../components/ReviewAdmin';
 import { Submits } from '../../api/submit/Submits';
-
+import { Reports } from '../../api/report/Report';
+import { Reviews } from '../../api/review/Reviews';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class SubmitRestaurantAdmin extends React.Component {
+class Admin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -21,7 +23,15 @@ class SubmitRestaurantAdmin extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Submitted Restaurants</Header>
           <Card.Group>
-            {this.props.submits.map((submit, index) => <RestaurantAdmin key={index} submit={submit}/>)}
+            {this.props.submits.map((submit, index) => <RestaurantAdmin
+                key={index}
+                submit={submit}/>)}
+          </Card.Group>
+          <Header as="h2" textAlign="center">Reported Reviews</Header>
+          <Card.Group>
+            {this.props.reports.map((report, index) => <ReviewAdmin
+              key={index}
+              report={report} review={this.props.reviews.filter(review => (review._id === report.reviewId))}/>)}
           </Card.Group>
         </Container>
     );
@@ -29,8 +39,10 @@ class SubmitRestaurantAdmin extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-SubmitRestaurantAdmin.propTypes = {
+Admin.propTypes = {
   submits: PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -38,8 +50,12 @@ SubmitRestaurantAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('SubmitsAdmin');
+  const subscription2 = Meteor.subscribe('Reports');
+  const subscription3 = Meteor.subscribe('Reviews');
   return {
     submits: Submits.find({}).fetch(),
-    ready: subscription.ready(),
+    reports: Reports.find({}).fetch(),
+    reviews: Reviews.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
-})(SubmitRestaurantAdmin);
+})(Admin);

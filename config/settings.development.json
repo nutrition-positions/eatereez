@@ -142,7 +142,7 @@
       "title": "love these crepes",
       "description": "so good whether i get a BLT or a PBJ, it just melts in my mouth",
       "stars": "5",
-      "restaurantId": "uXQmFgYth7Wzv8y8F",
+      "restaurantId": "Le Crepe Cafe",
       "owner": "john@foo.com",
       "createdAt": "2019-11-16"
     },
@@ -150,7 +150,7 @@
       "title": "hits da spot",
       "description": "some really tasty food , and healthy too!",
       "stars": "0",
-      "restaurantId": "TTkn7iBWttAKvdd2H",
+      "restaurantId": "Da Spot",
       "owner": "john@foo.com",
       "createdAt": "2019-11-13"
     },
@@ -158,7 +158,7 @@
       "title": "finger licking good",
       "description": "I can't get enough of their chicken, whether its the katsu, curry, or BBQ!",
       "stars": "5",
-      "restaurantId": "QYB4HPA3XNqLoWkHK",
+      "restaurantId": "L&L Hawaiian Barbeque",
       "owner": "john@foo.com",
       "createdAt": "2019-10-03"
     },
@@ -166,7 +166,7 @@
       "title": "and I already thought Chinese food was bad...",
       "description": "if you want boring, bland, expensive 'chinese' food, go here",
       "stars": "1",
-      "restaurantId": "S5ucAwTR9oqKtXtGs",
+      "restaurantId": "Panda Express",
       "owner": "john@foo.com",
       "createdAt": "2019-11-13"
     },

@@ -13,6 +13,7 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
+import { Link } from 'react-router-dom';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
 import Review from '../components/Review';
@@ -51,10 +52,36 @@ class RestaurantDetails extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     let fRef = null;
-    const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc._id));
+    const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc.name));
     return (
         <Grid container centered>
           <Grid.Row >
+            <Grid.Column width={5}>
+              <Image size='huge' src={this.props.doc.logo} />
+              <CommentGroup>
+                {filtered.map((review, index) => <Review
+                     key={index} review={filtered[index]} currentUser={this.props.currentUser}/>)}
+              </CommentGroup>
+              <Header as="h3" textAlign="center">Write a Review of {this.props.doc.name} </Header>
+              {this.props.currentUser ? (
+                  [<AutoForm ref={ref => { fRef = ref; }}
+                             schema={formSchema}
+                             key='submit-review'
+                             onSubmit={data => this.submit(data, fRef)} >
+                <Segment>
+                  <TextField name='title'/>
+                  <NumField name='stars' range={5}/>
+                  <LongTextField name='description'/>
+                  <HiddenField name='owner' value={this.props.doc.owner}/>
+                  <HiddenField name='restaurantId' value={this.props.doc.name}/>
+                  <HiddenField name='createdAt' value={new Date().toDateString()}/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                </Segment>
+              </AutoForm>]
+              ) : <Segment><Header textAlign='center' as='h3'> <Link color='black' to={'/signin'}>
+                Sign in</Link> or <Link to={'/signup'}>sign up </Link>to write a review</Header></Segment>}
+            </Grid.Column>
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
               <p>{this.props.doc.description}</p>
@@ -63,26 +90,6 @@ class RestaurantDetails extends React.Component {
               <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
               <Header textAlign='center' as='h4' attached='top'>{this.props.doc.name} Menu</Header>
               <Segment attached>Menu goes here{this.props.doc.menu}</Segment>
-            </Grid.Column>
-            <Grid.Column width={5}>
-              <Image size='huge' src={this.props.doc.image} />
-              <CommentGroup>
-                {filtered.map((review, index) => <Review
-                     key={index} review={filtered[index]}/>)}
-              </CommentGroup>
-              <Header as="h3" textAlign="center">Write a Review of {this.props.doc.name} </Header>
-              <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
-                <Segment>
-                  <TextField name='title'/>
-                  <NumField name='stars' range={5}/>
-                  <LongTextField name='description'/>
-                  <HiddenField name='owner' value={this.props.doc.owner}/>
-                  <HiddenField name='restaurantId' value={this.props.doc._id}/>
-                  <HiddenField name='createdAt' value={new Date().toDateString()}/>
-                  <SubmitField value='Submit'/>
-                  <ErrorsField/>
-                </Segment>
-              </AutoForm>
             </Grid.Column>
             </Grid.Row>
         </Grid>
@@ -94,6 +101,7 @@ class RestaurantDetails extends React.Component {
 RestaurantDetails.propTypes = {
   doc: PropTypes.object,
   reviews: PropTypes.array,
+  currentUser: PropTypes.string,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -107,6 +115,7 @@ export default withTracker(({ match }) => {
   return {
     doc: Restaurants.findOne(documentId),
     reviews: Reviews.find({}).fetch(),
+    currentUser: Meteor.user() ? Meteor.user().username : '',
     ready: subscription.ready() && subscriptionReviews.ready(),
   };
 })(RestaurantDetails);
