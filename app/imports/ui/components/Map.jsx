@@ -45,11 +45,13 @@ export class MapContainer extends React.Component {
               >
                 <Marker
                     onClick={this.onMarkerClick}
-                    name={'TEMP'}
+                    name={'Kamitoku Ramen'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
-                    name={'Something Else 1'}
+                    name={'BA-LE'}
+                    details={'Hours: 8:00am-4:30pm\n'}
+                    website={'https://www.google.com'}
                     position={{ lat: 21.299160, lng: -157.819573 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
@@ -70,6 +72,8 @@ export class MapContainer extends React.Component {
                 >
                   <div>
                     <h4>{this.state.selectedPlace.name}</h4>
+                    <p>{this.state.selectedPlace.details}</p>
+                    <a href={this.state.selectedPlace.website} target='_top'>More Info</a>
                   </div>
                 </InfoWindow>
               </Map>
@@ -79,6 +83,7 @@ export class MapContainer extends React.Component {
     );
   }
 }
+
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCXbqUp69744PLBpEcJ_5uaclmQcNYzIHQ',
