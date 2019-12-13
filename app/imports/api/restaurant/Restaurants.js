@@ -28,6 +28,7 @@ const RestaurantsSchema = new SimpleSchema({
     type: String,
     required: false,
   },
+  diet: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

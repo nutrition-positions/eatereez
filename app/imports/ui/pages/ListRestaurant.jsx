@@ -21,7 +21,8 @@ class ListRestaurant extends React.Component {
   componentDidMount() {
     if (this.props.location.state !== undefined) {
       this.setState({ searchName: this.props.location.state });
-      console.log(this.props.location.state);
+      this.setState({ filterPref: this.props.location.state });
+      this.setState({ filterDiet: this.props.location.state });
     }
   }
 
@@ -94,6 +95,11 @@ class ListRestaurant extends React.Component {
     list = list.filter(
         (items) => items.description.indexOf(this.state.filterPref) !== -1,
     );
+
+    list = list.filter(
+        (items) => items.diet.indexOf(this.state.filterDiet) !== -1,
+    );
+
     return list;
   }
 
@@ -149,9 +155,9 @@ class ListRestaurant extends React.Component {
                         onChange={this.updateFilterDiet.bind(this)}
                         value={this.state.filterDiet}>
                       <Dropdown.Menu>
-                        <Dropdown.Item text='Standard' />
-                        <Dropdown.Item text='Vegetarian' />
-                        <Dropdown.Item text='Vegan' />
+                        <Dropdown.Item text='Standard' value='' />
+                        <Dropdown.Item text='Vegetarian' value='vegetarian' />
+                        <Dropdown.Item text='Vegan' value='vegan' />
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>
