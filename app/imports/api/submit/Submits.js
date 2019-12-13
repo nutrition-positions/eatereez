@@ -9,7 +9,10 @@ const Submits = new Mongo.Collection('Submits');
 const SubmitSchema = new SimpleSchema({
   submissionName: String,
   address: String,
-  hours: String,
+  hours: {
+    type: String,
+    required: false,
+  },
   location: String,
   phoneNumber: {
     type: String,
