@@ -16,7 +16,7 @@ class Review extends React.Component {
             <Comment.Content>
               <Comment.Author>{this.props.review.title}</Comment.Author>
               <Comment.Metadata>
-                <Rating icon='star' defaultRating={this.props.review.stars} maxRating={5} disabled />
+                <div><Rating icon='star' defaultRating={this.props.review.stars} maxRating={5} disabled /></div>
                 <div>{this.props.review.createdAt} by {this.props.review.owner}</div>
               </Comment.Metadata>
               <Comment.Text>
