@@ -14,8 +14,8 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
-      "image" : "",
       "menu" : "images/menus/pand-express-menu.png",
+      "image" : "",
       "website": "https://www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
@@ -29,8 +29,8 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
-      "image" : "",
       "menu" : "images/menus/le-crepe-cafe-menu.png",
+      "image" : "",
       "website": "https://www.lecrepecafe.com",
       "owner": "john@foo.com"
     },
@@ -43,9 +43,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/L&L-logo.jpg",
-      "website": "https://www.hawaiianbarbecue.com/",
-      "image" : "",
       "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
+      "website": "www.hawaiianbarbecue.com/",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
@@ -56,10 +56,10 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "logo" : "images/hono-foods-logo.jpg",
+      "logo" : "images/hono-foods-logo.gif",
+      "menu" : "images/menus/honolulu-gourm-foods-menu.png",
       "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "image" : "",
-      "menu" : "images/menus/",
       "owner": "john@foo.com"
     },
     {
@@ -115,6 +115,7 @@
       "website": "https://manoa.hawaii.edu/food/holoholo.php",
       "images" : "",
       "menu" : "images/menus/holoholo-grill-menu.png",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
@@ -127,8 +128,8 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
       "website": "http://www.ba-le.com/",
-      "images" : "",
-      "menu" : "images/menus/",
+      "menu" : "images/menus/ba-le-menu.png",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
