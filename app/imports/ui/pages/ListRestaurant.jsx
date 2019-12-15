@@ -18,6 +18,13 @@ class ListRestaurant extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.location.state !== undefined) {
+      this.setState({ searchName: this.props.location.state });
+      console.log(this.props.location.state);
+    }
+  }
+
   /**
    * Catches event for input
    * @param event
@@ -168,6 +175,7 @@ class ListRestaurant extends React.Component {
 ListRestaurant.propTypes = {
   restaurants: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  location: PropTypes.object,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */

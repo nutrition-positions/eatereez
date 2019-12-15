@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid, Divider, Rating, Label, Segment } from 'semantic-ui-react';
+import { Header, Image, Grid, Divider, Rating, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 

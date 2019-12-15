@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import { Container, Grid } from 'semantic-ui-react';
 
 const mapStyles = {
@@ -14,10 +14,10 @@ export class MapContainer extends React.Component {
   };
 
   onMarkerClick = (props, marker, e) => this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-      });
+    selectedPlace: props,
+    activeMarker: marker,
+    showingInfoWindow: true,
+  });
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -32,7 +32,7 @@ export class MapContainer extends React.Component {
     return (
         <Container>
           <div id='map-spacing'>
-          <Grid centered>
+            <Grid centered>
               <Map
                   /* eslint-disable-next-line react/prop-types */
                   google={this.props.google}
@@ -44,19 +44,46 @@ export class MapContainer extends React.Component {
                   }}
               >
                 <Marker
+                    onClick={this.onMarkerClick}
+                    name={'Kamitoku Ramen'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
-                <Marker position={{ lat: 21.299160, lng: -157.819573 }}/>
-                <Marker position={{ lat: 21.301150, lng: -157.815629 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.300737, lng: -157.819030 }}/>
-                <Marker position={{ lat: 21.298232, lng: -157.820844 }}/>
+                <Marker
+                    onClick={this.onMarkerClick}
+                    name={'BA-LE'}
+                    details={'Hours: 8:00am-4:30pm\n'}
+                    website={'https://www.google.com'}
+                    position={{ lat: 21.299160, lng: -157.819573 }}/>
+                <Marker
+                    onClick={this.onMarkerClick}
+                    name={'Paradise Palms'}
+                    position={{ lat: 21.301150, lng: -157.815629 }}/>
+                <Marker
+                    name={'Doner Shack'}
+                    onClick={this.onMarkerClick}
+                    position={{ lat: 21.300737, lng: -157.819030 }}/>
+                <Marker
+                    name={'TEMP'}
+                    onClick={this.onMarkerClick}
+                    position={{ lat: 21.298232, lng: -157.820844 }}/>
+                <InfoWindow
+                    marker={this.state.activeMarker}
+                    visible={this.state.showingInfoWindow}
+                    onClose={this.onClose}
+                >
+                  <div>
+                    <h4>{this.state.selectedPlace.name}</h4>
+                    <p>{this.state.selectedPlace.details}</p>
+                    <a href={this.state.selectedPlace.website} target='_top'>More Info</a>
+                  </div>
+                </InfoWindow>
               </Map>
-          </Grid>
+            </Grid>
           </div>
         </Container>
     );
   }
 }
+
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCXbqUp69744PLBpEcJ_5uaclmQcNYzIHQ',
