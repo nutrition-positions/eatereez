@@ -147,8 +147,6 @@ class ListRestaurant extends React.Component {
       );
     }
 
-    console.log(this.state.filterDiet);
-
     // filters diet. Vegans are vegetarians but vegetarians are not vegan.
     if (this.state.filterDiet === 'vegan') {
       list = list.filter(
@@ -179,6 +177,7 @@ class ListRestaurant extends React.Component {
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
     const restaurantList = this.getRestaurantList();
+    const sizer = { height: 'auto', width: '100%' };
     return (
         <div>
           <Container className='List-spacing'>
@@ -187,16 +186,17 @@ class ListRestaurant extends React.Component {
               <Grid.Row columns={4}>
                 <Grid.Column>
                   <Header as='h3' textAlign='left'>Search by name:</Header>
-                  <div className='ui input bordered'>
+                  <Container>
+                  <div className='ui fluid icon input'>
                     <Input
                         type='text'
-                        size='big'
                         icon='search'
                         placeholder='Search...'
                         onChange={this.updateSearchName.bind(this)}
                         value={this.state.searchName}
                     />
                   </div>
+                  </Container>
                 </Grid.Column>
                   <Grid.Column>
                     <Header as='h3' textAlign='left'>Types of food:</Header>
@@ -212,8 +212,9 @@ class ListRestaurant extends React.Component {
                   <Header as='h3' textAlign='left'>Dietary Preference:</Header>
                   <div className='ui dropdown'>
                     <Dropdown
+                        style={sizer}
+                        size='large'
                         value={this.state.filterDiet}
-                        size='big'
                         options={this.getDietList()}
                         onChange={this.updateFilterDiet.bind(this)}
                     >
@@ -224,8 +225,9 @@ class ListRestaurant extends React.Component {
                   <Header as='h3' textAlign='left'>Location:</Header>
                   <div className='ui dropdown'>
                     <Dropdown
+                        style={sizer}
+                        size='large'
                         value={this.state.filterLoc}
-                        size='big'
                         options={this.getLocationList()}
                         onChange={this.updateLocationPref.bind(this)}
                     >
