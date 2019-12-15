@@ -72,7 +72,7 @@
       "hours": "10:00 AM - 02:00 PM",
       "logo" : "images/Da-Spot-Logo.png",
       "image" : "",
-      "diet": "",
+      "diet": "none",
       "website": "daspot.net",
       "owner": "john@foo.com"
     },
@@ -86,7 +86,7 @@
       "location": "POST Parking Lot",
       "logo" : "images/Kamitoku-ramen-logo.png",
       "image" : "",
-      "diet" : "",
+      "diet" : "none",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "owner": "john@foo.com"
     },    {
@@ -99,7 +99,7 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Lasoon-logo.png",
       "image" : "",
-      "diet" : "",
+      "diet" : "none",
       "website": "http://www.lasoonhawaii.com/",
       "owner": "john@foo.com"
     },
@@ -113,7 +113,7 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
       "image" : "",
-      "diet" : "",
+      "diet" : "none",
       "website": "manoa.hawaii.edu/food/holoholo.php",
       "owner": "john@foo.com"
     },
@@ -127,7 +127,7 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
       "image" : "",
-      "diet" : "",
+      "diet" : "none",
       "website": "http://www.ba-le.com/",
       "owner": "john@foo.com"
     },
@@ -141,6 +141,7 @@
       "hours": "Monday - Friday\n8:00 am - 5:00 pm",
       "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
+      "diet" : "none",
       "menu" : "images/menus/dunkin-donuts-menu.png",
       "website": "https://",
       "owner": "admin@foo.com"

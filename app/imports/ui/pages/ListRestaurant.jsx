@@ -14,7 +14,7 @@ class ListRestaurant extends React.Component {
     this.state = {
       searchName: '',
       filterPref: '',
-      filterDiet: 'Standard',
+      filterDiet: 'none',
     };
   }
 
@@ -49,7 +49,7 @@ class ListRestaurant extends React.Component {
    */
   getPreferenceList() {
     return ([{
-          key: 'no pref',
+          key: '',
           text: 'None',
           value: '',
         }, {
@@ -70,6 +70,24 @@ class ListRestaurant extends React.Component {
           value: 'savory',
         },
       ]
+    );
+  }
+
+  getDietList() {
+    return ([{
+          key: 'none',
+          text: 'No diet selected',
+          value: 'none',
+        }, {
+          key: 'vegetarian',
+          text: 'Vegetarian',
+          value: 'vegetarian',
+        }, {
+          key: 'vegan',
+          text: 'Vegan',
+          value: 'vegan',
+        },
+        ]
     );
   }
 
@@ -96,9 +114,15 @@ class ListRestaurant extends React.Component {
         (items) => items.description.indexOf(this.state.filterPref) !== -1,
     );
 
-    list = list.filter(
-        (items) => items.diet.indexOf(this.state.filterDiet) !== -1,
-    );
+    if (this.state.filterDiet === 'vegan') {
+      list = list.filter(
+          (items) => items.diet.indexOf(this.state.filterDiet) !== -1,
+      );
+    } else if (this.state.filterDiet === 'vegetarian') {
+      list = list.filter(
+          (items) => items.diet.indexOf('none') === -1,
+      );
+    }
 
     return list;
   }
@@ -150,15 +174,11 @@ class ListRestaurant extends React.Component {
                   <Header as='h3' textAlign='left'>Dietary Preference:</Header>
                   <div className='ui dropdown'>
                     <Dropdown
-                        text='Standard'
+                        value={this.state.filterDiet}
                         size='big'
+                        options={this.getDietList()}
                         onChange={this.updateFilterDiet.bind(this)}
-                        value={this.state.filterDiet}>
-                      <Dropdown.Menu>
-                        <Dropdown.Item text='Standard' value='' />
-                        <Dropdown.Item text='Vegetarian' value='vegetarian' />
-                        <Dropdown.Item text='Vegan' value='vegan' />
-                      </Dropdown.Menu>
+                    >
                     </Dropdown>
                   </div>
                 </Grid.Column>
