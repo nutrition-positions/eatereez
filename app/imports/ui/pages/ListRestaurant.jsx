@@ -62,7 +62,7 @@ class ListRestaurant extends React.Component {
     return ([{
           key: 'none',
           text: 'No Preference',
-          value: '',
+          value: 'none',
         }, {
           key: 'chinese',
           text: 'Chinese',
