@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Info1 extends React.Component {
   render() {
@@ -11,10 +12,12 @@ class Info1 extends React.Component {
           <Grid className='landing-info1-title'>
             <Grid.Row columns={3} divided={true}>
               <Grid.Column textAlign='center'>
+                <Link to='/map'>
                 <Icon size='huge' name='map' color='blue'/>
                 <Header as='h2' textAlign='center' className='landing-info1-title'>
                   Find what you want to eat and discovery new places!
                 </Header>
+                </Link>
               </Grid.Column>
               <Grid.Column textAlign='center'>
                 <Icon size='huge' name='food' color='orange'/>

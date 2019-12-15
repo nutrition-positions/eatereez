@@ -21,8 +21,8 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
-      "menu" : "images/menus/pand-express-menu.png",
-      "website": "https://www.pandaexpress.com",
+      "diet" : "vegetarian",
+      "website": "www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
     },
@@ -35,9 +35,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
-      "menu" : "images/menus/le-crepe-cafe-menu.png",
       "image" : "",
-      "website": "https://www.lecrepecafe.com",
+      "diet" : "vegan",
+      "website": "www.lecrepecafe.com",
       "owner": "john@foo.com"
     },
     {
@@ -48,10 +48,10 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "logo" : "images/L&L-logo.jpg",
-      "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
-      "website": "www.hawaiianbarbecue.com/",
       "image" : "",
+      "logo" : "images/L&L-logo.jpg",
+      "diet" : "vegetarian",
+      "website": "www.hawaiianbarbecue.com/",
       "owner": "john@foo.com"
     },
     {
@@ -62,10 +62,10 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "logo" : "images/hono-foods-logo.gif",
-      "menu" : "images/menus/honolulu-gourm-foods-menu.png",
-      "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "image" : "",
+      "logo" : "images/hono-foods-logo.jpg",
+      "diet" : "vegetarian",
+      "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "owner": "john@foo.com"
     },
     {
@@ -77,8 +77,9 @@
       "location": "Saunders Hall",
       "hours": "10:00 AM - 02:00 PM",
       "logo" : "images/Da-Spot-Logo.png",
-      "website": "daspot.net",
       "image" : "",
+      "diet": "none",
+      "website": "daspot.net",
       "owner": "john@foo.com"
     },
     {
@@ -92,6 +93,8 @@
       "logo" : "images/kamitoku-ramen-logo.jpg",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "image" : "",
+      "diet" : "none",
+      "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "owner": "john@foo.com"
     },    {
       "name": "Lasoon",
@@ -102,8 +105,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Lasoon-logo.png",
+      "image" : "",
+      "diet" : "none",
       "website": "http://www.lasoonhawaii.com/",
-      "images" : "",
       "owner": "john@foo.com"
     },
     {
@@ -115,9 +119,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
-      "website": "manoa.hawaii.edu/food/holoholo.php",
-      "menu" : "images/menus/holoholo-grill-menu.png",
       "image" : "",
+      "diet" : "none",
+      "website": "manoa.hawaii.edu/food/holoholo.php",
       "owner": "john@foo.com"
     },
     {
@@ -143,9 +147,9 @@
       "location": "Hemenway Hall",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
-      "website": "http://www.ba-le.com/",
-      "menu" : "images/menus/ba-le-menu.png",
       "image" : "",
+      "diet" : "none",
+      "website": "http://www.ba-le.com/",
       "owner": "john@foo.com"
     },
     {
@@ -168,10 +172,11 @@
       "rating": "3.5",
       "phoneNumber": "(808) 956-6728",
       "address": "Paradise Palms Café",
-      "location": "Paradise Palms Café",
+      "location": "Paradise Palms",
       "hours": "Monday - Friday\n8:00 am - 5:00 pm",
       "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
+      "diet" : "none",
       "menu" : "images/menus/dunkin-donuts-menu.png",
       "website": "https://",
       "owner": "admin@foo.com"
