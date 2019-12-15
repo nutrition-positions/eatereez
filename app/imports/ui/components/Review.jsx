@@ -1,8 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 import { Comment, Rating } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -28,8 +29,8 @@ class Review extends React.Component {
                   Delete
                 </Comment.Action> : '' }
                 {this.props.currentUser ?
-                    <Comment.Action>
-                  <Link to={`/report/${this.props.review._id}`}> Report </Link>
+                    <Comment.Action as={NavLink} to={`/report/${this.props.review._id}`}>
+                  Report
                 </Comment.Action> : '' }
               </Comment.Actions>
             </Comment.Content>
@@ -41,8 +42,13 @@ class Review extends React.Component {
 /** Require a document to be passed to this component. */
 Review.propTypes = {
   review: PropTypes.object.isRequired,
-  currentUser: Meteor.user() ? Meteor.user().username : '',
+  currentUser: PropTypes.string,
 };
 
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+const ReviewContainer = withTracker(() => ({
+  currentUser: Meteor.user() ? Meteor.user().username : '',
+}))(Review);
+
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Review);
+export default withRouter(ReviewContainer);

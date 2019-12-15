@@ -1,7 +1,13 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "james@foo.com", "password": "changeme" },
+    { "email": "jack@foo.com", "password": "changeme" },
+    { "email": "jimbo@foo.com", "password": "changeme" },
+    { "email": "jill@foo.com", "password": "changeme" },
+    { "email": "joanna@foo.com", "password": "changeme" },
+    { "email": "josie@foo.com", "password": "changeme" }
   ],
 
   "defaultRestaurants": [
@@ -15,6 +21,7 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
+      "diet" : "vegetarian",
       "website": "www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
@@ -29,6 +36,7 @@
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
       "image" : "",
+      "diet" : "vegan",
       "website": "www.lecrepecafe.com",
       "owner": "john@foo.com"
     },
@@ -40,9 +48,10 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "logo" : "images/L&L-logo.jpg",
-      "website": "www.hawaiianbarbecue.com/",
       "image" : "",
+      "logo" : "images/L&L-logo.jpg",
+      "diet" : "vegetarian",
+      "website": "www.hawaiianbarbecue.com/",
       "owner": "john@foo.com"
     },
     {
@@ -53,9 +62,10 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "logo" : "images/hono-foods-logo.gif",
-      "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "image" : "",
+      "logo" : "images/hono-foods-logo.gif",
+      "diet" : "vegetarian",
+      "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
       "owner": "john@foo.com"
     },
     {
@@ -67,8 +77,9 @@
       "location": "Saunders Hall",
       "hours": "10:00 AM - 02:00 PM",
       "logo" : "images/Da-Spot-Logo.png",
-      "website": "daspot.net",
       "image" : "",
+      "diet": "none",
+      "website": "daspot.net",
       "owner": "john@foo.com"
     },
     {
@@ -79,9 +90,11 @@
       "address": "2500 Campus Rd",
       "hours": "08:00 AM - 04:30 PM",
       "location": "POST Parking Lot",
-      "logo" : "images/Kamitoku-ramen-logo.png",
+      "logo" : "images/kamitoku-ramen-logo.jpg",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "image" : "",
+      "diet" : "none",
+      "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "owner": "john@foo.com"
     },    {
       "name": "Lasoon",
@@ -92,8 +105,9 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Lasoon-logo.png",
+      "image" : "",
+      "diet" : "none",
       "website": "http://www.lasoonhawaii.com/",
-      "images" : "",
       "owner": "john@foo.com"
     },
     {
@@ -105,8 +119,23 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
+      "image" : "",
+      "diet" : "none",
       "website": "manoa.hawaii.edu/food/holoholo.php",
-      "images" : "",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Govinda's",
+      "description": "Want a sustainable selection for lunch? Try Govinda's, which offers a 100% pure vegetarian menu, with items low in cholesterol and mostly organic. They strive to bring you a healthy and delicious meal at the best possible price.",
+      "rating": "4",
+      "phoneNumber": "N/A",
+      "address": "N/A",
+      "location": "Sustainability Courtyard",
+      "hours": "10:00 AM - 02:00 PM",
+      "logo" : "images/govinda-logo.png",
+      "website": "https://manoa.hawaii.edu/food/govindas.php",
+      "menu" : "images/menus/govinda-menu.png",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
@@ -118,20 +147,36 @@
       "location": "Hemenway Hall",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
+      "image" : "",
+      "diet" : "none",
       "website": "http://www.ba-le.com/",
-      "images" : "",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Jamba Juice",
+      "description": "Smoothies, fruit bowls, sandwitches and other snacks.  Plenty of delicious and nutritious options for everyone.",
+      "rating": "4",
+      "phoneNumber": "(808) 956-2188",
+      "address": "2465 Campus Rd",
+      "location": "Campus Center",
+      "hours": "08:00 AM - 04:30 PM",
+      "logo" : "images/jamba-juice-logo.png",
+      "website": "http://www.jambajuicehawaii.com/",
+      "menu" : "images/menus/jamba-juice-menu.png",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
       "name": "Dunkin' Donuts",
-      "description": "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery good, sandwiches and more.",
+      "description": "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery god, sandwiches and more.",
       "rating": "3.5",
       "phoneNumber": "(808) 956-6728",
       "address": "Paradise Palms Café",
-      "location": "Paradise Palms Café",
+      "location": "Paradise Palms",
       "hours": "Monday - Friday\n8:00 am - 5:00 pm",
       "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
+      "diet" : "none",
       "menu" : "images/menus/dunkin-donuts-menu.png",
       "website": "https://",
       "owner": "admin@foo.com"
@@ -158,6 +203,14 @@
       "stars": "5",
       "restaurantId": "Le Crepe Cafe",
       "owner": "john@foo.com",
+      "createdAt": "2019-11-28"
+    },
+    {
+      "title": "RIP Six Pack",
+      "description": "Ugh! Me and my demanding belly! No wonder my six pack its taking longer to come out even that i work out pretty much every day!\nAnyways, today was a sin day with sweets (well, trully every day is a sin day for my belly)",
+      "stars": "5",
+      "restaurantId": "Le Crepe Cafe",
+      "owner": "joanna@foo.com",
       "createdAt": "2019-11-16"
     },
     {
@@ -166,15 +219,39 @@
       "stars": "0",
       "restaurantId": "Da Spot",
       "owner": "john@foo.com",
+      "createdAt": "2019-11-01"
+    },
+    {
+      "title": "great for vegan food",
+      "description": "good pasta entrees: orzo (irregular), lasagna (weds). hearty soups. chili powder avail to spice things up.",
+      "stars": "4",
+      "restaurantId": "Govinda's",
+      "owner": "josie@foo.com",
+      "createdAt": "2019-12-01"
+    },
+    {
+      "title": "great for a pick-me-up",
+      "description": "Fast, relatively healthy food! Tasty generous portions and flavors/ingredients. Great place to come after a good hike or activity.",
+      "stars": "4",
+      "restaurantId": "Da Spot",
+      "owner": "josie@foo.com",
       "createdAt": "2019-11-13"
     },
     {
       "title": "finger licking good",
       "description": "I can't get enough of their chicken, whether its the katsu, curry, or BBQ!",
       "stars": "5",
-      "restaurantId": "L&L Hawaiian Barbeque",
+      "restaurantId": "L&L Hawaiian Barbecue",
       "owner": "john@foo.com",
       "createdAt": "2019-10-03"
+    },
+    {
+      "title": "Good food, good size servings",
+      "description": "The food here is very good. The servings are relatively large. The food is always fresh. And convenient. You walk in, look at the menu board, order, wait a few minutes, and then you have yourself a good meal. Nice folks working there also.",
+      "stars": "4",
+      "restaurantId": "L&L Hawaiian Barbecue",
+      "owner": "jim@foo.com",
+      "createdAt": "2019-10-09"
     },
     {
       "title": "and I already thought Chinese food was bad...",
@@ -189,7 +266,7 @@
       "description": "very tasty, but small portions.  Also I think beef is an ingredient in everything but the soda",
       "stars": "4",
       "restaurantId": "Da Spot",
-      "owner": "john@foo.com",
+      "owner": "jill@foo.com",
       "createdAt": "2019-01-23"
     },
     {
@@ -201,11 +278,67 @@
       "createdAt": "2019-09-21"
     },
     {
+      "title": "Vegan Friendly :D",
+      "description": "The food here is very good, from the curries to the veggies (vegan!) down to even the rice and the hot sauce!! All of it is sooo goood",
+      "stars": "3",
+      "restaurantId": "Lasoon",
+      "owner": "jill@foo.com",
+      "createdAt": "2019-02-21"
+    },
+    {
       "title": "I love Pandas",
       "description": "such tasty meats and sauces",
       "stars": "5",
       "restaurantId": "Panda Express",
-      "owner": "john@foo.com",
+      "owner": "jimbo@foo.com",
+      "createdAt": "2019-02-22"
+    },
+    {
+      "title": "Simple but good",
+      "description": "The broth was great, very tasty, however I was disappointed that the noodles seemed to be out of a packet of cheap microwave noodles. Other than that, this was decent ramen and nice and cheap",
+      "stars": "4",
+      "restaurantId": "Kamitoku Ramen",
+      "owner": "james@foo.com",
+      "createdAt": "2019-02-22"
+    },
+    {
+      "title": "Quick, easy, and great!",
+      "description": "My go to meal replacement for lunchtime. You can add soy to it and make it more filling. I just discover their energy bowls and they are yum!",
+      "stars": "5",
+      "restaurantId": "Jamba Juice",
+      "owner": "jack@foo.com",
+      "createdAt": "2019-03-12"
+    },
+    {
+      "title": "Found my favorite spot",
+      "description": "The greatest food! Everything they serve is exceptional and unique. Gourmet local grinds.",
+      "stars": "5",
+      "restaurantId": "Holoholo Grill",
+      "owner": "joanna@foo.com",
+      "createdAt": "2019-01-22"
+    },
+    {
+      "title": "Not to miss!",
+      "description": "Honestly the best Vietnamese food I've ever had and Im no stranger to this cuisine.  All of the food was booming with flavor !!!  The lemongrass chicken sandwich was on point and the bread had the perfect amount of crunch and softness. The papaya salad crunchiness and sweetness perfectly complemented the chicken. I had this last week and am drooling as I write this lol. Super craveable !!",
+      "stars": "5",
+      "restaurantId": "Ba-Le",
+      "owner": "jill@foo.com",
+      "createdAt": "2019-01-22"
+    },
+    {
+      "title": "Good coffee, but the food...",
+      "description": "I love Dunkin' Donuts coffee. I brew it at home. If I were rating just the coffee I'd give it 5 stars. The rest of their products are pretty average or below. They do have good muffins but their donuts are rather average. I stopped buying their breakfast sandwiches because they are lousy. They have these round doughy things they try to pass off as bagels. Their English muffins are even English muffins anymore. A couple of years ago they substituted these dinner roll type things for English muffins. (Note to DD: English muffins are suppose to be crisp.) Even their eggs are not eggs.",
+      "stars": "3",
+      "restaurantId": "Dunkin Donuts",
+      "owner": "jack@foo.com",
+      "createdAt": "2019-02-22"
+    },
+    {
+      "title": "I highly recommend it!",
+      "description": "Ever since they opened towards the end of summer this has quickly become one of my favorite places to grab a bite on campus.  They've got a nice spread of salads, sandwiches, and other tasty treats, and they've got froyo!",
+      "stars": "5",
+      "restaurantId": "Honolulu Gourmet Foods Cafe",
+      "owner": "jack@foo.com",
       "createdAt": "2019-02-22"
     },
     {
@@ -213,7 +346,7 @@
       "description": "for some reason i could eat here all day.  I tell you, it's worth the high blood pressure!",
       "stars": "5",
       "restaurantId": "Panda Express",
-      "owner": "john@foo.com",
+      "owner": "jimbo@foo.com",
       "createdAt": "2019-01-09"
     }]
 }

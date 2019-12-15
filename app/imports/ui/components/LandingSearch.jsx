@@ -24,12 +24,12 @@ class LandingSearch extends React.Component {
 
   handleClick(e) {
     if (e.key === 'Enter') {
-      this.props.history.push({ pathname: '/food', state: this.state.searchName });
+      this.props.history.push({ pathname: '/food', state: this.state.searchName, filterDiet: 'none' });
     }
   }
 
   handleButton() {
-    this.props.history.push({ pathname: '/food', state: this.state.searchName });
+    this.props.history.push({ pathname: '/food', state: this.state.searchName, filterDiet: 'none' });
   }
 
   render() {
