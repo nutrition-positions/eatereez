@@ -15,7 +15,7 @@ class ListRestaurant extends React.Component {
       searchName: '',
       filterPref: '',
       filterDiet: 'none',
-      filterLoc: '',
+      filterLoc: 'none',
     };
   }
 
@@ -60,7 +60,7 @@ class ListRestaurant extends React.Component {
    */
   getPreferenceList() {
     return ([{
-          key: '',
+          key: 'none',
           text: 'No Preference',
           value: '',
         }, {
@@ -108,9 +108,9 @@ class ListRestaurant extends React.Component {
     this.props.restaurants.forEach((item) => tempList.push(item.location));
     tempList = [...new Set(tempList)];
     list.push({
-      key: '',
+      key: 'none',
       text: 'Any Location',
-      value: '',
+      value: 'none',
     });
     tempList.forEach((location) => list.push({
       key: location,
@@ -140,10 +140,14 @@ class ListRestaurant extends React.Component {
         (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
     );
 
-    // filters preference.
-    list = list.filter(
-        (items) => items.description.indexOf(this.state.filterPref) !== -1,
-    );
+    // filters preference.=
+    if (this.state.filterPref !== 'none') {
+      list = list.filter(
+          (items) => items.description.indexOf(this.state.filterPref) !== -1,
+      );
+    }
+
+    console.log(this.state.filterDiet);
 
     // filters diet. Vegans are vegetarians but vegetarians are not vegan.
     if (this.state.filterDiet === 'vegan') {
@@ -155,11 +159,13 @@ class ListRestaurant extends React.Component {
           (items) => items.diet.indexOf('none') === -1,
       );
     }
-
-    // filters preference.
-    list = list.filter(
-        (items) => items.location.indexOf(this.state.filterLoc) !== -1,
-    );
+    //
+    // // filters preference.
+    if (this.state.filterLoc !== 'none') {
+      list = list.filter(
+          (items) => items.location.indexOf(this.state.filterLoc) !== -1,
+      );
+    }
 
     return list;
   }
