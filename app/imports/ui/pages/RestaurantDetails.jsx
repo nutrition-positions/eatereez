@@ -60,7 +60,7 @@ class RestaurantDetails extends React.Component {
               <Image size='huge' src={this.props.doc.logo} />
               <CommentGroup>
                 {filtered.map((review, index) => <Review
-                     key={index} review={filtered[index]} currentUser={this.props.currentUser}/>)}
+                    key={index} review={filtered[index]} currentUser={this.props.currentUser}/>)}
               </CommentGroup>
               <Header as="h3" textAlign="center">Write a Review of {this.props.doc.name} </Header>
               {this.props.currentUser ? (
@@ -86,8 +86,10 @@ class RestaurantDetails extends React.Component {
               <Header as='h1'>{this.props.doc.name}</Header>
               <p>{this.props.doc.description}</p>
               <Rating icon='star' defaultRating={this.props.doc.rating} maxRating={5} disabled />
+              <Header as='h3'>Hours: </Header><p>{this.props.doc.hours}</p>
               <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
-              <Header as='h3'>Location: </Header><p>{this.props.doc.address}</p>
+              <Header as='h3'>Location: </Header><p>{this.props.doc.location}</p>
+              <Header as='h3'>Address: </Header><p>{this.props.doc.address}</p>
               <Image size='large' src={this.props.doc.menu}/>
               <Header as='h3'> <a href={this.props.doc.website}>
                 {this.props.doc.name} Website</a></Header>
