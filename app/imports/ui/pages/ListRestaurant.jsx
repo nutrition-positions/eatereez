@@ -20,11 +20,11 @@ class ListRestaurant extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.location.state !== undefined) {
+    if (this.props.location !== undefined &&
+        this.props.location.state !== undefined &&
+        this.props.location.filterDiet !== undefined) {
       this.setState({ searchName: this.props.location.state });
-      this.setState({ filterPref: this.props.location.state });
-      this.setState({ filterDiet: this.props.location.state });
-      this.setState({ filterLoc: this.props.location.state });
+      this.setState({ filterDiet: this.props.location.filterDiet });
     }
   }
 
