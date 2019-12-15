@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Divider, Input, Dropdown } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Divider, Input, Dropdown, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Restaurant from '../components/Restaurant';
@@ -16,6 +16,7 @@ class ListRestaurant extends React.Component {
       filterPref: '',
       filterDiet: 'none',
       filterLoc: 'none',
+      page: '1',
     };
   }
 
@@ -168,6 +169,10 @@ class ListRestaurant extends React.Component {
     return list;
   }
 
+  setPageNum = (event, { activePage }) => {
+    this.setState({ page: activePage });
+  };
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -176,8 +181,17 @@ class ListRestaurant extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
-    const restaurantList = this.getRestaurantList();
+    let restaurantList = this.getRestaurantList();
     const sizer = { height: 'auto', width: '100%' };
+
+    const listingsPerPage = 4;
+    const totalPages = restaurantList.length / listingsPerPage;
+    const page = this.state.page;
+    restaurantList = restaurantList.slice(
+        (page - 1) * listingsPerPage,
+        (page - 1) * listingsPerPage + listingsPerPage,
+    );
+
     return (
         <div>
           <Container className='List-spacing'>
@@ -243,6 +257,15 @@ class ListRestaurant extends React.Component {
                   (restaurantList.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>))
               }
             </Grid>
+            <ul className="pagination justify-content-center">
+              <Pagination
+                  totalPages={totalPages}
+                  activePage={page}
+                  onPageChange={this.setPageNum}
+                  pointing
+                  secondary
+              />
+            </ul>
           </Container>
         </div>
     );
