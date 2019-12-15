@@ -15,6 +15,7 @@ class ListRestaurant extends React.Component {
       searchName: '',
       filterPref: '',
       filterDiet: 'none',
+      filterLoc: '',
     };
   }
 
@@ -23,6 +24,7 @@ class ListRestaurant extends React.Component {
       this.setState({ searchName: this.props.location.state });
       this.setState({ filterPref: this.props.location.state });
       this.setState({ filterDiet: this.props.location.state });
+      this.setState({ filterLoc: this.props.location.state });
     }
   }
 
@@ -44,13 +46,22 @@ class ListRestaurant extends React.Component {
   }
 
   /**
+   * Catches event for dropdown menu preference
+   * @param event
+   * @param data
+   */
+  updateLocationPref(event, data) {
+    this.setState({ filterLoc: data.value });
+  }
+
+  /**
    * Currently hardcoded set list of preferences. Needs to be updated such that this list resides elsewhere!
    * @returns {[]}
    */
   getPreferenceList() {
     return ([{
           key: '',
-          text: 'None',
+          text: 'No Preference',
           value: '',
         }, {
           key: 'chinese',
@@ -76,7 +87,7 @@ class ListRestaurant extends React.Component {
   getDietList() {
     return ([{
           key: 'none',
-          text: 'No diet selected',
+          text: 'No Restriction',
           value: 'none',
         }, {
           key: 'vegetarian',
@@ -89,6 +100,24 @@ class ListRestaurant extends React.Component {
         },
         ]
     );
+  }
+
+  getLocationList() {
+    const list = [];
+    let tempList = [];
+    this.props.restaurants.forEach((item) => tempList.push(item.location));
+    tempList = [...new Set(tempList)];
+    list.push({
+      key: '',
+      text: 'Any Location',
+      value: '',
+    });
+    tempList.forEach((location) => list.push({
+      key: location,
+      text: location,
+      value: location,
+    }));
+    return list;
   }
 
   /**
@@ -106,14 +135,17 @@ class ListRestaurant extends React.Component {
    */
   getRestaurantList() {
     let list = [];
+    // filters name.
     list = this.props.restaurants.filter(
         (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
     );
 
+    // filters preference.
     list = list.filter(
         (items) => items.description.indexOf(this.state.filterPref) !== -1,
     );
 
+    // filters diet. Vegans are vegetarians but vegetarians are not vegan.
     if (this.state.filterDiet === 'vegan') {
       list = list.filter(
           (items) => items.diet.indexOf(this.state.filterDiet) !== -1,
@@ -123,6 +155,11 @@ class ListRestaurant extends React.Component {
           (items) => items.diet.indexOf('none') === -1,
       );
     }
+
+    // filters preference.
+    list = list.filter(
+        (items) => items.location.indexOf(this.state.filterLoc) !== -1,
+    );
 
     return list;
   }
@@ -135,9 +172,6 @@ class ListRestaurant extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
-    const handleOnChange = (event, data) => {
-      this.updateFilterPref(event, data);
-    };
     const restaurantList = this.getRestaurantList();
     return (
         <div>
@@ -152,24 +186,22 @@ class ListRestaurant extends React.Component {
                         type='text'
                         size='big'
                         icon='search'
-                        transparent placeholder='Search...'
+                        placeholder='Search...'
                         onChange={this.updateSearchName.bind(this)}
                         value={this.state.searchName}
                     />
                   </div>
                 </Grid.Column>
-                <React.Fragment>
                   <Grid.Column>
                     <Header as='h3' textAlign='left'>Types of food:</Header>
                     <Dropdown
                         search
                         selection
                         options={this.getPreferenceList()}
-                        onChange={handleOnChange}
+                        onChange={this.updateFilterPref.bind(this)}
                         placeholder='Select preference'
                     />
                   </Grid.Column>
-                </React.Fragment>
                 <Grid.Column>
                   <Header as='h3' textAlign='left'>Dietary Preference:</Header>
                   <div className='ui dropdown'>
@@ -178,6 +210,18 @@ class ListRestaurant extends React.Component {
                         size='big'
                         options={this.getDietList()}
                         onChange={this.updateFilterDiet.bind(this)}
+                    >
+                    </Dropdown>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <Header as='h3' textAlign='left'>Location:</Header>
+                  <div className='ui dropdown'>
+                    <Dropdown
+                        value={this.state.filterLoc}
+                        size='big'
+                        options={this.getLocationList()}
+                        onChange={this.updateLocationPref.bind(this)}
                     >
                     </Dropdown>
                   </div>
