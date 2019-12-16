@@ -14,6 +14,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
 import { Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
 import Review from '../components/Review';
@@ -93,7 +94,11 @@ class RestaurantDetails extends React.Component {
               <Image size='large' src={this.props.doc.menu}/>
               <Header as='h3'> <a href={this.props.doc.website}>
                 {this.props.doc.name} Website</a></Header>
-            </Grid.Column>
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Header as='h3'> <Link to={`/edit/${this.props.doc._id}`}>
+                    Edit {this.props.doc.name}</Link></Header>
+                  ) : ''}
+                </Grid.Column>
             </Grid.Row>
         </Grid>
     );
