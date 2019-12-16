@@ -18,6 +18,7 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Food from '../pages/ListRestaurant';
+import FoodMap from '../pages/ListRestaurantMap';
 import Report from '../pages/Report';
 import MapPage from '../pages/MapPage';
 import AdminAdd from '../pages/AdminAdd';
@@ -35,6 +36,7 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/food" component={Food}/>
+              <Route path="/foodmap" component={FoodMap}/>
               <Route path="/map" component={MapPage}/>
               <Route path="/details/:_id" component={RestaurantDetails}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
