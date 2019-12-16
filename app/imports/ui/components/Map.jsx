@@ -46,34 +46,35 @@ export class MapContainer extends React.Component {
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Kamitoku Ramen'}
-                    website={'http://eatereez.meteorapp.com/#/details/GNDC8brjwEbpfJ29N'}
+                    website={'http://eatereezapp.meteorapp.com/#/details/GNDC8brjwEbpfJ29N'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'BA-LE'}
                     details={'Hours: 8:00am-4:30pm\n'}
-                    website={'http://eatereez.meteorapp.com/#/details/CGK5kJBeGzaBWSXAQ'}
+                    website={'http://eatereezapp.meteorapp.com/#/details/CGK5kJBeGzaBWSXAQ'}
                     position={{ lat: 21.299160, lng: -157.819573 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Paradise Palms'}
+                    website={'http://eatereezapp.meteorapp.com/#/foodmap/'}
                     position={{ lat: 21.301150, lng: -157.815629 }}/>
                 <Marker
                     name={'Da Spot'}
                     onClick={this.onMarkerClick}
-                    website={'hhtp://eatereez.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    website={'hhtp://eatereezapp.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
                     position={{ lat: 21.300925, lng: -157.819104 }}/>
                 <Marker
                     name={'Govinda'}
                     onClick={this.onMarkerClick}
                     details={'Hours: May Vary'}
-                    website={'http://eatereez.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    website={'http://eatereezapp.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
                     position={{ lat: 21.298680, lng: -157.817510 }}/>
                 <Marker
                     name={'Jamba Juice'}
                     details={'Hours: Monday-Thursday:7:00am - 5:00pm Friday: 7:00am-4:00pm'}
                     onClick={this.onMarkerClick}
-                    website={''}
+                    website={'http://eatereezapp.meteorapp.com/#/details/om6cHoKou7fqFXewF'}
                     position={{ lat: 21.299083, lng: -157.819079 }}
                 />
                 <InfoWindow
