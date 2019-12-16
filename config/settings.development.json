@@ -49,8 +49,8 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/L&L-logo.jpg",
-      "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
       "website": "www.hawaiianbarbecue.com/",
+      "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -77,8 +77,10 @@
       "location": "Saunders Hall",
       "hours": "10:00 AM - 02:00 PM",
       "logo" : "images/Da-Spot-Logo.png",
-      "website": "daspot.net",
       "image" : "",
+      "menu" : "images/menus/da-spot-menu.png",
+      "diet": "vegetarian",
+      "website": "daspot.net",
       "owner": "john@foo.com"
     },
     {
@@ -91,9 +93,11 @@
       "location": "POST Parking Lot",
       "logo" : "images/kamitoku-ramen-logo.jpg",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
+      "menu" : "images/menus/kamitoku-ramen-menu.png",
       "image" : "",
       "owner": "john@foo.com"
-    },    {
+    },
+    {
       "name": "Lasoon",
       "description": "Lasoon offers something for everyone with their signature exotic South Indian and Malaysian cuisine.",
       "rating": "4",
@@ -102,8 +106,10 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/Lasoon-logo.png",
+      "image" : "",
+      "diet" : "vegetarian",
+      "menu" : "images/menus/lasoon-menu.png",
       "website": "http://www.lasoonhawaii.com/",
-      "images" : "",
       "owner": "john@foo.com"
     },
     {
@@ -132,6 +138,7 @@
       "website": "https://manoa.hawaii.edu/food/govindas.php",
       "menu" : "images/menus/govinda-menu.png",
       "image" : "",
+      "diet" : "vegan",
       "owner": "john@foo.com"
     },
     {
@@ -145,6 +152,7 @@
       "logo" : "images/ba-le-logo.jpg",
       "website": "http://www.ba-le.com/",
       "menu" : "images/menus/ba-le-menu.png",
+      "diet" : "vegetarian",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -159,6 +167,7 @@
       "logo" : "images/jamba-juice-logo.png",
       "website": "http://www.jambajuicehawaii.com/",
       "menu" : "images/menus/jamba-juice-menu.png",
+      "diet" : "vegetarian",
       "image" : "",
       "owner": "john@foo.com"
     },
@@ -173,6 +182,7 @@
       "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
       "menu" : "images/menus/dunkin-donuts-menu.png",
+      "diet" : "none",
       "website": "https://",
       "owner": "admin@foo.com"
     }
