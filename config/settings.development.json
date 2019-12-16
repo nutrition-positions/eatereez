@@ -7,7 +7,8 @@
     { "email": "jimbo@foo.com", "password": "changeme" },
     { "email": "jill@foo.com", "password": "changeme" },
     { "email": "joanna@foo.com", "password": "changeme" },
-    { "email": "josie@foo.com", "password": "changeme" }
+    { "email": "josie@foo.com", "password": "changeme" },
+    { "email": "jane@foo.com", "password": "changeme" }
   ],
 
   "defaultRestaurants": [
@@ -48,7 +49,6 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "image" : "",
       "logo" : "images/L&L-logo.jpg",
       "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
       "image" : "",
@@ -98,7 +98,6 @@
       "menu" : "images/menus/kamitoku-ramen-menu.png",
       "image" : "",
       "diet" : "none",
-      "website": "https://manoa.hawaii.edu/food/kamitoku.php",
       "owner": "john@foo.com"
     },
     {
@@ -188,7 +187,6 @@
       "image" : "",
       "diet" : "none",
       "menu" : "images/menus/dunkin-donuts-menu.png",
-      "diet" : "none",
       "website": "https://",
       "owner": "admin@foo.com"
     }
