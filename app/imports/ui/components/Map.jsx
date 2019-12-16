@@ -46,36 +46,34 @@ export class MapContainer extends React.Component {
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Kamitoku Ramen'}
-                    details={'Hours may vary'}
-                    website={'/#/details/GNDC8brjwEbpfJ29N'}
+                    website={'http://eatereez.meteorapp.com/#/details/GNDC8brjwEbpfJ29N'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'BA-LE'}
                     details={'Hours: 8:00am-4:30pm\n'}
-                    website={'/#/details/CGK5kJBeGzaBWSXAQ'}
+                    website={'http://eatereez.meteorapp.com/#/details/CGK5kJBeGzaBWSXAQ'}
                     position={{ lat: 21.299160, lng: -157.819573 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Paradise Palms'}
                     position={{ lat: 21.301150, lng: -157.815629 }}/>
                 <Marker
-                    name={'Doner Shack'}
-                    onClick={this.onMarkerClick}
-                    website={'/#/details/Wxa6ZR28un5NCxpQr'}
-                    position={{ lat: 21.298730, lng: -157.817520 }}/>
-                <Marker
                     name={'Da Spot'}
-                    details={'Hours: May vary'}
                     onClick={this.onMarkerClick}
-                    website={'/#/details/GNDC8brjwEbpfJ29N'}
-                    position={{ lat: 21.298232, lng: -157.820844 }}/>
+                    website={'hhtp://eatereez.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    position={{ lat: 21.300925, lng: -157.819104 }}/>
+                <Marker
+                    name={'Govinda'}
+                    onClick={this.onMarkerClick}
+                    details={'Hours: May Vary'}
+                    website={'http://eatereez.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    position={{ lat: 21.298680, lng: -157.817510 }}/>
                 <Marker
                     name={'Jamba Juice'}
-                    details={'Monday-Thursday: 7:00am-5:00pm \n' +
-                    'Friday: 7:00am-4:00pm'}
+                    details={'Hours: Monday-Thursday:7:00am - 5:00pm Friday: 7:00am-4:00pm'}
                     onClick={this.onMarkerClick}
-                    website={'/#/details/rNgatdfnZS4sBNkrd'}
+                    website={''}
                     position={{ lat: 21.299083, lng: -157.819079 }}
                 />
                 <InfoWindow
@@ -86,7 +84,7 @@ export class MapContainer extends React.Component {
                   <div>
                     <h4>{this.state.selectedPlace.name}</h4>
                     <p>{this.state.selectedPlace.details}</p>
-                    <a href={this.state.selectedPlace.website}>More Info</a>
+                    <a href={this.state.selectedPlace.website} target='_top'>More Info</a>
                   </div>
                 </InfoWindow>
               </Map>
