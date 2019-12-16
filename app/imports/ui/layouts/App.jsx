@@ -20,6 +20,7 @@ import Signout from '../pages/Signout';
 import Food from '../pages/ListRestaurant';
 import Report from '../pages/Report';
 import MapPage from '../pages/MapPage';
+import AdminAdd from '../pages/AdminAdd';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -42,6 +43,7 @@ class App extends React.Component {
               <ProtectedRoute path="/submit-review/:_id" component={SubmitReview}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={Admin}/>
+              <AdminProtectedRoute path="/adminadd" component={AdminAdd}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>

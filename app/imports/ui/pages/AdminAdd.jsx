@@ -9,45 +9,46 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
-import { Restaurants } from '../../api/restaurant/Restaurants';
 import SimpleSchema from 'simpl-schema';
+
+import { Restaurants } from '../../api/restaurant/Restaurants';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  submissionName: String,
-  address: String,
-  hours: String,
+  name: String,
+  description: String,
+  rating: String,
   location: String,
-
   phoneNumber: {
     type: String,
     required: false,
   },
+  address: String,
+  owner: String,
+  logo: String,
+  hours: String,
+  website: String,
   menu: {
     type: String,
     required: false,
   },
-  logo: String,
   image: {
     type: String,
     required: false,
   },
-  description: String,
-  website: String,
-  submittedAt: String,
+  diet: String,
 });
 
 /** Renders the Page for adding a document. */
-class SubmitRestaurant extends React.Component {
+class AdminAdd extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { submissionName, address, hours, menu, phoneNumber, location, image,
-            logo, website, description, submittedAt } = data;
-    const submittedBy = Meteor.user().username;
-    Submits.insert({
-          submissionName, address, hours, menu, phoneNumber, location, image,
-          logo, website, description, submittedAt, submittedBy },
+    const { name, description, rating, location, phoneNumber, address, logo, hours, website, menu, image, diet } = data;
+    const owner = Meteor.user().username;
+    Restaurants.insert({
+          name, address, hours, menu, phoneNumber, location, image,
+          logo, website, description, rating, owner, diet },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -66,18 +67,18 @@ class SubmitRestaurant extends React.Component {
           <Grid container centered>
             <Grid.Row>
               <Grid.Column>
-                <Header as="h2" textAlign="center">Submit a Restaurant</Header>
+                <Header as="h2" textAlign="center">Add a Restaurant</Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <Header as="h4" textAlign="center">Fill out this form, and
-                  we may add your favorite restaurant!</Header>
+                <Header as="h4" textAlign="center">This adds a new restaurant to the restaurants which can be seen
+                by the users.</Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={3}>
               <Grid.Column>
-                <TextField label='Restaurant Name:' name='submissionName'
+                <TextField label='Restaurant Name:' name='name'
                            placeholder='McRonalds'/>
               </Grid.Column>
               <Grid.Column>
@@ -132,4 +133,4 @@ class SubmitRestaurant extends React.Component {
   }
 }
 
-export default SubmitRestaurant;
+export default AdminAdd;
