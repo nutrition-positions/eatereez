@@ -23,7 +23,8 @@
       "logo" : "images/Panda-Express-Logo.png",
       "image" : "",
       "diet" : "vegetarian",
-      "website": "www.pandaexpress.com",
+      "menu" : "images/menus/pand-express-menu.png",
+      "website": "https://www.pandaexpress.com",
       "owner": "john@foo.com",
       "_id": "cd8Yp98TZpR4fnpqT"
     },
@@ -36,9 +37,10 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/le-crepe-cafe-logo.png",
+      "menu" : "images/menus/le-crepe-cafe-menu.png",
+      "diet" : "vegetarian",
       "image" : "",
-      "diet" : "vegan",
-      "website": "www.lecrepecafe.com",
+      "website": "https://www.lecrepecafe.com",
       "owner": "john@foo.com"
     },
     {
@@ -50,10 +52,10 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/L&L-logo.jpg",
+      "website": "www.hawaiianbarbecue.com/",
+      "diet" : "vegetarian",
       "menu" : "images/menus/l-l-hawaiian-barbecue-menu.png",
       "image" : "",
-      "diet" : "vegetarian",
-      "website": "www.hawaiianbarbecue.com/",
       "owner": "john@foo.com"
     },
     {
@@ -64,10 +66,11 @@
       "address": "2560 McCarthy Mall",
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
-      "image" : "",
       "logo" : "images/hono-foods-logo.gif",
+      "menu" : "images/menus/honolulu-gourm-foods-menu.png",
       "diet" : "vegetarian",
       "website": "http://www.honolulugourmetfoods.com/paradise-palms-cafe-university-hawaii-manoa",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
@@ -95,9 +98,9 @@
       "location": "POST Parking Lot",
       "logo" : "images/kamitoku-ramen-logo.jpg",
       "website": "https://manoa.hawaii.edu/food/kamitoku.php",
+      "diet" : "none",
       "menu" : "images/menus/kamitoku-ramen-menu.png",
       "image" : "",
-      "diet" : "none",
       "owner": "john@foo.com"
     },
     {
@@ -124,9 +127,10 @@
       "location": "Paradise Palms",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/holoholo-grill-logo.png",
-      "image" : "",
-      "diet" : "none",
       "website": "manoa.hawaii.edu/food/holoholo.php",
+      "diet" : "vegetarian",
+      "menu" : "images/menus/holoholo-grill-menu.png",
+      "image" : "",
       "owner": "john@foo.com"
     },
     {
@@ -153,11 +157,10 @@
       "location": "Hemenway Hall",
       "hours": "08:00 AM - 04:30 PM",
       "logo" : "images/ba-le-logo.jpg",
+      "website": "http://www.ba-le.com/",
       "menu" : "images/menus/ba-le-menu.png",
       "diet" : "vegetarian",
       "image" : "",
-      "diet" : "none",
-      "website": "http://www.ba-le.com/",
       "owner": "john@foo.com"
     },
     {
@@ -177,16 +180,16 @@
     },
     {
       "name": "Dunkin' Donuts",
-      "description": "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery god, sandwiches and more.",
+      "description": "Dunkin’ Donuts in Paradise Palms Cafe will keep Hawaii running with high-quality beverage offerings–including freshly-brewed Hot and Iced Coffees–paired perfectly with delicious donuts, bakery good, sandwiches and more.",
       "rating": "3.5",
       "phoneNumber": "(808) 956-6728",
       "address": "Paradise Palms Café",
-      "location": "Paradise Palms",
+      "location": "Paradise Palms Café",
       "hours": "Monday - Friday\n8:00 am - 5:00 pm",
       "logo" : "images/dunkin-donuts-logo.jpg",
       "image" : "",
-      "diet" : "none",
       "menu" : "images/menus/dunkin-donuts-menu.png",
+      "diet" : "none",
       "website": "https://",
       "owner": "admin@foo.com"
     }
@@ -216,7 +219,7 @@
     },
     {
       "title": "RIP Six Pack",
-      "description": "Ugh! Me and my demanding belly! No wonder my six pack its taking longer to come out even that i work out pretty much every day!\nAnyways, today was a sin day with sweets (well, trully every day is a sin day for my belly)",
+      "description": "Ugh! Me and my demanding belly! No wonder my six pack its taking longer to come out even that i work out pretty much every day! Anyways, today was a sin day with sweets (well, trully every day is a sin day for my belly)",
       "stars": "5",
       "restaurantId": "Le Crepe Cafe",
       "owner": "joanna@foo.com",
