@@ -4,6 +4,7 @@ import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import RestaurantAdmin from '/imports/ui/components/RestaurantAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ReviewAdmin from '../components/ReviewAdmin';
 import { Submits } from '../../api/submit/Submits';
 import { Reports } from '../../api/report/Report';
@@ -27,6 +28,7 @@ class Admin extends React.Component {
                 key={index}
                 submit={submit}/>)}
           </Card.Group>
+          <Header as='h3' textAlign="center"><Link to={'/adminadd'}>Add a restaurant</Link></Header>
           <Header as="h2" textAlign="center">Reported Reviews</Header>
           <Card.Group>
             {this.props.reports.map((report, index) => <ReviewAdmin
