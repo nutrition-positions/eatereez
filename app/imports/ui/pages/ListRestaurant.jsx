@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Grid, Header, Loader, Divider, Input, Dropdown } from 'semantic-ui-react';
+import { Container, Grid, Header, Loader, Divider, Input, Dropdown, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Restaurant from '../components/Restaurant';
@@ -14,14 +14,18 @@ class ListRestaurant extends React.Component {
     this.state = {
       searchName: '',
       filterPref: '',
-      filterDiet: 'Standard',
+      filterDiet: 'none',
+      filterLoc: 'none',
+      page: '1',
     };
   }
 
   componentDidMount() {
-    if (this.props.location.state !== undefined) {
+    if (this.props.location !== undefined &&
+        this.props.location.state !== undefined &&
+        this.props.location.filterDiet !== undefined) {
       this.setState({ searchName: this.props.location.state });
-      console.log(this.props.location.state);
+      this.setState({ filterDiet: this.props.location.filterDiet });
     }
   }
 
@@ -43,14 +47,23 @@ class ListRestaurant extends React.Component {
   }
 
   /**
+   * Catches event for dropdown menu preference
+   * @param event
+   * @param data
+   */
+  updateLocationPref(event, data) {
+    this.setState({ filterLoc: data.value });
+  }
+
+  /**
    * Currently hardcoded set list of preferences. Needs to be updated such that this list resides elsewhere!
    * @returns {[]}
    */
   getPreferenceList() {
     return ([{
-          key: 'no pref',
-          text: 'None',
-          value: '',
+          key: 'none',
+          text: 'No Preference',
+          value: 'none',
         }, {
           key: 'chinese',
           text: 'Chinese',
@@ -72,6 +85,42 @@ class ListRestaurant extends React.Component {
     );
   }
 
+  getDietList() {
+    return ([{
+          key: 'none',
+          text: 'No Restriction',
+          value: 'none',
+        }, {
+          key: 'vegetarian',
+          text: 'Vegetarian',
+          value: 'vegetarian',
+        }, {
+          key: 'vegan',
+          text: 'Vegan',
+          value: 'vegan',
+        },
+        ]
+    );
+  }
+
+  getLocationList() {
+    const list = [];
+    let tempList = [];
+    this.props.restaurants.forEach((item) => tempList.push(item.location));
+    tempList = [...new Set(tempList)];
+    list.push({
+      key: 'none',
+      text: 'Any Location',
+      value: 'none',
+    });
+    tempList.forEach((location) => list.push({
+      key: location,
+      text: location,
+      value: location,
+    }));
+    return list;
+  }
+
   /**
    * Catches event for dropdown menu diet
    * @param event
@@ -87,15 +136,42 @@ class ListRestaurant extends React.Component {
    */
   getRestaurantList() {
     let list = [];
+    // filters name.
     list = this.props.restaurants.filter(
         (items) => items.name.toLowerCase().indexOf(this.state.searchName.toLowerCase()) !== -1,
     );
 
-    list = list.filter(
-        (items) => items.description.indexOf(this.state.filterPref) !== -1,
-    );
+    // filters preference.=
+    if (this.state.filterPref !== 'none') {
+      list = list.filter(
+          (items) => items.description.indexOf(this.state.filterPref) !== -1,
+      );
+    }
+
+    // filters diet. Vegans are vegetarians but vegetarians are not vegan.
+    if (this.state.filterDiet === 'vegan') {
+      list = list.filter(
+          (items) => items.diet.indexOf(this.state.filterDiet) !== -1,
+      );
+    } else if (this.state.filterDiet === 'vegetarian') {
+      list = list.filter(
+          (items) => items.diet.indexOf('none') === -1,
+      );
+    }
+    //
+    // // filters preference.
+    if (this.state.filterLoc !== 'none') {
+      list = list.filter(
+          (items) => items.location.indexOf(this.state.filterLoc) !== -1,
+      );
+    }
+
     return list;
   }
+
+  setPageNum = (event, { activePage }) => {
+    this.setState({ page: activePage });
+  };
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -105,10 +181,17 @@ class ListRestaurant extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const firstDivSpacer = { paddingTop: '14px' };
-    const handleOnChange = (event, data) => {
-      this.updateFilterPref(event, data);
-    };
-    const restaurantList = this.getRestaurantList();
+    let restaurantList = this.getRestaurantList();
+    const sizer = { height: 'auto', width: '100%' };
+
+    const listingsPerPage = 4;
+    const totalPages = restaurantList.length / listingsPerPage;
+    const page = this.state.page;
+    restaurantList = restaurantList.slice(
+        (page - 1) * listingsPerPage,
+        (page - 1) * listingsPerPage + listingsPerPage,
+    );
+
     return (
         <div>
           <Container className='List-spacing'>
@@ -117,42 +200,51 @@ class ListRestaurant extends React.Component {
               <Grid.Row columns={4}>
                 <Grid.Column>
                   <Header as='h3' textAlign='left'>Search by name:</Header>
-                  <div className='ui input bordered'>
+                  <Container>
+                  <div className='ui fluid icon input'>
                     <Input
                         type='text'
-                        size='big'
                         icon='search'
-                        transparent placeholder='Search...'
+                        placeholder='Search...'
                         onChange={this.updateSearchName.bind(this)}
                         value={this.state.searchName}
                     />
                   </div>
+                  </Container>
                 </Grid.Column>
-                <React.Fragment>
                   <Grid.Column>
                     <Header as='h3' textAlign='left'>Types of food:</Header>
                     <Dropdown
                         search
                         selection
                         options={this.getPreferenceList()}
-                        onChange={handleOnChange}
+                        onChange={this.updateFilterPref.bind(this)}
                         placeholder='Select preference'
                     />
                   </Grid.Column>
-                </React.Fragment>
                 <Grid.Column>
                   <Header as='h3' textAlign='left'>Dietary Preference:</Header>
                   <div className='ui dropdown'>
                     <Dropdown
-                        text='Standard'
-                        size='big'
+                        style={sizer}
+                        size='large'
+                        value={this.state.filterDiet}
+                        options={this.getDietList()}
                         onChange={this.updateFilterDiet.bind(this)}
-                        value={this.state.filterDiet}>
-                      <Dropdown.Menu>
-                        <Dropdown.Item text='Standard' />
-                        <Dropdown.Item text='Vegetarian' />
-                        <Dropdown.Item text='Vegan' />
-                      </Dropdown.Menu>
+                    >
+                    </Dropdown>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <Header as='h3' textAlign='left'>Location:</Header>
+                  <div className='ui dropdown'>
+                    <Dropdown
+                        style={sizer}
+                        size='large'
+                        value={this.state.filterLoc}
+                        options={this.getLocationList()}
+                        onChange={this.updateLocationPref.bind(this)}
+                    >
                     </Dropdown>
                   </div>
                 </Grid.Column>
@@ -165,6 +257,15 @@ class ListRestaurant extends React.Component {
                   (restaurantList.map((restaurant, index) => <Restaurant key={index} restaurant={restaurant}/>))
               }
             </Grid>
+            <ul className="pagination justify-content-center">
+              <Pagination
+                  totalPages={totalPages}
+                  activePage={page}
+                  onPageChange={this.setPageNum}
+                  pointing
+                  secondary
+              />
+            </ul>
           </Container>
         </div>
     );
