@@ -59,6 +59,10 @@ class RestaurantDetails extends React.Component {
           <Grid.Row >
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.logo} />
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Header textAlign='center' as='h2'> <Link to={`/edit/${this.props.doc._id}`}>
+                    Edit {this.props.doc.name}</Link></Header>
+              ) : ''}
               <CommentGroup>
                 {filtered.map((review, index) => <Review
                     key={index} review={filtered[index]} currentUser={this.props.currentUser}/>)}
@@ -94,10 +98,6 @@ class RestaurantDetails extends React.Component {
               <Image size='large' src={this.props.doc.menu}/>
               <Header as='h3'> <a href={this.props.doc.website}>
                 {this.props.doc.name} Website</a></Header>
-              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                  <Header as='h3'> <Link to={`/edit/${this.props.doc._id}`}>
-                    Edit {this.props.doc.name}</Link></Header>
-                  ) : ''}
                 </Grid.Column>
             </Grid.Row>
         </Grid>
