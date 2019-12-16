@@ -1,9 +1,10 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import NumField from 'uniforms-semantic//NumField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
@@ -118,13 +119,23 @@ class AdminAdd extends React.Component {
                            placeholder='www.McRonalds.com/menu'/>
               </Grid.Column>
               </Grid.Row>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <NumField label='Rating' name='rating'
+                           placeholder='A # 0 to 5'/>
+              </Grid.Column>
+              <Grid.Column>
+                <TextField label='Dietary options' name='diet' required={false}
+                           placeholder='vegan or vegetarian'/>
+              </Grid.Column>
+            </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <LongTextField label='Restaurant Description:' name='description'
                                placeholder='Please enter professional and accurate description of this restaurant...'/>
               </Grid.Column>
             </Grid.Row>
-            <HiddenField name='submittedAt' value={new Date()}/>
+            <HiddenField name='owner' value={Meteor.user().username}/>
             <SubmitField value='Submit'/>
             <ErrorsField/>
           </Grid>
