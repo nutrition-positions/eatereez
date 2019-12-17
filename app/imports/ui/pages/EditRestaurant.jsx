@@ -35,10 +35,13 @@ class EditRestaurant extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
+        <AutoForm schema={RestaurantsSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
         <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Edit {this.props.doc.name}</Header>
-            <AutoForm schema={RestaurantsSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
+              <Grid.Row>
+                <Grid.Column>
+                  <Header as="h1" textAlign="center">Edit {this.props.doc.name}</Header>
+                </Grid.Column>
+              </Grid.Row>
               <Grid.Row columns={3}>
                 <Grid.Column>
                   <TextField label='Restaurant Name:' name='name'
@@ -101,9 +104,8 @@ class EditRestaurant extends React.Component {
               <HiddenField name='owner'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
-            </AutoForm>
-          </Grid.Column>
         </Grid>
+        </AutoForm>
     );
   }
 }
