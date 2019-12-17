@@ -27,7 +27,7 @@ class Restaurant extends React.Component {
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
-              <Header as='h4' textAlign='left'>{this.props.restaurant.description}</Header>
+              <Header as='h4' textAlign='left'>{this.props.restaurant.description.substring(0, 80)}...</Header>
               </Grid.Row>
             </Grid.Column>
               <Grid.Column width={3} >
@@ -36,14 +36,14 @@ class Restaurant extends React.Component {
                   <Header as='h4' textAlign='left'>Hours: </Header>
                 </Grid.Row>
                 <Grid.Row>
-                  <Header as='h4' textAlign='left'>{this.props.restaurant.hours}</Header>
+                  <Header disabled as='h4' textAlign='left'>{this.props.restaurant.hours}</Header>
                 </Grid.Row>
                 <Divider hidden />
                 <Grid.Row>
                   <Header as='h4' textAlign='left'>Phone number: </Header>
                 </Grid.Row>
                 <Grid.Row>
-                  <Header as='h4' textAlign='left'>{this.props.restaurant.phoneNumber}</Header>
+                  <Header disabled as='h4' textAlign='left'>{this.props.restaurant.phoneNumber}</Header>
                 </Grid.Row>
               </Grid.Column>
             <Grid.Column width={4}>
@@ -52,7 +52,7 @@ class Restaurant extends React.Component {
                 <Header as='h4' textAlign='left'>Location: </Header>
               </Grid.Row>
               <Grid.Row>
-                <Header as='h4' textAlign='left'>{this.props.restaurant.location}</Header>
+                <Header disabled as='h4' textAlign='left'>{this.props.restaurant.location}</Header>
               </Grid.Row>
               <Divider hidden />
               <Grid.Row>
