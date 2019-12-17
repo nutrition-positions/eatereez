@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup, Button, Icon, Modal } from 'semantic-ui-react';
+import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup, Button, Icon,
+  Modal } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -78,15 +79,10 @@ class RestaurantDetails extends React.Component {
                       <Modal.Content>
                         <Modal.Description>
                           <Header as='h2'>
-                           If you are sure, click below:
+                          <Link to={'/food'} onClick={this.removeRestaurant}>Yes, delete this restaurant</Link>
                           </Header>
-                          <Button animated color='red' floated='right'>
-                            <Button.Content visible>
-                              <Icon name='trash alternate' />
-                            </Button.Content>
-                            <Button.Content hidden onClick={this.removeRestaurant}>Delete</Button.Content>
-                          </Button>
-                          <br />
+                          <Header as='h2'> If not, click outside of this pop-up.
+                          </Header>
                         </Modal.Description>
                       </Modal.Content>
                     </Modal>
