@@ -45,7 +45,9 @@ class RestaurantDetails extends React.Component {
         });
   }
 
-  removeRestaurant = () => Restaurants.remove(this.props.doc._id);
+  removeRestaurant = () => {
+    Restaurants.remove(this.props.doc._id);
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
