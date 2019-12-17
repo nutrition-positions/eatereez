@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup } from 'semantic-ui-react';
+import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup, Button, Icon,
+  Modal } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -14,6 +15,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
 import { Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { Restaurants } from '../../api/restaurant/Restaurants';
 import { Reviews } from '../../api/review/Reviews';
 import Review from '../components/Review';
@@ -44,6 +46,10 @@ class RestaurantDetails extends React.Component {
         });
   }
 
+  removeRestaurant = () => {
+    Restaurants.remove(this.props.doc._id);
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -58,6 +64,30 @@ class RestaurantDetails extends React.Component {
           <Grid.Row >
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.logo} />
+              {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Segment>
+                    <Header textAlign='center' as='h2'>Admin Options</Header>
+                  <Header textAlign='center' as='h2'> <Link to={`/edit/${this.props.doc._id}`}>
+                    Edit {this.props.doc.name}</Link></Header>
+                    <Modal trigger={<Button animated color='red'>
+                      <Button.Content visible>
+                        <Icon name='trash alternate' />
+                      </Button.Content>
+                      <Button.Content hidden>Delete</Button.Content>
+                    </Button>}>
+                      <Modal.Header>Are you sure you wish to delete {this.props.doc.name}?</Modal.Header>
+                      <Modal.Content>
+                        <Modal.Description>
+                          <Header as='h2'>
+                          <Link to={'/food'} onClick={this.removeRestaurant}>Yes, delete this restaurant</Link>
+                          </Header>
+                          <Header as='h2'> If not, click outside of this pop-up.
+                          </Header>
+                        </Modal.Description>
+                      </Modal.Content>
+                    </Modal>
+                  </Segment>
+              ) : ''}
               <CommentGroup>
                 {filtered.map((review, index) => <Review
                     key={index} review={filtered[index]} currentUser={this.props.currentUser}/>)}
@@ -93,7 +123,7 @@ class RestaurantDetails extends React.Component {
               <Image size='large' src={this.props.doc.menu}/>
               <Header as='h3'> <a href={this.props.doc.website}>
                 {this.props.doc.name} Website</a></Header>
-            </Grid.Column>
+                </Grid.Column>
             </Grid.Row>
         </Grid>
     );
