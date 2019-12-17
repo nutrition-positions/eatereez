@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup } from 'semantic-ui-react';
+import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup, Button, Icon, Modal } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -45,6 +45,8 @@ class RestaurantDetails extends React.Component {
         });
   }
 
+  removeRestaurant = () => Restaurants.remove(this.props.doc._id);
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -60,8 +62,33 @@ class RestaurantDetails extends React.Component {
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.logo} />
               {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                  <Segment>
+                    <Header textAlign='center' as='h2'>Admin Options</Header>
                   <Header textAlign='center' as='h2'> <Link to={`/edit/${this.props.doc._id}`}>
                     Edit {this.props.doc.name}</Link></Header>
+                    <Modal trigger={<Button animated color='red'>
+                      <Button.Content visible>
+                        <Icon name='trash alternate' />
+                      </Button.Content>
+                      <Button.Content hidden>Delete</Button.Content>
+                    </Button>}>
+                      <Modal.Header>Are you sure you wish to delete {this.props.doc.name}?</Modal.Header>
+                      <Modal.Content>
+                        <Modal.Description>
+                          <Header as='h2'>
+                           If you are sure, click below:
+                          </Header>
+                          <Button animated color='red' floated='right'>
+                            <Button.Content visible>
+                              <Icon name='trash alternate' />
+                            </Button.Content>
+                            <Button.Content hidden onClick={this.removeRestaurant}>Delete</Button.Content>
+                          </Button>
+                          <br />
+                        </Modal.Description>
+                      </Modal.Content>
+                    </Modal>
+                  </Segment>
               ) : ''}
               <CommentGroup>
                 {filtered.map((review, index) => <Review

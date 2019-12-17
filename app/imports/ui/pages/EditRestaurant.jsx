@@ -24,7 +24,7 @@ class EditRestaurant extends React.Component {
     Restaurants.update(_id, { $set: { name, description, rating, location, phoneNumber, address, logo, hours, website,
         menu, image, diet } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Restaurant updated successfully', 'success')));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -98,10 +98,9 @@ class EditRestaurant extends React.Component {
                                  placeholder='Please enter professional and accurate description of this restaurant..'/>
                 </Grid.Column>
               </Grid.Row>
-              <HiddenField name='owner' value={Meteor.user().username}/>
+              <HiddenField name='owner'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
-                <HiddenField name='owner' />
             </AutoForm>
           </Grid.Column>
         </Grid>
@@ -121,7 +120,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Restaurants');
+  const subscription = Meteor.subscribe('Restaurant');
   return {
     doc: Restaurants.findOne(documentId),
     ready: subscription.ready(),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Segment } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
