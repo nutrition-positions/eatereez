@@ -7,12 +7,10 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
 import SubmitRestaurant from '../pages/SubmitRestaurant';
 import Admin from '../pages/Admin';
 import RestaurantDetails from '../pages/RestaurantDetails';
 import SubmitReview from '../pages/SubmitReview';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -40,7 +38,6 @@ class App extends React.Component {
               <Route path="/foodmap" component={FoodMap}/>
               <Route path="/map" component={MapPage}/>
               <Route path="/details/:_id" component={RestaurantDetails}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/report/:_id" component={Report}/>
               <ProtectedRoute path="/submit-restaurant" component={SubmitRestaurant}/>
               <ProtectedRoute path="/submit-review/:_id" component={SubmitReview}/>
