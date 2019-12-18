@@ -16,7 +16,6 @@ export default class MapPage extends React.Component {
                 <li>Red markers: indicate the location of restaurants. Clicking on the marker will display information
                   on the Restaurant. You can click on the name of a restaurant and be taken to the restaurants page
                   for more information.</li>
-                <li>Green marker: indicates your current location.</li>
               </ul>
             </Container>
           </Grid.Row>
