@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup } from 'semantic-ui-react';
+import { Grid, Header, Image, Loader, Rating, Segment, CommentGroup, Message, Container } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import 'uniforms-bridge-simple-schema-2';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
-import NumField from 'uniforms-semantic/NumField';
+import SelectField from 'uniforms-semantic/SelectField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -21,7 +21,12 @@ import Review from '../components/Review';
 const formSchema = new SimpleSchema({
   title: String,
   description: String,
-  stars: String,
+  stars: {
+    label: 'Rating',
+    type: Number,
+    allowedValues: [1, 2, 3, 4, 5],
+    defaultValue: 1,
+  },
   restaurantId: String,
   createdAt: Date,
   owner: String,
@@ -55,7 +60,6 @@ class RestaurantDetails extends React.Component {
     const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc.name));
     return (
         <Grid container centered>
-          <Grid.Row >
             <Grid.Column width={5}>
               <Image size='huge' src={this.props.doc.logo} />
               <CommentGroup>
@@ -70,7 +74,7 @@ class RestaurantDetails extends React.Component {
                              onSubmit={data => this.submit(data, fRef)} >
                 <Segment>
                   <TextField name='title'/>
-                  <NumField name='stars' range={5}/>
+                  <SelectField name='stars'/>
                   <LongTextField name='description'/>
                   <HiddenField name='owner' value={this.props.doc.owner}/>
                   <HiddenField name='restaurantId' value={this.props.doc.name}/>
@@ -86,15 +90,50 @@ class RestaurantDetails extends React.Component {
               <Header as='h1'>{this.props.doc.name}</Header>
               <p>{this.props.doc.description}</p>
               <Rating icon='star' defaultRating={this.props.doc.rating} maxRating={5} disabled />
-              <Header as='h3'>Hours: </Header><p>{this.props.doc.hours}</p>
-              <Header as='h3'>Phone number: </Header><p>{this.props.doc.phoneNumber}</p>
-              <Header as='h3'>Location: </Header><p>{this.props.doc.location}</p>
-              <Header as='h3'>Address: </Header><p>{this.props.doc.address}</p>
+              <Grid.Row>
+                <Message
+                    compact
+                    header='Hours of Operation:'
+                    content={this.props.doc.hours}
+                />
+                &nbsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                <Message
+                    compact
+                    float='right'
+                    header='Location:'
+                    content={this.props.doc.location}
+                />
+              </Grid.Row>
+              <Grid.Row>
+              <Message
+                  compact
+                  header='Phone Number:'
+                  content={this.props.doc.phoneNumber}
+              />
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                <Message
+                  compact
+                  header='Address:'
+                  content={this.props.doc.address}
+              />
+            </Grid.Row>
               <Image size='large' src={this.props.doc.menu}/>
               <Header as='h3'> <a href={this.props.doc.website}>
                 {this.props.doc.name} Website</a></Header>
             </Grid.Column>
-            </Grid.Row>
         </Grid>
     );
   }

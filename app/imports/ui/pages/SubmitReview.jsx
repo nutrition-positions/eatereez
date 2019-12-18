@@ -4,6 +4,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
+import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -16,7 +17,12 @@ import SimpleSchema from 'simpl-schema';
 const formSchema = new SimpleSchema({
   title: String,
   description: String,
-  stars: String,
+  stars: {
+      label: 'Rating',
+      type: Number,
+      allowedValues: [1, 2, 3, 4, 5],
+      defaultValue: 1,
+},
   restaurantId: String,
   createdAt: Date,
   owner: String,
@@ -50,7 +56,7 @@ class SubmitReview extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='title'/>
-                <TextField name='stars'/>
+                <SelectField name='stars'/>
                 <LongTextField name='description'/>
                 <HiddenField name='owner' value={this.props.owner}/>
                 <HiddenField name='restaurantId' value={this.props.restaurantId}/>
