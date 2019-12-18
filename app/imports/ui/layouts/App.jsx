@@ -12,7 +12,6 @@ import SubmitRestaurant from '../pages/SubmitRestaurant';
 import Admin from '../pages/Admin';
 import RestaurantDetails from '../pages/RestaurantDetails';
 import SubmitReview from '../pages/SubmitReview';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -23,6 +22,7 @@ import Report from '../pages/Report';
 import MapPage from '../pages/MapPage';
 import AdminAdd from '../pages/AdminAdd';
 import EditRestaurant from '../pages/EditRestaurant';
+import AdminAddSubmit from '../pages/AdminAddSubmit';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -47,6 +47,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={Admin}/>
               <AdminProtectedRoute path="/edit/:_id" component={EditRestaurant}/>
               <AdminProtectedRoute path="/adminadd" component={AdminAdd}/>
+              <AdminProtectedRoute path="/addsubmit/:_id" component={AdminAddSubmit}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
