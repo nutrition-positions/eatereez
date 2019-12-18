@@ -130,8 +130,8 @@ class RestaurantDetails extends React.Component {
             </Grid.Column>
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
-              <p>{this.props.doc.description}</p>
               <Rating icon='star' defaultRating={this.average()} maxRating={5} disabled />
+              <p>{this.props.doc.description}</p>
               <Grid.Row>
                 <Message
                     compact
