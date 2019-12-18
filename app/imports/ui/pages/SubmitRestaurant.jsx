@@ -127,6 +127,7 @@ class SubmitRestaurant extends React.Component {
             <SubmitField value='Submit'/>
             <ErrorsField/>
           </Grid>
+          <br />
         </AutoForm>
     );
   }
