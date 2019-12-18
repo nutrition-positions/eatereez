@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Card, Comment } from 'semantic-ui-react';
+import { Button, Card, Comment, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Reviews } from '../../api/review/Reviews';
 import { Reports } from '../../api/report/Report';
 
@@ -20,9 +20,9 @@ class ReviewAdmin extends React.Component {
         <Card centered>
           <Card.Content>
             <Card.Header>
-              <Link color='black' to={`/details/${this.props.review[0].restaurantId}`}>
+              <Header as='h3'>
                 {this.props.review[0].title}
-              </Link>
+              </Header>
             </Card.Header>
             <Card.Meta><Comment.Avatar src='/images/default-user.png'/>{this.props.review[0].owner}</Card.Meta>
             <Card.Description>
