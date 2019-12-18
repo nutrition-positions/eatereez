@@ -71,7 +71,7 @@ export class MapContainer extends React.Component {
                     name={'Govinda'}
                     onClick={this.onMarkerClick}
                     details={'Hours: Monday-Friday: 10:00am - 2:00pm'}
-                    website={'http://eatereez.meteorapp.com/#/details/GPiXZX9FayNHprECt'}
+                    website={'https://www.facebook.com/pages/Govindas/149731735076510'}
                     position={{ lat: 21.298680, lng: -157.817510 }}/>
                 <Marker
                     name={'Jamba Juice'}
