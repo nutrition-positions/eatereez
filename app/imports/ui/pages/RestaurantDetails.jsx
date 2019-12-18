@@ -154,6 +154,10 @@ class RestaurantDetails extends React.Component {
                 &emsp;
                 &emsp;
                 &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
+                &emsp;
                 <Message
                   compact
                   header='Address:'
