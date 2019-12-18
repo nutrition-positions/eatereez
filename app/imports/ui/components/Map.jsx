@@ -46,35 +46,38 @@ export class MapContainer extends React.Component {
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Kamitoku Ramen'}
-                    website={'http://eatereezapp.meteorapp.com/#/details/GNDC8brjwEbpfJ29N'}
+                    detials={'Monday-Friday: 10:00am-2:00pm'}
+                    website={'http://eatereez.meteorapp.com/#/details/uGcsAShBQQ8DzeBa9'}
                     position={{ lat: 21.2969, lng: -157.8171 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'BA-LE'}
                     details={'Hours: 8:00am-4:30pm\n'}
-                    website={'http://eatereezapp.meteorapp.com/#/details/CGK5kJBeGzaBWSXAQ'}
+                    website={'http://eatereez.meteorapp.com/#/details/rvSiJFYhpPtLGRkCq'}
                     position={{ lat: 21.299160, lng: -157.819573 }}/>
                 <Marker
                     onClick={this.onMarkerClick}
                     name={'Paradise Palms'}
+                    details={'Hours: Monday-Friday: 8:00am-4:30pm'}
                     website={'http://eatereezapp.meteorapp.com/#/foodmap/'}
                     position={{ lat: 21.301150, lng: -157.815629 }}/>
                 <Marker
                     name={'Da Spot'}
+                    details={'Hours: Monday-Friday: 10:00am-2:00pm'}
                     onClick={this.onMarkerClick}
-                    website={'hhtp://eatereezapp.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    website={'http://eatereez.meteorapp.com/#/details/KxGm7xae7p8cFBNcZ'}
                     position={{ lat: 21.300925, lng: -157.819104 }}/>
                 <Marker
                     name={'Govinda'}
                     onClick={this.onMarkerClick}
-                    details={'Hours: May Vary'}
-                    website={'http://eatereezapp.meteorapp.com/#/details/A5t7NSfCtgJQgeFRC'}
+                    details={'Hours: Monday-Friday: 10:00am - 2:00pm'}
+                    website={'http://eatereez.meteorapp.com/#/details/5pKN2N7dzQe7c9vHR'}
                     position={{ lat: 21.298680, lng: -157.817510 }}/>
                 <Marker
                     name={'Jamba Juice'}
                     details={'Hours: Monday-Thursday:7:00am - 5:00pm Friday: 7:00am-4:00pm'}
                     onClick={this.onMarkerClick}
-                    website={'http://eatereezapp.meteorapp.com/#/details/om6cHoKou7fqFXewF'}
+                    website={'http://eatereez.meteorapp.com/#/details/x5kmbimL74hQXpsjm'}
                     position={{ lat: 21.299083, lng: -157.819079 }}
                 />
                 <InfoWindow
