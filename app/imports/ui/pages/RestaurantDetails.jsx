@@ -51,6 +51,14 @@ class RestaurantDetails extends React.Component {
         });
   }
 
+  average() {
+    const restaurantId = this.props.reviews.restaurantId;
+    const total = Reviews.find({ restaurantId: this.props.reviews.restaurantId }).fetch();
+    const sum = Object.values(total).reduce((x, { stars }) => x + stars, 0);
+    const amount = Reviews.find({ reviewId: this.props.reviews.restaurantId }).fetch().length;
+    return sum / amount;
+  }
+
   removeRestaurant = () => {
     Restaurants.remove(this.props.doc._id);
   };
@@ -119,7 +127,7 @@ class RestaurantDetails extends React.Component {
             <Grid.Column width={10}>
               <Header as='h1'>{this.props.doc.name}</Header>
               <p>{this.props.doc.description}</p>
-              <Rating icon='star' defaultRating={this.props.doc.rating} maxRating={5} disabled />
+              <Rating icon='star' defaultRating={this.average()} maxRating={5} disabled />
               <Grid.Row>
                 <Message
                     compact
