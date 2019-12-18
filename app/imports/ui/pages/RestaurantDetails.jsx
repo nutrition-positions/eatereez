@@ -54,7 +54,12 @@ class RestaurantDetails extends React.Component {
   average() {
     const filtered = this.props.reviews.filter((review) => (review.restaurantId === this.props.doc.name));
     const amount = filtered.length;
-    const sum = Object.values(filtered).reduce((x, { stars }) => x + stars, 0);
+    console.log(amount);
+    const starList = filtered.map(o => o.stars);
+    console.log(starList);
+    const numList = starList.map(Number);
+    const sum = numList.reduce((acc, val) => acc + val, 0);
+    console.log(sum);
     return sum / amount;
   }
 
