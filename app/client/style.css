@@ -34,8 +34,7 @@
 }
 
 .landing-info2{
-  background-color: gray;
-  height: 200px;
+  height: 375px;
   padding: 50px;
 }
 
@@ -115,7 +114,3 @@
 #map-spacing {
   height: 500px;
 }
-
-/*#pagination-center {*/
-/*  margin-left: 36.5%;*/
-/*}*/

@@ -17,6 +17,7 @@ class ListRestaurant extends React.Component {
       filterDiet: 'none',
       filterLoc: 'none',
       page: '1',
+      intervalId: 0,
     };
   }
 
@@ -35,6 +36,7 @@ class ListRestaurant extends React.Component {
    */
   updateSearchName(event) {
     this.setState({ searchName: event.target.value });
+    this.setState({ page: 1 });
   }
 
   /**
@@ -44,6 +46,7 @@ class ListRestaurant extends React.Component {
    */
   updateFilterPref(event, data) {
     this.setState({ filterPref: data.value });
+    this.setState({ page: 1 });
   }
 
   /**
@@ -53,6 +56,7 @@ class ListRestaurant extends React.Component {
    */
   updateLocationPref(event, data) {
     this.setState({ filterLoc: data.value });
+    this.setState({ page: 1 });
   }
 
   /**
@@ -183,7 +187,6 @@ class ListRestaurant extends React.Component {
     const firstDivSpacer = { paddingTop: '14px' };
     let restaurantList = this.getRestaurantList();
     const sizer = { height: 'auto', width: '100%' };
-
     const listingsPerPage = 4;
     const totalPages = restaurantList.length / listingsPerPage;
     const page = this.state.page;
